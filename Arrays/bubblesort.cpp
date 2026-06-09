@@ -50,7 +50,7 @@ void PrintArr(int arr[],int n){
 //             swap(arr[prev],arr[prev+1]);
 //             prev --;
 //         }
-//         arr[prev+1] = curr; 
+//         // arr[prev+1] = curr; 
 //     }
 //     PrintArr(arr,n);
 // }

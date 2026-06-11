@@ -141,20 +141,64 @@ void PrintArr(int arr[],int n){
 //     PrintArr(arr,n);
 // }
 
-void SelectionSort(int arr[],int n){
-    int minValue = INT_MAX;
-    for(int i = 0; i<n;i++){
-        minValue = min(arr[i],minValue);
-        int idx = i;
+// void SelectionSort(int arr[],int n ){
+// for(int i = 0;i<n-1;i++){
+//     int idx = i;
+//     for(int j = i+1 ; j<n;j++){
+//         if(arr[j]> arr[idx]){
+//             idx = j;
+//         }
+//     }
+//     swap(arr[i],arr[idx]);
+// }
+// PrintArr(arr,n);
+// }
+
+// void InsertionSort(int arr[],int n){
+//     for(int i = 1 ; i <n;i++){
+//         int curr = arr[i];
+//         int prev = i-1;
+//         while(prev>=0 && curr>arr[prev]){
+//             swap(arr[prev],arr[prev+1]);
+            
+            
+//             prev--;
+//         }
+
+//     }
+//     PrintArr(arr,n);
+// }
+
+void CountingSort(int arr[],int n){
+    int freq[10000] = {0};
+    int maxVal = INT_MIN;
+    int minVal = INT_MAX;
+    for(int i = 0;i<n;i++){
+        freq[arr[i]]++;
+        minVal = min(minVal,arr[i]);
+        maxVal = max(maxVal,arr[i]);
+    }
+
+    for(int i= minVal,j=0;i<=maxVal;i++){
+        while(freq[i]>0){
+            arr[j++] = i;
+            freq[i]--;
+        }
     }
     PrintArr(arr,n);
-}
+}    
+
+
 
 int main(){
+    // int arr[] = {3,1,5,2};
     int arr[] = {3,6,2,1,8,7,4,5,3,1};
     int n = sizeof(arr) / sizeof(int) ;
     // BubbleSort(arr,n);
-    SelectionSort(arr,n);
+    // SelectionSort(arr,n);
+    // InsertionSort(arr,n);
+    CountingSort(arr,n);
     return 0;
 }
+
 

@@ -90,30 +90,71 @@ using namespace std;
 
 // Practice Questions
 
-void sort(char arr[],int n){
-    for(int i = 1; i<n ; i++){
-        int curr = arr[i];
-        int prev = i-1;
-        while(prev >= 0 && arr[prev] > curr ){
-            swap(arr[prev],arr[prev+1]);
-            prev --;
-        }
-        // arr[prev+1] = curr; 
+// void PrintArr(char arr[],int n){
+//     for(int i = 0; i<n;i++){
+//         cout<<arr[i]<<" , ";
+//     }
+// }
+
+// void sort(char arr[],int n){
+//     for(int i = 1; i<n ; i++){
+//         int curr = arr[i];
+//         int prev = i-1;
+//         while(prev >= 0 && arr[prev] > curr ){
+//             swap(arr[prev],arr[prev+1]);
+//             prev --;
+//         }
+//         // arr[prev+1] = curr; 
+//     }
+//     PrintArr(arr,n);
+// }
+
+// int main(){
+//     char ch[] ={'f','b','a','e','c','d'};
+//     int n = sizeof(ch) / sizeof(char);
+//     sort(ch,n);
+//     return 0;
+// }
+
+// Quest 1
+void PrintArr(int arr[],int n){
+    for(int i = 0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+// void BubbleSort(int arr[], int n){
+//     bool isSwap = false;
+//     for(int i = 0;i<n-1;i++){
+//         for(int j = 0; j<n-1-i; j++){
+//             if(arr[j]<arr[j+1]){
+//                 swap(arr[j],arr[j+1]);
+//                 isSwap = true;
+//             }
+//         }
+//         if(isSwap == false){
+//             cout << "It is already Sorted.";
+//             return;
+//         }
+        
+//     }
+//     PrintArr(arr,n);
+// }
+
+void SelectionSort(int arr[],int n){
+    int minValue = INT_MAX;
+    for(int i = 0; i<n;i++){
+        minValue = min(arr[i],minValue);
+        int idx = i;
     }
     PrintArr(arr,n);
 }
 
-void PrintArr(char arr[],int n){
-    for(int i = 0; i<n;i++){
-        cout<<arr[i]<<" , ";
-    }
-}
-
 int main(){
-    char ch[] ={'f','b','a','e','c','d'};
-    int n = sizeof(ch) / sizeof(char);
-    sort(ch,n);
+    int arr[] = {3,6,2,1,8,7,4,5,3,1};
+    int n = sizeof(arr) / sizeof(int) ;
+    // BubbleSort(arr,n);
+    SelectionSort(arr,n);
     return 0;
 }
-
 

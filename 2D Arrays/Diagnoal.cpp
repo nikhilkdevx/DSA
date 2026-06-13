@@ -1,24 +1,24 @@
 #include<iostream>
 using namespace std;
 
-void DiagonalSum(int arr[][3],int n,int m){
-    int D1Sum = 0;
-    int D2Sum = 0;
+// void DiagonalSum(int arr[][3],int n,int m){
+//     int D1Sum = 0;
+//     int D2Sum = 0;
     
-    for(int i =0,j=0; i<n && j<n; i++,j++){
-        D1Sum += arr[i][j];
-    }
+//     for(int i =0,j=0; i<n && j<n; i++,j++){
+//         D1Sum += arr[i][j];
+//     }
 
-    for(int i = n-1 ,j=0; i>=0 && j<n; i--,j++){
-        D2Sum += arr[i][j];
-    }
-    int TotalSum = D1Sum + D2Sum;
+//     for(int i = n-1 ,j=0; i>=0 && j<n; i--,j++){
+//         D2Sum += arr[i][j];
+//     }
+//     int TotalSum = D1Sum + D2Sum;
     
-    if(n%2 != 0){
-     TotalSum -= arr[n/2][m/2];   
-    }
-    cout << "Total sum is " << TotalSum; 
-}
+//     if(n%2 != 0){
+//      TotalSum -= arr[n/2][m/2];   
+//     }
+//     cout << "Total sum is " << TotalSum; 
+// }
 
 // void DiagonalSum(int arr[][3], int n){
 //     int sum = 0;
@@ -36,6 +36,17 @@ void DiagonalSum(int arr[][3],int n,int m){
 //     cout << "sum = " << sum;
 // }
 
+void DiagonalSum(int arr[][3], int n ){
+    int sum = 0;
+    for(int i = 0;i<n;i++){
+        sum += arr[i][i];
+        if(i != n-1-i){
+            sum += arr[i][n-1-i];
+        }
+    }
+    cout << "sum = " << sum;
+}
+
 int main(){
     // int arr[4][4] = {
     //     {1,2,3,4},
@@ -49,7 +60,7 @@ int main(){
         {7,8,9}
     };
     int n = 3,m = 3;
-    DiagonalSum(arr,n,m);
+    DiagonalSum(arr,n);
     return 0;
 
 }

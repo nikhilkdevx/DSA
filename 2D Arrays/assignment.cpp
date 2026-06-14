@@ -27,18 +27,26 @@ using namespace std;
 // }
 
 // Question 3
-
+// Ist method which come to my mind 
+// void Transpose(int arr[][3] , int n , int m ){
+    
+//     for(int j = 0; j<m; j++){
+//         for(int i = 0; i<n ; i++ ){
+//             cout << arr[i][j]<<" ";
+//         }
+//         cout << endl;
+//     }
+// }
+ 
+// Trying another method which is also coming in my mind
 void Transpose(int arr[][3] , int n , int m ){
-    int row = m , col = n;
-    for(int i = 0; i<row ; i++ ){
-        for(int j = 0; j<col; j++){
-            cout << arr[i][j]<<" ";
+    for(int i = 0;i<m;i++){
+        for(int j=0; j<n;j++){
+            cout<<arr[j][i]<<" ";
         }
-        cout << endl;
+        cout<<endl;
     }
 }
-
-
 
 int main(){
     int n = 2;

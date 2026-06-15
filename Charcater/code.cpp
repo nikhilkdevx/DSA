@@ -36,23 +36,29 @@ using namespace std;
 //     cout << word;
 // }
 
-void Palindrome(char word[] , int n ){
-    int st =0 , end = n-1;
-    while (st < end){
-        if(word[st]!= word[end]){
-            cout << "not valid Palindrome";
-            return;
-        }
-        st ++;
-        end --;
-    }
-    cout << "Palindrome";
-}
+// void Palindrome(char word[] , int n ){
+//     int st =0 , end = n-1;
+//     while (st < end){
+//         if(word[st]!= word[end]){
+//             cout << "not valid Palindrome";
+//             return;
+//         }
+//         st ++;
+//         end --;
+//     }
+//     cout << "Palindrome";
+// }
+
+// solve 212 and 242 leet code question
+
+
 
 int main(){
-    
-    char ch[] = "madam";
-    Palindrome(ch, strlen(ch));
+    string str = "madam i love you ";
+    // for(char ch: str){
+    //     cout << ch << ","; 
+    // }
+    cout << str.find("love") << endl;
     
     return 0; 
 }

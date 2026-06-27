@@ -95,37 +95,46 @@ void PrintArr(int arr[],int n){
 
 // Topic - Rainwater
 
-void Rainwater(int arr[],int n){
-    int LeftMax[10000] , RightMax[10000];
-    int trapped[10000] = {0};
-    LeftMax[0] = arr[0];
-    RightMax[n-1] = arr[n-1];
-    int water = 0;
+// void Rainwater(int arr[],int n){
+//     int LeftMax[10000] , RightMax[10000];
+//     int trapped[10000] = {0};
+//     LeftMax[0] = arr[0];
+//     RightMax[n-1] = arr[n-1];
+//     int water = 0;
     
-    for(int i = 1;i<n;i++){
-        LeftMax[i] = max(arr[i],LeftMax[i-1]);
+//     for(int i = 1;i<n;i++){
+//         LeftMax[i] = max(arr[i],LeftMax[i-1]);
 
-    }
+//     }
     
-    for(int i = n-2; i>=0 ; i--){
-        RightMax[i] = max(arr[i],RightMax[i+1]);
-    }
+//     for(int i = n-2; i>=0 ; i--){
+//         RightMax[i] = max(arr[i],RightMax[i+1]);
+//     }
 
-    for(int i = 1; i<n-1;i++){
-        trapped[i] = min(LeftMax[i],RightMax[i]) - arr[i];
-        water += max(0, trapped[i]);
-    }
+//     for(int i = 1; i<n-1;i++){
+//         trapped[i] = min(LeftMax[i],RightMax[i]) - arr[i];
+//         water += max(0, trapped[i]);
+//     }
     
-    cout << "The maximum water Stored is "<< water;
+//     cout << "The maximum water Stored is "<< water;
     
     
-}
+// }
 
+// Topic - Contains Duplicate --> Not Studied and Brute force is not Accepted by leetCode
 
-int main(){
-    int height[] = {4,2,0,6,3,2,5};
-    int n = sizeof(height) / sizeof(int);
-    Rainwater(height,n);
-    return 0;
-}
+// void duplicate(int arr[],int n){
+
+// }
+
+// Topic - Rotated Sorted Array ---> solved on leet
+
+// T --> Max Procuct Solved On Leet 
+
+// int main(){
+//     int nums[] = {1,2,3,1};
+//     int n = sizeof(nums) / sizeof(int);
+//     sorted(nums,n);
+//     return 0;
+// }
 

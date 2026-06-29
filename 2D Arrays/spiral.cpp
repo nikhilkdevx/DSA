@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+
 void Spiral(int arr[][4], int n,int m){
     int strow = 0;
     int stcol= 0;

@@ -55,27 +55,45 @@ using namespace std;
 
 // Topic --> Diagonal Sum 
 
-void diagonalSum(int arr[][4],int n){
-    int st = 0 , end = 0;
+// void diagonalSum(int arr[][4],int n){
+//     int sum = 0;
+    
+//     for(int i = 0 ; i<n ; i++){
+//         sum += arr[i][i];
+        
+//     }
+//     cout << "the total sum is " << sum;
+//     cout << endl;
+    
+//     for(int i = 3 , j = 0; j<n ;i--,j++){
+//         if( i != j){
+//             sum += arr[i][j];
+//         }
+        
+//     }
+//     cout << "the total sum is " << sum;
+    
+// }
+
+// Topic --> Search in Sorted Matrix
+
+void stariCase(int arr[][4] , int n, int target){
     int row = n-1 , col = 0;
-    int sum = 0;
     
-    for(int i = 0 ; i<n ; i++){
-        sum += arr[st][end];
-        st ++ , end ++ ; 
+    while (row >= 0 && col >= 0){
+        if(target == arr[row][col]){
+        cout << "The element " << target << " is at index " << row <<"," << col;
+        return;
+        } else if(arr[row][col] > target){
+            row --;
+        }else{
+            col ++;
+        }
     }
-
-    cout << "the total sum is " << sum;
-    cout << endl;
-
     
-    for(int i = 0; i<n ;i++){
-        sum += arr[row][col];
-        row -- , col ++;
-    }
-    cout << "the total sum is " << sum;
-    
+    cout << target << " is not present in the matrix.";
 }
+
 int main(){
     int nums[4][4] = {
         {1,2,3,4},
@@ -83,6 +101,6 @@ int main(){
         {9,10,11,12},
         {13,14,15,16}
     };
-    diagonalSum(nums,4);
+    stariCase(nums , 4 , 16);
     return 0;
 }

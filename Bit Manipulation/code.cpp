@@ -47,18 +47,42 @@ using namespace std;
 
 // Practice Question
 
-void Updateithbit(int num , int i , int val){
-    // clear the ith bit
-    num = num & ~(1 << i); 
+// Updating the ith bit
 
-    // setting the value
-    num = num | (val <<i);
+// void Updateithbit(int num , int i , int val){
+//     // clear the ith bit
+//     num = num & ~(1 << i); 
 
-    cout << num << endl;
+//     // setting the value
+//     num = num | (val <<i);
+
+//     cout << num << endl;
+// }
+
+// Clear the last ith bits
+
+// void clearBits(int num , int i){
+//     int bitMask = (~0) << i ; 
+//     num = num & bitMask ;
+//     cout << num;
+// }
+
+// Count set Bits
+
+void countBits(int num){
+    int count = 0;
+    
+    while(num > 0){
+        int lastDig = num & 1;
+        count += lastDig;
+        num = num >> 1;
+    }
+    cout << count;
 }
 
+
 int main(){
-    int a = 7 , i = 3 , value = 1 ;
-    Updateithbit(a,i,value);
+    int a = 10  ;
+    countBits(a);
     return 0;
 }

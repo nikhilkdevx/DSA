@@ -77,30 +77,51 @@ using namespace std;
 
 // Topic --> Search in Sorted Matrix
 
-void stariCase(int arr[][4] , int n, int target){
-    int row = n-1 , col = 0;
+// void stariCase(int arr[][4] , int n, int target){
+//     int row = n-1 , col = 0;
     
-    while (row >= 0 && col >= 0){
-        if(target == arr[row][col]){
-        cout << "The element " << target << " is at index " << row <<"," << col;
-        return;
-        } else if(arr[row][col] > target){
-            row --;
-        }else{
-            col ++;
+//     while (row >= 0 && col >= 0){
+//         if(target == arr[row][col]){
+//         cout << "The element " << target << " is at index " << row <<"," << col;
+//         return;
+//         } else if(arr[row][col] > target){
+//             row --;
+//         }else{
+//             col ++;
+//         }
+//     }
+    
+//     cout << target << " is not present in the matrix.";
+// }
+
+// int main(){
+//     int nums[4][4] = {
+//         {1,2,3,4},
+//         {5,6,7,8},
+//         {9,10,11,12},
+//         {13,14,15,16}
+//     };
+//     stariCase(nums , 4 , 16);
+//     return 0;
+// }
+
+// Assignment questions Revisions
+
+void repeat(int arr[][3] , int n , int m , int target){
+    int count = 0;
+    for(int i = 0 ; i <n ;i++){
+        for(int j = 0;j<m;j++){
+            if(arr[i][j] == target){
+                count++;
+            }
         }
     }
-    
-    cout << target << " is not present in the matrix.";
+    cout << count;
 }
 
 int main(){
-    int nums[4][4] = {
-        {1,2,3,4},
-        {5,6,7,8},
-        {9,10,11,12},
-        {13,14,15,16}
-    };
-    stariCase(nums , 4 , 16);
+    int n = 2 , m = 3;
+    int num[][3] = { {4,7,8}, {8,8,7} };
+    repeat(num,n,m,7);
     return 0;
 }

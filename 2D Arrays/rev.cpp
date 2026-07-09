@@ -119,9 +119,29 @@ void repeat(int arr[][3] , int n , int m , int target){
     cout << count;
 }
 
+void sum(int num[][3], int n ){
+    int sum = 0;
+    for(int i=1;i<2;i++){
+        for(int j = 0 ;  j<n;j++){
+            sum += num[i][j];
+        }
+    }
+    cout << sum;
+}
+
+void transpose(int num[2][3], int n, int m){
+    for(int i = 0; i<m;i++){
+        for(int j = 0; j<n;j++){
+            cout << num[j][i]<<" ";
+        }
+        cout << endl;
+    }
+}
+
+
 int main(){
-    int n = 2 , m = 3;
-    int num[][3] = { {4,7,8}, {8,8,7} };
-    repeat(num,n,m,7);
+    
+    int num[2][3] = { {1,4,9}, {11,4,3} };
+    transpose(num , 2,3);
     return 0;
 }

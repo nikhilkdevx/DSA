@@ -3,7 +3,7 @@
 using namespace std;
 
 class Animal{
-    public:
+    protected:
     string color;
     
     void eat(){
@@ -15,16 +15,20 @@ class Animal{
     }
 };
 
-class Fish : public Animal{
+class Fish : private Animal{
     public:
     int fins;
 
     void swim(){
+    breathe();
     cout << "swims\n";
     }
 };
 
 
 int main(){
+    Fish f1;
+    int fins = 3;
+    f1.swim();
     return 0;
 }

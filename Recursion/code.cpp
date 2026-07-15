@@ -17,8 +17,17 @@ void printNumber(int n){
     printNumber(n-1);
 }
 
+int sumofNthNumber(int n){
+    if(n == 1){
+        return 1;
+    }
+    return n + sumofNthNumber(n-1);
+
+}
+
 int main(){
-    printNumber(100);
+    int ans = sumofNthNumber(10);
+    cout << ans;
     return 0;
 
 }

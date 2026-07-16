@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 // Recursive Function
@@ -25,9 +26,42 @@ int sumofNthNumber(int n){
 
 }
 
+int fibonacciNumber(int n){
+    if(n == 0 || n == 1 ){
+        return n;
+    }
+    return fibonacciNumber(n-1) + fibonacciNumber(n-2);
+}
+
+// isSorted
+bool isSorted(int arr[],int n,int i){
+    if(i == n-1){
+        return true;
+    }
+    if(arr[i] > arr[i+1]){
+        return false;
+    }
+    return isSorted(arr,n,i+1); 
+}
+
+// First Occurence
+
+int firstOccur(vector<int> arr,int i,int target){
+    if(i == arr.size()){
+        return -1;
+    }
+    if(arr[i] == target){
+        return i;
+    }
+
+    return firstOccur(arr,i+1,target);
+
+}
+
 int main(){
-    int ans = sumofNthNumber(10);
-    cout << ans;
+    vector<int> arr = {1,2,3,3,4,5};
+    int i = 0;
+    cout << firstOccur(arr,i,4);
     return 0;
 
 }

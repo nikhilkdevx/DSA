@@ -58,10 +58,22 @@ int firstOccur(vector<int> arr,int i,int target){
 
 }
 
+int lastOccur(vector<int>arr,int i,int target,int idx){
+    
+    if(i == arr.size()){
+        return idx;
+    }
+    if(arr[i] == target){
+        idx = i;
+    }
+    return lastOccur(arr,i+1,target,idx);
+}
+
 int main(){
     vector<int> arr = {1,2,3,3,4,5};
     int i = 0;
-    cout << firstOccur(arr,i,4);
+    int idx = -1;
+    cout << lastOccur(arr,i,5,idx);
     return 0;
 
 }

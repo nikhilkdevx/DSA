@@ -69,11 +69,34 @@ int lastOccur(vector<int>arr,int i,int target,int idx){
     return lastOccur(arr,i+1,target,idx);
 }
 
+// X^n  [O(n)]
+
+int power(int x,int n,int i,int mul){
+    if(i == n){
+        return mul;
+    }
+    mul *= x;
+    return power(x,n,i+1,mul);
+}
+
+// X^n  [O(log n)]
+
+int pow(int x, int n){
+    if(n == 0){
+        return 1;
+    }
+    x^n/2;
+    int halfPow = pow(x , n/2);
+    int halfPowSquare = halfPow * halfPow;
+    if(n % 2 != 0){
+        return halfPowSquare * x;
+    }
+    return halfPowSquare;
+
+}
 int main(){
-    vector<int> arr = {1,2,3,3,4,5};
-    int i = 0;
-    int idx = -1;
-    cout << lastOccur(arr,i,5,idx);
+    
+    cout << pow(2,10);
     return 0;
 
 }

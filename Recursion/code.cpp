@@ -85,7 +85,6 @@ int pow(int x, int n){
     if(n == 0){
         return 1;
     }
-    x^n/2;
     int halfPow = pow(x , n/2);
     int halfPowSquare = halfPow * halfPow;
     if(n % 2 != 0){

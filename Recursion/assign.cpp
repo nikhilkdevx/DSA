@@ -35,18 +35,25 @@ void recurring(int arr[],int n,int key,int si){
 
 // Question 3
 
-void contagious(string str,int si,int n){
-    if(si == n){
-        return;
+int countString(string s){
+    if(s.length() == 0){
+        return 0;
     }
+    int count = 0;
+    for(int i=0;i<s.length();i++){
+        if(s[0] == s[i]) {
+            count ++;
+        }
+    }
+    return count + countString(s.substr(1));
     
 }
 
+
 int main(){
     string S = "abcab";
-    int n = S.length();
-    int si = 0;
-    contagious(S,si,n);
+    cout << countString(S);
+    
 }
 
 

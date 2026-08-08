@@ -2,8 +2,6 @@
 #include <vector>
 using namespace std;
 
-
-
 void printArr(int arr[],int n){
     for(int i=0; i<n; i++){
         cout << arr[i] <<" ";
@@ -11,6 +9,7 @@ void printArr(int arr[],int n){
     }
     cout << endl;
 }
+
 int partition(int arr[],int si, int ei){
     int i = si-1;
     int pivot = arr[ei];

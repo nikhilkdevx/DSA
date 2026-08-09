@@ -77,23 +77,42 @@ void printArr(vector<int>arr){
 // }
 
 // [o(nlogn)]
-void returnCount(vector<int>arr,int n){
-    int current = arr[0];
-    int count = 1;
-    for(int i=1;i<n;i++){
-        if(current == arr[i] ){
-            count++;
-        } else{
-            current = arr[i];
-            count = 1;
-        }
-        if(count > n/2){
-            cout << current;
-            return;
-        }
-    }
-    cout << current;
+// void returnCount(vector<int>arr,int n){
+//     int current = arr[0];
+//     int count = 1;
+//     for(int i=1;i<n;i++){
+//         if(current == arr[i] ){
+//             count++;
+//         } else{
+//             current = arr[i];
+//             count = 1;
+//         }
+//         if(count > n/2){
+//             cout << current;
+//             return;
+//         }
+//     }
+//     cout << current;
     
+// }
+
+
+// Booyer Moore [o(n)]
+void returnCount(vector<int>arr,int n){
+    int candidate = 0;
+    int count = 0;
+    for(int i=0;i<n;i++){
+        if(count == 0){
+            candidate = arr[i];
+        }
+        if(arr[i] == candidate){
+            count++;
+        }else{
+            count--;
+        }
+        
+    }
+    cout << candidate;
 }
 
 int main(){

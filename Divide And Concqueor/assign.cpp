@@ -1,7 +1,10 @@
 #include<iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
+
+// Quest 1
 
 void merge(string arr[],int si, int mid,int ei){
     vector<string> temp;
@@ -39,17 +42,64 @@ void mergeSort(string arr[],int si,int ei){
     merge(arr,si,mid,ei);
 }
 
-void printArr(string arr[],int n){
-    for(int i=0;i<n;i++){
+void printArr(vector<int>arr){
+    for(int i=0;i<arr.size();i++){
         cout << arr[i] << " ";
     }
     cout << endl;
 }
 
+// Quest 2 
+
+// Brute Force
+// void returnCount(vector<int> arr){
+//     int num = 110;
+//     for(int i=0;i<arr.size();i++){
+//         int count = 0;
+//         for(int j = 0;j<arr.size();j++){
+//             if(arr[i] == arr[j]){
+//                 count++;
+//             }
+//         }
+//         if(count > (arr.size()/2)){
+//             cout << arr[i];
+//             return;
+//         } else if(count == (arr.size()/2)){
+//             num = arr[i];
+//         }
+
+//     }
+//     if(num = 110){
+//         cout << "No Majority Element Found";
+//     } else{
+//         cout << num;
+//     }
+// }
+
+// [o(nlogn)]
+void returnCount(vector<int>arr,int n){
+    int current = arr[0];
+    int count = 1;
+    for(int i=1;i<n;i++){
+        if(current == arr[i] ){
+            count++;
+        } else{
+            current = arr[i];
+            count = 1;
+        }
+        if(count > n/2){
+            cout << current;
+            return;
+        }
+    }
+    cout << current;
+    
+}
+
 int main(){
-    string arr[] = {"sun", "earth", "mars", "mercury"};
-    int n = sizeof(arr) / sizeof(string) ;
-    mergeSort(arr,0,n-1);
-    printArr(arr,n);
+    vector<int> nums = {2,2,1,1,1,2,2};
+    int n = nums.size();
+    sort(nums.begin(),nums.end());
+    returnCount(nums,n);
     return 0;
 }

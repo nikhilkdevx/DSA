@@ -84,16 +84,91 @@ class List{
         delete temp;
     }
     void pop_back(){
-        
+    Node* temp = head;
+    while(temp->next->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = NULL;
+    delete tail;
+    tail = temp;
+    }
+    
+    void searchItr(int key){
+        Node* temp = head;
+        int idx = 0;
+        while(temp != NULL){
+            if(temp->data == key){
+                cout << idx << endl;
+                return;
+            }
+            temp = temp->next;
+            idx++;
+        }
+        cout << -1 << endl;
+    }
+    int helper(Node* temp,int key){
+        if(temp == NULL){
+            return -1;
+        }
+        if(temp->data == key){
+            return 0;
+        }
+        int idx = helper(temp->next,key);
+        if(idx == -1){
+            return -1;
+        }else{
+            return idx + 1;
+        }
+    }
+    int searchRec(int key){
+       return helper(head,key); 
+    }
+
+    void reverse(){
+        Node* curr = head;
+        Node* prev = NULL;
+        tail = head; 
+        while(curr != NULL){
+            Node* next = curr->next;
+            curr->next = prev;
+
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
+    int getSize(){
+        int sz = 0;
+        Node* temp = head;
+        while(temp != NULL){
+            temp = temp->next;
+            sz++;
+        }
+        return sz;
+    }
+
+    void removeNth(int n){
+        int size = getSize();
+        Node* prev = head;
+ 
+        for(int i = 1;i<(size-n);i++){
+            prev = prev->next;
+        }
+        Node* toDel = prev->next;
+        cout << "going to Del : " << toDel->data << endl;
+        prev->next = prev->next->next;
     }
 };
 
 int main(){
     List ll;
+    ll.push_front(5);
+    ll.push_front(4);
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
-    ll.pop_front();
+    ll.removeNth(2);
     ll.printList();
     return 0;
 }

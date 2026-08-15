@@ -115,10 +115,45 @@ void returnCount(vector<int>arr,int n){
     cout << candidate;
 }
 
+// Inversion Count
+int merge(int arr[],int si,int mid,int ei){
+    vector<int>nums;
+    int i = si;
+    int j = mid + 1;
+    int count = 0;
+    while(i<= mid && j <= ei){
+        if(arr[i] <= arr[j]){
+            nums.push_back(arr[i++]);
+        } else{
+            nums.push_back(arr[j++]);
+            count+=(mid-i+1);
+        }
+    }
+    while(i <= mid){
+        nums.push_back(arr[i++]);
+    }
+    while(j <= ei){
+        nums.push_back(arr[j++]);
+    }
+    for(int idx = si,x=0;idx<ei;idx++){
+        arr[idx] = nums[x++];
+    }
+    return count;
+}
+
+int mergeSort(int arr[],int si,int ei){
+    if(si >= ei){
+        return 0;
+    }
+    int mid = si + (ei - si) / 2;
+    int left = mergeSort(arr,si,mid);
+    int right = mergeSort(arr,mid+1,ei);
+    return left + right + merge(arr,si, mid , ei);
+}
+
 int main(){
-    vector<int> nums = {2,2,1,1,1,2,2};
-    int n = nums.size();
-    sort(nums.begin(),nums.end());
-    returnCount(nums,n);
+    int arr[5] = {2, 4, 1, 3, 5};
+    int n = 5;
+    cout << mergeSort(arr,0,n-1);
     return 0;
 }

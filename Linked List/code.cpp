@@ -77,6 +77,7 @@ class List{
     void pop_front(){
         if(head == NULL){
             cout << "Linked List is Empty";
+            return;
         }
         Node* temp = head;
         head = head->next;

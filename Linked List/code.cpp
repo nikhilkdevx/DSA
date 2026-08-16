@@ -34,6 +34,7 @@ class List{
             head = NULL;
         }
     }
+
     void push_front(int val){
         Node* newNode = new Node(val);
         if(head == NULL){
@@ -44,6 +45,7 @@ class List{
         }
 
     }
+
     void push_back(int val){
         Node* newNode = new Node(val);
         if(head == NULL){
@@ -169,7 +171,7 @@ int main(){
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
-    ll.removeNth(2);
+    ll.insert(100,3);
     ll.printList();
     return 0;
 }

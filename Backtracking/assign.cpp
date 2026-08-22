@@ -87,52 +87,68 @@ using namespace std;
 
 // Question 1
 
-void ratWays(int arr[4][4],bool visited[4][4],int r,int c,int n,string path){
-    if(r < 0 || r >= n || c < 0 || c >= n ){
+// void ratWays(int arr[4][4],bool visited[4][4],int r,int c,int n,string path){
+//     if(r < 0 || r >= n || c < 0 || c >= n ){
+//         return;
+//     }
+//     if(r == n-1 && c == n-1){
+//         cout << path << endl;
+//         return;
+//     }
+//     if(visited[r][c]){
+//         return;
+//     }
+//     if(arr[r][c] == 0){
+//         return;
+//     }
+//     visited[r][c] = true;
+
+//     path.push_back('U');
+//     ratWays(arr,visited,r-1,c,n,path);
+//     path.pop_back();
+
+//     path.push_back('D');
+//     ratWays(arr,visited,r+1,c,n,path);
+//     path.pop_back();
+
+//     path.push_back('L');
+//     ratWays(arr,visited,r,c-1,n,path);
+//     path.pop_back();
+
+//     path.push_back('R');
+//     ratWays(arr,visited,r,c+1,n,path);
+//     path.pop_back();
+
+//     visited[r][c] = false;
+//     return;
+// }
+
+
+// Question 2
+
+void combinations(string input[],string ans,string digit,int index){
+    
+    if(index == digit.size()){
+        cout << ans<<", ";
         return;
     }
-    if(r == n-1 && c == n-1){
-        cout << path << endl;
-        return;
-    }
-    if(visited[r][c]){
-        return;
-    }
-    if(arr[r][c] == 0){
-        return;
-    }
-    visited[r][c] = true;
+    
+    string currInput = input[digit[index] - '2'];
+    for(int i = 0;i<currInput.size();i++){
+        char currChar = currInput[i];
+        ans.push_back(currChar);
+        combinations(input,ans,digit,index+1);
+        ans.pop_back();
+    }  
 
-    path.push_back('U');
-    ratWays(arr,visited,r-1,c,n,path);
-    path.pop_back();
-
-    path.push_back('D');
-    ratWays(arr,visited,r+1,c,n,path);
-    path.pop_back();
-
-    path.push_back('L');
-    ratWays(arr,visited,r,c-1,n,path);
-    path.pop_back();
-
-    path.push_back('R');
-    ratWays(arr,visited,r,c+1,n,path);
-    path.pop_back();
-
-    visited[r][c] = false;
-    return;
-}
+};
 
 int main(){
-    int maze[4][4] = {
-        { 1, 0, 0, 0 },
-        { 1, 1, 0, 1 },
-        { 1, 1, 0, 0 },
-        { 0, 1, 1, 1 },
+    string input[] = {
+        "abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
     };
-    string path = "";
-    int n = 4;
-    bool visited[4][4] = {false};
-    ratWays(maze,visited,0,0,4,path);
+    string digit = "234";
+    string ans = "";
+    combinations(input,ans,digit,0);
     return 0;
-}
+};

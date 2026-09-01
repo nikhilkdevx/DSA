@@ -105,7 +105,7 @@ public:
         Node* temp = head;
         int idx = 0;
         while(temp != NULL){
-            if(temp->next == key){
+            if(temp->data == key){
                 cout << idx << endl;
                 return;
             }
@@ -134,18 +134,83 @@ public:
         return helper(head,key);
     };
 
+    void reverse(){
+        
+    }
+
 
 
     
 };
 
+void isCycle(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+    while(fast != NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+        
+        if(slow == fast){
+        cout << "Loop Exists\n";
+        return;
+        }
+    }
+
+
+
+    cout << "Loop Not Exists\n";
+}
+
+void removeCycle(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+    bool isCycle = false;
+
+    while(fast != NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast){
+            cout << "Loop Exists\n";
+            isCycle = true;
+            break;
+        }
+    }
+
+    if(!isCycle){
+        cout << "Cycle doesn't Exist\n";
+        return;
+    }
+
+    slow = head;
+    if(slow == fast){
+        while (fast->next != slow){
+            fast = fast->next;
+        }
+        fast->next = NULL;
+        return;
+    }
+
+    Node* prev = fast;
+    while(slow != fast){
+        slow = slow->next;
+        prev = fast;
+        fast = fast->next;
+    }
+    prev->next = NULL;
+}
+
 int main(){
     List ll;
+    ll.push_front(5);
+    ll.push_front(4);
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
     ll.printList();
     cout << endl;
-    ll.pop_front();
+    ll.head->next->next->next->next->next = ll.head;
+    removeCycle(ll.head);
     ll.printList();
+
 }

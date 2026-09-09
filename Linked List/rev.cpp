@@ -1,4 +1,5 @@
 #include<iostream>
+#include<list>
 using namespace std;
 
 class Node{
@@ -138,6 +139,29 @@ public:
         
     }
 
+    void removenth(int n){
+        int size = getSz();
+        
+    }
+
+    int getSz(){
+        int size = 0;
+        Node* temp = head;
+        while(temp != NULL){
+            temp = temp->next;
+            size++;
+        }
+        return size;
+    }
+
+    void printList(Node* head){
+        Node* temp = head;
+        while(temp != NULL){
+            cout << temp->data << "->";
+            temp = temp->next;
+        }
+        cout << "NULL\n";
+    }
 
 
     
@@ -155,9 +179,6 @@ void isCycle(Node* head){
         return;
         }
     }
-
-
-
     cout << "Loop Not Exists\n";
 }
 
@@ -200,17 +221,74 @@ void removeCycle(Node* head){
     prev->next = NULL;
 }
 
+Node* splitAtMid(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+    Node* prev = NULL;
+    while(fast != NULL && fast->next != NULL){
+        prev = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    if(prev != NULL){
+        prev->next = NULL;
+    }
+    return slow;
+}
+
+Node* merge(Node* left,Node* right){
+    Node* i = left;
+    Node* j = right;
+    List ans;
+    
+    while(i != NULL && j != NULL){
+        if( i->data >= j->data){
+            ans.push_back(i->data);
+            i = i->next;
+        } else {
+            ans.push_back(j->data);
+            j = j->next;
+        }
+    }
+
+    while(i != NULL){
+        ans.push_back(i->data);
+        i = i->next;
+
+    }
+
+    while(j != NULL){
+        ans.push_back(j->data);
+        j = j->next;
+    }
+
+    return ans.head;
+
+}
+
+Node* mergeSort(Node* head){
+    if(head == NULL || head->next == NULL){
+        return head;
+    }
+
+    Node* righthead = splitAtMid(head);
+    
+    Node* left = mergeSort(head);
+    Node* right = mergeSort(righthead);
+    return merge(left,right);
+}
+
 int main(){
     List ll;
-    ll.push_front(5);
-    ll.push_front(4);
-    ll.push_front(3);
-    ll.push_front(2);
+    ll.push_front(9);
     ll.push_front(1);
+    ll.push_front(6);
+    ll.push_front(8);
+    ll.push_front(2);
     ll.printList();
-    cout << endl;
-    ll.head->next->next->next->next->next = ll.head;
-    removeCycle(ll.head);
+    ll.head = mergeSort(ll.head);
     ll.printList();
+    
 
 }

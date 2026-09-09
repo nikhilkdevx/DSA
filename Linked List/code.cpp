@@ -152,7 +152,7 @@ class List{
         return sz;
     }
 
-    void removeNth(int n){
+    void removeNth(int n){ // basically deteleting from end 
         int size = getSize();
         Node* prev = head;
  
@@ -162,6 +162,7 @@ class List{
         Node* toDel = prev->next;
         cout << "going to Del : " << toDel->data << endl;
         prev->next = prev->next->next;
+        delete todel;
     }
 };
 

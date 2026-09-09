@@ -231,6 +231,8 @@ Node* zigZag(Node* head){
 
 int main(){
     List ll;
+    ll.push_front(7);
+    ll.push_front(6);
     ll.push_front(5);
     ll.push_front(4);
     ll.push_front(3);

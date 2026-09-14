@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include<algorithm>
 using namespace std;
 
 // class Node
@@ -66,32 +67,58 @@ void printList(list<int> ll){
     cout << "NULL\n";
 }
 
-void deleteNNodes(list<int> ll,int n,int m){
-    list<int>::iterator temp = ll.begin();
-    list<int> ans;
-    while(temp != ll.end()){
-        int countM = m;
-        int countN = n;
+// void deleteNNodes(list<int> ll,int n,int m){
+//     list<int>::iterator temp = ll.begin();
+//     list<int> ans;
+//     while(temp != ll.end()){
+//         int countM = m;
+//         int countN = n;
         
-        while(countM != 0){
-            if(temp == ll.end()){
-                break;
-            }
-            ans.push_back(*temp);
-            temp++;
-            countM--;
-        }
-        while (countN != 0)
-        {
-            if(temp == ll.end()){
-                break;
-            }
-            temp++;
-            countN--;
-        }
+//         while(countM != 0){
+//             if(temp == ll.end()){
+//                 break;
+//             }
+//             ans.push_back(*temp);
+//             temp++;
+//             countM--;
+//         }
+//         while (countN != 0)
+//         {
+//             if(temp == ll.end()){
+//                 break;
+//             }
+//             temp++;
+//             countN--;
+//         }
+//     }
+
+//     printList(ans);
+// }
+
+void swapNodes(list<int>ll,int x,int y){
+    auto i = ll.begin();
+    auto j = ll.begin();
+    
+    while(i != ll.end() && *i != x){
+        i++;
+    }
+    
+   
+    while(j != ll.end() && *j != y){
+        j++;
+    }
+    if(i == ll.end() || j == ll.end()){
+        return;
+    }
+     if(i == j){
+        return;
     }
 
-    printList(ans);
+    auto nextJ = next(j);
+    auto nextI = next(i);
+
+    
+    printList(ll);
 }
 
 
@@ -102,14 +129,7 @@ int main()
     ll.push_back(2);
     ll.push_back(3);
     ll.push_back(4);
-    ll.push_back(5);
-    ll.push_back(6);
-    ll.push_back(7);
-    ll.push_back(8);
     
-    int n  = 2;
-    int m  = 2;
-    deleteNNodes(ll,n,m);
-
+    swapNodes(ll,2,4);
     return 0;
 }

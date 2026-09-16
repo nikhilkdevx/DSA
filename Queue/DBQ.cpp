@@ -13,3 +13,5 @@ int main(){
     cout << deq.back();
     return 0;
 }
+
+// Practice by own making queue and stack using deque

@@ -3,18 +3,22 @@
 #include<algorithm>
 using namespace std;
 
-// class Node
-// {
-// public:
-//     int data;
-//     Node *next;
+class Node
+{
+public:
+    int data;
+    Node *next;
 
-//     Node(int val)
-//     {
-//         data = val;
-//         next = NULL;
-//     }
-// };
+    Node(int val)
+    {
+        data = val;
+        next = NULL;
+    }
+};
+
+class List{
+    
+}
 // brute Force
 // bool intersection(Node* head1,Node* head2){
 //     Node* temp1 = head1;
@@ -95,31 +99,32 @@ void printList(list<int> ll){
 //     printList(ans);
 // }
 
-void swapNodes(list<int>ll,int x,int y){
-    auto i = ll.begin();
-    auto j = ll.begin();
+// void swapNodes(list<int>ll,int x,int y){
+//     auto i = ll.begin();
+//     auto j = ll.begin();
     
-    while(i != ll.end() && *i != x){
-        i++;
-    }
+//     while(i != ll.end() && *i != x){
+//         i++;
+//     }
     
    
-    while(j != ll.end() && *j != y){
-        j++;
-    }
-    if(i == ll.end() || j == ll.end()){
-        return;
-    }
-     if(i == j){
-        return;
-    }
+//     while(j != ll.end() && *j != y){
+//         j++;
+//     }
+//     if(i == ll.end() || j == ll.end()){
+//         return;
+//     }
+//      if(i == j){
+//         return;
+//     }
 
-    auto nextJ = next(j);
-    auto nextI = next(i);
-
+//     auto nextI = next(i);
+//     auto prevI = prev(i);
+//     auto nextJ = next(j);
+//     auto prevJ = prev(j);
     
-    printList(ll);
-}
+//     printList(ll);
+// }
 
 
 int main()

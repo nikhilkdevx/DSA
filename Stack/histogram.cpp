@@ -8,7 +8,6 @@ void maxAreaHistogram(vector<int> height) {
     vector <int> nsr(height.size());
     stack<int> s;
     
-
     // next smaller left
     nsl[0] = -1;
     s.push(0);

@@ -197,7 +197,12 @@ void stockSpan(vector<int> stocks,vector<int> span){
 
     };
 
-    
+    for(int i=0;i<span.size();i++){
+        cout << span[i] << ",";
+
+    }
+
+    cout << endl;
 }
 
 int main(){

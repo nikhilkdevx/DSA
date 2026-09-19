@@ -180,14 +180,24 @@ void stockSpan(vector<int> stocks,vector<int> span){
     stack<int> s;
     s.push(0);
     span[0] = 1;
+    for(int i=1;i<stocks.size();i++){
+        int currPrice = stocks[i];
+        while(!s.empty() && currPrice >= stocks[s.top()]){
+            s.pop();
+        };
+
+        if(s.empty()){
+            span[i] = i+1;
+        } else{
+            int prevHigh = s.top();
+            span[i] = i - prevHigh;
+        }
+
+        s.push(i);
+
+    };
+
     
-
-    // for(int i=0;i<span.size();i++){
-    //     cout << span[i] << ",";
-
-    // }
-
-    // cout << endl;
 }
 
 int main(){

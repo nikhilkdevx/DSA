@@ -147,29 +147,67 @@ using namespace std;
 
 // };
 
-void pushAtBottom(stack<int> &s,int val){
-    if(s.empty()){
-        s.push(val);
-        return;
+// void pushAtBottom(stack<int> &s,int val){
+//     if(s.empty()){
+//         s.push(val);
+//         return;
+//     }
+
+//     int temp = s.top();
+//     s.pop();
+//     pushAtBottom(s,val);
+//     s.push(temp);
+// }
+
+// void reverseString(string str,string ans){
+//     stack<char> s;
+//     for(int i=0;i<str.size();i++){
+//         char ch = str[i];
+//         s.push(ch);
+//     }
+
+//     while(!s.empty()){
+//         ans += s.top();
+//         s.pop();
+//     }
+
+//     for(int i=0;i<ans.size();i++){
+//         cout << ans[i];
+//     }
+// }
+
+void stockSpan(vector<int> stocks,vector<int> span){
+    stack<int> s;
+    s.push(0);
+    span[0] = 1;
+    for(int i=1;i<stocks.size();i++){
+        int currPrice = stocks[i];
+        while(!s.empty() && currPrice >= stocks[s.top()]){
+            s.pop();
+        };
+
+        if(s.empty()){
+            span[i] = i+1;
+        } else{
+            int prevHigh = s.top();
+            span[i] = i - prevHigh;
+        }
+
+        s.push(i);
+
+    };
+
+    for(int i=0;i<span.size();i++){
+        cout << span[i] << ",";
+
     }
 
-    int temp = s.top();
-    s.pop();
-    pushAtBottom(s,val);
-    s.push(temp);
+    cout << endl;
 }
 
 int main(){
-    stack<int> s;
-    s.push(4);
-    s.push(3);
-    s.push(2);
-    s.push(1);
-    pushAtBottom(s,5);
-    while(!s.empty()){
-        cout << s.top() << " ";
-        s.pop();
-    }
-    cout << endl;
+    vector<int> stocks = {100,80,60,70,85,100};
+    vector<int> span(stocks.size(),0);
+    stockSpan(stocks,span);
     return 0;
 }

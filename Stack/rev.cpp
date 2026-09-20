@@ -176,38 +176,40 @@ using namespace std;
 //     }
 // }
 
-void stockSpan(vector<int> stocks,vector<int> span){
-    stack<int> s;
-    s.push(0);
-    span[0] = 1;
-    for(int i=1;i<stocks.size();i++){
-        int currPrice = stocks[i];
-        while(!s.empty() && currPrice >= stocks[s.top()]){
-            s.pop();
-        };
+// void stockSpan(vector<int> stocks,vector<int> span){
+//     stack<int> s;
+//     s.push(0);
+//     span[0] = 1;
+//     for(int i=1;i<stocks.size();i++){
+//         int currPrice = stocks[i];
+//         while(!s.empty() && currPrice >= stocks[s.top()]){
+//             s.pop();
+//         };
 
-        if(s.empty()){
-            span[i] = i+1;
-        } else{
-            int prevHigh = s.top();
-            span[i] = i - prevHigh;
-        }
+//         if(s.empty()){
+//             span[i] = i+1;
+//         } else{
+//             int prevHigh = s.top();
+//             span[i] = i - prevHigh;
+//         }
 
-        s.push(i);
+//         s.push(i);
 
-    };
+//     };
 
-    for(int i=0;i<span.size();i++){
-        cout << span[i] << ",";
+//     for(int i=0;i<span.size();i++){
+//         cout << span[i] << ",";
 
-    }
+//     }
 
-    cout << endl;
-}
+//     cout << endl;
+// }
+
+
 
 int main(){
-    vector<int> stocks = {100,80,60,70,85,100};
-    vector<int> span(stocks.size(),0);
-    stockSpan(stocks,span);
+    vector<int> arr = {6,8,0,1,3};
+    vector<int> ans = {0,0,0,0,0};
+    nextGreaterElement(arr,ans);
     return 0;
 }

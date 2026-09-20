@@ -26,20 +26,22 @@ Node* buildTree(vector<int>nodes){
     return currNode;
 }
 
-// PreOrder Traversals
-void preorder(Node* root){
-    if(root == NULL){
-        return;
-    }
-    cout << root->data << ",";
-    preorder(root->left);
-    preorder(root->right);
-}
+// PreOrder Traversal
+// void preorder(Node* root){
+//     if(root == NULL){
+//         return;
+//     }
+//     cout << root->data << ",";
+//     preorder(root->left);
+//     preorder(root->right);
+// }
+
+// Inorder Traversal
 
 int main(){
     vector<int>nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
 
-    preorder(root);
+    // preorder(root);
     return 0;
 }

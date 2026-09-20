@@ -48,15 +48,19 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // PostOrder Traversal
-void postorder(Node* root){
-    if(root == NULL){
-        return;
-    }
-    postorder(root->left);
-    postorder(root->right);
-    cout << root->data << " ";
-}
+// void postorder(Node* root){
+//     if(root == NULL){
+//         return;
+//     }
+//     postorder(root->left);
+//     postorder(root->right);
+//     cout << root->data << " ";
+// }
 
+// Level Order Traversal
+void levelOrder(Node* root){
+
+}
 
 int main(){
     vector<int>nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -64,6 +68,6 @@ int main(){
 
     // preorder(root);
     // inorder(root);
-    postorder(root);
+    // postorder(root);
     return 0;
 }

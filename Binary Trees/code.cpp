@@ -43,7 +43,7 @@ void inorder(Node* root){
     }
 
     inorder(root->left);
-    cout << root->data << ",";
+    cout << root->data << " ";
     inorder(root->right);
 }
 

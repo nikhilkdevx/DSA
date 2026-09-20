@@ -205,7 +205,14 @@ using namespace std;
 //     cout << endl;
 // }
 
+void nextGreaterElement(vector<int> arr,vector<int> ans){
+    int idx = arr.size() - 1;
+    stack<int> s;
+    ans[idx] = -1;
+    s.push(arr[idx]);
 
+    
+}
 
 int main(){
     vector<int> arr = {6,8,0,1,3};

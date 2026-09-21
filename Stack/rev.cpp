@@ -233,6 +233,10 @@ using namespace std;
 // }
 
 // valid Pthes
+bool validPthes(string str){
+
+}
+
 int main(){
     string str = "({[]})";
     string str = "({[";

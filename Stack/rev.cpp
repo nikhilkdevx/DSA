@@ -205,36 +205,38 @@ using namespace std;
 //     cout << endl;
 // }
 
-void nextGreaterElement(vector<int> arr,vector<int> ans){
-    int idx = arr.size() - 1;
-    stack<int> s;
-    ans[idx] = -1;
-    s.push(arr[idx]);
+// void nextGreaterElement(vector<int> arr,vector<int> ans){
+//     int idx = arr.size() - 1;
+//     stack<int> s;
+//     ans[idx] = -1;
+//     s.push(arr[idx]);
 
-    for(idx = idx-1; idx >=0 ; idx--){
-        int curr = arr[idx];
-        while(!s.empty() && curr >= s.top()){
-            s.pop();
-        }
+//     for(idx = idx-1; idx >=0 ; idx--){
+//         int curr = arr[idx];
+//         while(!s.empty() && curr >= s.top()){
+//             s.pop();
+//         }
 
-        if(s.empty()){
-            ans[idx] = -1;
-        } else{
-            ans[idx] = s.top();
-        }
+//         if(s.empty()){
+//             ans[idx] = -1;
+//         } else{
+//             ans[idx] = s.top();
+//         }
 
-        s.push(curr);
-    }
+//         s.push(curr);
+//     }
 
-    for(int i=0;i<ans.size();i++){
-        cout << ans[i] << " ";
-    }
-    cout << endl;
-}
+//     for(int i=0;i<ans.size();i++){
+//         cout << ans[i] << " ";
+//     }
+//     cout << endl;
+// }
 
+// valid Pthes
 int main(){
-    vector<int> arr = {6,8,0,1,3};
-    vector<int> ans = {0,0,0,0,0};
-    nextGreaterElement(arr,ans);
+    string str = "({[]})";
+    string str = "({[";
+    string str = "]})";
+    string str = "({]})";
     return 0;
 }

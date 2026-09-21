@@ -18,7 +18,7 @@ static int idx = -1;
 
 Node* buildTree(vector<int>nodes){
     idx++;
-    if(nodes[idx] == -1){
+    if( nodes[idx] == -1 ){
         return NULL;
     }
     Node* currNode = new Node(nodes[idx]);
@@ -28,14 +28,14 @@ Node* buildTree(vector<int>nodes){
 }
 
 // PreOrder Traversal
-// void preorder(Node* root){
-//     if(root == NULL){
-//         return;
-//     }
-//     cout << root->data << ",";
-//     preorder(root->left);
-//     preorder(root->right);
-// }
+void preorder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
 
 // Inorder Traversal
 // void inorder(Node* root){
@@ -59,37 +59,37 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // Level Order Traversal
-// void levelOrder(Node* root){
-//     if(root == NULL){
-//         return;
-//     }
-//     queue<Node*> q;
-//     q.push(root);
-//     q.push(NULL);
+void levelOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
 
-//     while(!q.empty()){
-//         Node* curr = q.front();
-//         q.pop();
+    while(!q.empty()){
+        Node* curr = q.front();
+        q.pop();
 
-//         if(curr == NULL){
-//             cout << endl;
-//             if(q.empty()){
-//                 break;
-//             }
-//             q.push(NULL);
-//         } else{
-//             cout << curr->data << " ";
+        if(curr == NULL){
+            cout << endl;
+            if(q.empty()){
+                break;
+            }
+            q.push(NULL);
+        } else{
+            cout << curr->data << " ";
         
-//             if(curr->left != NULL){
-//                 q.push(curr->left);
-//             }
-//             if(curr->right != NULL){
-//                 q.push(curr->right);
-//             }
-//         }
+            if(curr->left != NULL){
+                q.push(curr->left);
+            }
+            if(curr->right != NULL){
+                q.push(curr->right);
+            }
+        }
         
-//     }
-// }
+    }
+}
 
 // Height of Tree
 int height(Node* root){
@@ -100,16 +100,20 @@ int height(Node* root){
     int rightHt = height(root->right);
 
     int currHt = max(leftHt,rightHt) + 1;
+    
     return currHt;
 }
 
 int main(){
-    vector<int>nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+    vector<int>nodes = {1,2,4,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1};
     Node* root = buildTree(nodes);
 
-    // preorder(root);
+    preorder(root);
+    cout << endl;
     // inorder(root);
     // postorder(root);
     // levelOrder(root);
+    cout << endl;
+    cout << "Height of The tree is = " << height(root);
     return 0;
 }

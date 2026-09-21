@@ -1,13 +1,13 @@
-#include<iostream>
-#include<vector>
-#include<list>
-#include<stack>
+#include <iostream>
+#include <vector>
+#include <list>
+#include <stack>
 using namespace std;
 
 // template<class T>
 // class Stack{
 //     vector<T> vec;
-    
+
 // public:
 //     void push(T val){
 //         vec.push_back(val);
@@ -30,7 +30,6 @@ using namespace std;
 //         return vec.size() == 0;
 //     }
 
-
 // };
 
 // template<class T>
@@ -46,7 +45,7 @@ using namespace std;
 //         arr[idx] = val;
 //         idx++;
 //     }
-    
+
 //     void pop(){
 //         idx--;
 //     }
@@ -98,11 +97,10 @@ using namespace std;
 //         Node* head = NULL;
 //         void push_front(T val){
 //             Node* newNode = new Node(val);
-            
+
 //             newNode->next = head;
 //             head = newNode;
 
-            
 //         }
 
 //         void pop_front(){
@@ -128,7 +126,7 @@ using namespace std;
 
 //     List ll;
 //     public:
-    
+
 //     void push(T val){
 //         ll.push_front(val);
 //     }
@@ -233,14 +231,63 @@ using namespace std;
 // }
 
 // valid Pthes
-bool validPthes(string str){
+bool validPthes(string str)
+{
+    stack<char> s;
+    for (int i = 0; i < str.size(); i++)
+    {
+        char curr = str[i];
 
+        // opening brackets logic
+        if (curr == '(' || curr == '{' || curr == '[')
+        {
+            s.push(curr);
+        }
+        else
+        {
+            if (s.empty())
+            {
+                return false;
+            }
+
+            char top = s.top();
+
+            if ((top == '(' && curr == ')') ||
+                (top == '{' && curr == '}') ||
+                (top == '[' && curr == ']'))
+            {
+                s.pop();
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    if (s.empty())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    return s.empty();
 }
 
-int main(){
-    string str = "({[]})";
-    string str = "({[";
-    string str = "]})";
-    string str = "({]})";
+int main()
+{
+    string str1 = "({[]})";
+    string str2 = "({[";
+    string str3 = "]})";
+    string str4 = "({]})";
+    cout << validPthes(str1);
+    cout << endl;
+    cout << validPthes(str2);
+    cout << endl;
+    cout << validPthes(str3);
+    cout << endl;
+    cout << validPthes(str4);
     return 0;
 }

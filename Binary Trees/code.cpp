@@ -59,37 +59,39 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // Level Order Traversal
-void levelOrder(Node* root){
-    if(root == NULL){
-        return;
-    }
-    queue<Node*> q;
-    q.push(root);
-    q.push(NULL);
+// void levelOrder(Node* root){
+//     if(root == NULL){
+//         return;
+//     }
+//     queue<Node*> q;
+//     q.push(root);
+//     q.push(NULL);
 
-    while(!q.empty()){
-        Node* curr = q.front();
-        q.pop();
+//     while(!q.empty()){
+//         Node* curr = q.front();
+//         q.pop();
 
-        if(curr == NULL){
-            cout << endl;
-            if(q.empty()){
-                break;
-            }
-            q.push(NULL);
-        } else{
-            cout << curr->data << " ";
+//         if(curr == NULL){
+//             cout << endl;
+//             if(q.empty()){
+//                 break;
+//             }
+//             q.push(NULL);
+//         } else{
+//             cout << curr->data << " ";
         
-            if(curr->left != NULL){
-                q.push(curr->left);
-            }
-            if(curr->right != NULL){
-                q.push(curr->right);
-            }
-        }
+//             if(curr->left != NULL){
+//                 q.push(curr->left);
+//             }
+//             if(curr->right != NULL){
+//                 q.push(curr->right);
+//             }
+//         }
         
-    }
-}
+//     }
+// }
+
+// Height of Tree
 
 int main(){
     vector<int>nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -98,6 +100,6 @@ int main(){
     // preorder(root);
     // inorder(root);
     // postorder(root);
-    levelOrder(root);
+    // levelOrder(root);
     return 0;
 }

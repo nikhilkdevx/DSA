@@ -278,11 +278,15 @@ using namespace std;
 
 // duplicat pthes
 bool duplicatPthes(string str){
-
+    stack<int>s;
+    for(int i=0;i<str.size();i++){
+        
+    }
 }
 
 int main()
 {
-    
+    string str1 = "((a+b) + (c+d))";
+    string str1 = "(((a+b) + (c+d)))";
     return 0;
 }

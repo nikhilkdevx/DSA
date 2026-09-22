@@ -231,63 +231,58 @@ using namespace std;
 // }
 
 // valid Pthes
-bool validPthes(string str)
-{
-    stack<char> s;
-    for (int i = 0; i < str.size(); i++)
-    {
-        char curr = str[i];
+// bool validPthes(string str)
+// {
+//     stack<char> s;
+//     for (int i = 0; i < str.size(); i++)
+//     {
+//         char curr = str[i];
 
-        // opening brackets logic
-        if (curr == '(' || curr == '{' || curr == '[')
-        {
-            s.push(curr);
-        }
-        else
-        {
-            if (s.empty())
-            {
-                return false;
-            }
+//         // opening brackets logic
+//         if (curr == '(' || curr == '{' || curr == '[')
+//         {
+//             s.push(curr);
+//         }
+//         else
+//         {
+//             if (s.empty())
+//             {
+//                 return false;
+//             }
 
-            char top = s.top();
+//             char top = s.top();
 
-            if ((top == '(' && curr == ')') ||
-                (top == '{' && curr == '}') ||
-                (top == '[' && curr == ']'))
-            {
-                s.pop();
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
+//             if ((top == '(' && curr == ')') ||
+//                 (top == '{' && curr == '}') ||
+//                 (top == '[' && curr == ']'))
+//             {
+//                 s.pop();
+//             }
+//             else
+//             {
+//                 return false;
+//             }
+//         }
+//     }
 
-    if (s.empty())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-    return s.empty();
+//     if (s.empty())
+//     {
+//         return true;
+//     }
+//     else
+//     {
+//         return false;
+//     }
+//     return s.empty();
+// }
+
+// duplicat pthes
+bool duplicatPthes(string str){
+
 }
 
 int main()
 {
-    string str1 = "({[]})";
-    string str2 = "({[";
-    string str3 = "]})";
-    string str4 = "({]})";
-    cout << validPthes(str1);
-    cout << endl;
-    cout << validPthes(str2);
-    cout << endl;
-    cout << validPthes(str3);
-    cout << endl;
-    cout << validPthes(str4);
+    
     return 0;
 }

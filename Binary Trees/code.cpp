@@ -106,7 +106,13 @@ int height(Node* root){
 
 // Count of Nodes
 int countNode(Node* root){
-    
+    if(root == NULL){
+        return 0;
+    }
+    int count = 0;
+    int leftCount = countNode(root->left);
+    int rightCount = countNode(root->right);
+    return leftCount + rightCount + 1;
 
 
 }

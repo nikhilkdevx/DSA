@@ -122,12 +122,13 @@ int main(){
     vector<int>nodes = {1,2,4,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1};
     Node* root = buildTree(nodes);
 
-    preorder(root);
-    cout << endl;
+    // preorder(root);
+    // cout << endl;
     // inorder(root);
     // postorder(root);
     // levelOrder(root);
-    cout << endl;
-    cout << "Height of The tree is = " << height(root);
+    // cout << endl;
+    // cout << "Height of The tree is = " << height(root);
+    cout << "Count of The tree is = " << countNode(root);
     return 0;
 }

@@ -118,7 +118,14 @@ int countNode(Node* root){
 }
 
 // Sum Of Nodes
-
+int sumOfTree(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int leftSum = sumOfTree(root->left);
+    int rightSum = sumOfTree(root->right);
+    return leftSum + rightSum + root->data;
+}
 
 int main(){
     vector<int>nodes = {1,2,4,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1};

@@ -138,6 +138,7 @@ int main(){
     // levelOrder(root);
     // cout << endl;
     // cout << "Height of The tree is = " << height(root);
-    cout << "Count of The tree is = " << countNode(root);
+    // cout << "Count of The tree is = " << countNode(root);
+    cout << "Sum of The tree is = " << sumOfTree(root);
     return 0;
 }

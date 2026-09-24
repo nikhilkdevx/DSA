@@ -17,7 +17,14 @@ public:
 
 static int idx = -1;
 Node* buildTree(vector<int>nodes){
-    
+    idx++;
+    if(nodes[idx] == -1){
+        return NULL;
+    }
+    Node* currNode = new Node(nodes[idx]);
+    currNode->left = buildTree(nodes);
+    currNode->right = buildTree(nodes);
+    return currNode;
 }
 
 int main(){

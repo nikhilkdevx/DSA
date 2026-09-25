@@ -277,32 +277,37 @@ using namespace std;
 // }
 
 // duplicat pthes
-bool duplicatPthes(string str){
-    stack<char>s;
-    for(int i=0;i<str.size();i++){
-        char ch = str[i];
-        if(ch != ')'){
-            s.push(ch);
-        } else {
-            if(s.top() == '('){
-                return true;
-            }
-            while(s.top() != '('){
-                s.pop();
-            }
-            s.pop();
-        }
-    }
+// bool duplicatPthes(string str){
+//     stack<char>s;
+//     for(int i=0;i<str.size();i++){
+//         char ch = str[i];
+//         if(ch != ')'){
+//             s.push(ch);
+//         } else {
+//             if(s.top() == '('){
+//                 return true;
+//             }
+//             while(s.top() != '('){
+//                 s.pop();
+//             }
+//             s.pop();
+//         }
+//     }
 
-    return false;
+//     return false;
+// }
+
+// Histogram Logic 
+int maxHistogramArea(vector<int> height){
+
+    // Calculating Area
+    
 }
 
 int main()
 {
-    string str1 = "((a+b) + (c+d))";
-    string str2 = "(((a+b) + (c+d)))";
-    cout << duplicatPthes(str1);
-    cout << duplicatPthes(str2);
+    vector<int> height = {2,1,5,6,2,3};
+
 
     return 0;
 }

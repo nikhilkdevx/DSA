@@ -27,6 +27,15 @@ Node* buildTree(vector<int>nodes){
     return currNode;
 };
 
+int heightOfTree(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int leftHt = heightOfTree(root->left);
+    int rightHt = heightOfTree(root->right);
+    int currHt = max(leftHt,rightHt) + 1;
+    return currHt;
+}
 
 
 int main(){

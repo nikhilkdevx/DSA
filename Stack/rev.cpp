@@ -300,11 +300,24 @@ using namespace std;
 // Histogram Logic 
 int maxHistogramArea(vector<int> height){
     int n = height.size();
+    vector<int>LeftBoundary(0,n);
+    vector<int>rightBoundary(0,n);
+    stack<int> s;
 
+    // Finding Next smaller Left
+    LeftBoundary[0] = -1;
+    s.push(0);
+    for(int i = 0;i<n ;i++){
+        int curr = height[i];
+        while(!s.empty() && curr <= height[s.top()]){
+            s.pop();
+        }
+    }
     // Calculating Area
     int maxArea = 0;
     for(int i = 0;i < n; i++){
         int height = height[i];
+        int width = rightBoundary[i] - LeftBoundary[i] - 1;
         int area = height * width;
         maxArea = max(area,maxArea);
     }

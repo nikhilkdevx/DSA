@@ -38,7 +38,14 @@ int heightOfTree(Node* root){
 }
 // Diameter of a Tree
 int diam1(Node* root){ // [O(n^2)]
-    
+    if(root == NULL){
+        return 0;
+    }
+    int currDiam = heightOfTree(root->left) + heightOfTree(root->right) + 1 ;
+    int leftDiam = diam1(root->left);
+    int rightDiam = diam1(root->right);
+
+    return max(currDiam,max(leftDiam,rightDiam));
 
 }
 

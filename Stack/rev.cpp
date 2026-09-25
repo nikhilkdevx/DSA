@@ -299,9 +299,17 @@ using namespace std;
 
 // Histogram Logic 
 int maxHistogramArea(vector<int> height){
+    int n = height.size();
 
     // Calculating Area
-    
+    int maxArea = 0;
+    for(int i = 0;i < n; i++){
+        int height = height[i];
+        int area = height * width;
+        maxArea = max(area,maxArea);
+    }
+
+    cout << "The Maximum Area of Histogram is : " << maxArea;
 }
 
 int main()

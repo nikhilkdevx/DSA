@@ -324,7 +324,23 @@ int maxHistogramArea(vector<int> height){
     while(s.empty()){
         s.pop();
     }
-    
+
+    // Finding next Smaller Right
+    rightBoundary[n-1] = n;
+    s.push(n-1);
+    for(int i = n-2;i>= 0 ; i--){
+        while (!s.empty() && curr <= height[s.top()])
+        {
+            s.pop();
+        }
+        if(s.empty()){
+            rightBoundary[i] = n;
+        } else {
+            rightBoundary[i] = s.top();
+        }
+        s.push(i);
+    }
+
     // Calculating Area
     int maxArea = 0;
     for(int i = 0;i < n; i++){
@@ -340,7 +356,6 @@ int maxHistogramArea(vector<int> height){
 int main()
 {
     vector<int> height = {2,1,5,6,2,3};
-
-
+    maxHistogramArea(height);
     return 0;
 }

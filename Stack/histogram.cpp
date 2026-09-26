@@ -28,6 +28,7 @@ void maxAreaHistogram(vector<int> height) {
     while(!s.empty()){
         s.pop();
     }
+    
     // next smaller right
     int n = height.size();
     s.push(n-1);

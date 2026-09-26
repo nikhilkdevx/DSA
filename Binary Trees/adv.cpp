@@ -50,12 +50,18 @@ int diam1(Node* root){ // [O(n^2)]
 }
 
 // Diameter of Tree [O(n)]
-int diam2(Node* root,int height){
+pair<int,int> diam2(Node* root){
     if(root == NULL){
-        return 0;
+        return make_pair(0,0);
     }
-    
-}
+    //(diameter , Height)
+    pair<int,int> leftInfo = diam2(root->left); //(LD,LH)
+    pair<int,int> rightInfo = diam2(root->right); //(RD,RH)
+    int currDiam = leftInfo.second + rightInfo.second + 1;
+    int finalDiam = max(currDiam, max(leftInfo.first,rightInfo.first));
+    int finalHt = max(leftInfo.second,rightInfo.second) + 1;
+    return make_pair(finalDiam,finalHt);
+};
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};

@@ -300,8 +300,8 @@ using namespace std;
 // Histogram Logic 
 int maxHistogramArea(vector<int> height){
     int n = height.size();
-    vector<int>LeftBoundary(0,n);
-    vector<int>rightBoundary(0,n);
+    vector<int>LeftBoundary(n);
+    vector<int>rightBoundary(n);
     stack<int> s;
 
     // Finding Next smaller Left
@@ -329,6 +329,7 @@ int maxHistogramArea(vector<int> height){
     rightBoundary[n-1] = n;
     s.push(n-1);
     for(int i = n-2;i>= 0 ; i--){
+        int curr = height[i];
         while (!s.empty() && curr <= height[s.top()])
         {
             s.pop();
@@ -344,13 +345,14 @@ int maxHistogramArea(vector<int> height){
     // Calculating Area
     int maxArea = 0;
     for(int i = 0;i < n; i++){
-        int height = height[i];
-        int width = rightBoundary[i] - LeftBoundary[i] - 1;
-        int area = height * width;
+        int h = height[i];
+        int w = rightBoundary[i] - LeftBoundary[i] - 1;
+        int area = h * w;
         maxArea = max(area,maxArea);
     }
 
     cout << "The Maximum Area of Histogram is : " << maxArea;
+    return maxArea;
 }
 
 int main()

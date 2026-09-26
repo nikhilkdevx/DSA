@@ -312,7 +312,19 @@ int maxHistogramArea(vector<int> height){
         while(!s.empty() && curr <= height[s.top()]){
             s.pop();
         }
+        if(s.empty()){
+            LeftBoundary[i] = -1;
+        } else {
+            LeftBoundary[i] = s.top();
+        }
+        s.push(i);
+
     }
+    // Clearing Stack once again for reuse
+    while(s.empty()){
+        s.pop();
+    }
+    
     // Calculating Area
     int maxArea = 0;
     for(int i = 0;i < n; i++){

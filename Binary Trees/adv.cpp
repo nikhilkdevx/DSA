@@ -64,16 +64,22 @@ int heightOfTree(Node* root){
 // };
 
 // Subtree of a Tree 
-bool findSubTree(Node* root , Node* subroot){
-    if(root == NULL || subroot == NULL){
+bool isSubTree(Node* root , Node* subRoot){
+    if(root == NULL || subRoot == NULL){
         return false;
     }
+    if(subRoot->data == root->data){
+        return true;
+    }
+    isSubTree(root->left,subRoot);
+    isSubTree(root->right,subRoot);
+
 }
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     vector<int> node2 = {3,4,-1,-1,5,-1,-1};
     Node* root = buildTree(nodes);
-    Node* subroot = buildTree(node2);
+    Node* subRoot = buildTree(node2);
     return 0;
 };

@@ -64,7 +64,11 @@ int heightOfTree(Node* root){
 // };
 
 // Subtree of a Tree 
-
+bool findSubTree(Node* root , Node* subroot){
+    if(root == NULL || subroot == NULL){
+        return false;
+    }
+}
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};

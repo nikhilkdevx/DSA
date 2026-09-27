@@ -65,14 +65,23 @@ int heightOfTree(Node* root){
 
 // Subtree of a Tree 
 bool isSubTree(Node* root , Node* subRoot){
-    if(root == NULL || subRoot == NULL){
+
+    if(root == NULL && subRoot == NULL){
+        return true;
+    } else if(root == NULL || subRoot == NULL){
         return false;
     }
+
     if(subRoot->data == root->data){
+        // Identical Check  
         return true;
     }
-    isSubTree(root->left,subRoot);
-    isSubTree(root->right,subRoot);
+
+    int isLeftSubTree = isSubTree(root->left,subRoot);
+    
+    if(!isLeftSubTree){
+        return isSubTree(root->right,subRoot);
+    }
     return true;
 
 }

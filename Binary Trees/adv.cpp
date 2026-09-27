@@ -69,20 +69,23 @@ bool isIdentical(Node* root1 , Node* root2){
     if(root1 == NULL && root2 == NULL){
         return true;
     }
+    
     if(root1 == NULL || root2 == NULL){
         return false;
     }
     if(root1->data != root2->data){
         return false;
     }
-    int LeftIdentical = isIdentical(root1->left,root2->left);
+    
+    bool LeftIdentical = isIdentical(root1->left,root2->left);
     if(!LeftIdentical){
         return false;
     }
-    int rightIdentical = isIdentical(root1->right,root2->right);
+    bool rightIdentical = isIdentical(root1->right,root2->right);
     if(!rightIdentical){
         return false;
     }
+
     return true;
 }
 
@@ -96,10 +99,12 @@ bool isSubTree(Node* root , Node* subRoot){
 
     if(subRoot->data == root->data){
         // Identical Check  
-        return true;
+        if(isIdentical(root,subRoot)){
+            return true;
+        };
     }
 
-    int isLeftSubTree = isSubTree(root->left,subRoot);
+    bool isLeftSubTree = isSubTree(root->left,subRoot);
     
     if(!isLeftSubTree){
         return isSubTree(root->right,subRoot);

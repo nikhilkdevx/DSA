@@ -166,7 +166,22 @@ class List{
     }
 
     void swapNodes(int key1 ,int key2){
+        Node* temp1 = head;
+        Node* temp2 = head;
+        while(temp1->next->data != key1 && temp1->next != NULL){
+            temp1 = temp1->next;
+        }
+        Node* firstPrevNode = temp1;
+        Node* currTemp1 = temp1->next;
         
+        while(temp2->next->data != key2 && temp2->next != NULL){
+            temp2 = temp2->next;
+        }
+        Node* secondPrevNode = temp2;
+        Node* currTemp2 = temp2->next;
+
+        // firstPrevNode->next = currTemp2;
+
 
 
 

@@ -65,53 +65,57 @@ int heightOfTree(Node* root){
 
 // Subtree of a Tree 
 
-bool isIdentical(Node* root1 , Node* root2){
-    if(root1 == NULL && root2 == NULL){
-        return true;
-    }
+// bool isIdentical(Node* root1 , Node* root2){
+//     if(root1 == NULL && root2 == NULL){
+//         return true;
+//     }
     
-    if(root1 == NULL || root2 == NULL){
-        return false;
-    }
-    if(root1->data != root2->data){
-        return false;
-    }
+//     if(root1 == NULL || root2 == NULL){
+//         return false;
+//     }
+//     if(root1->data != root2->data){
+//         return false;
+//     }
     
-    bool LeftIdentical = isIdentical(root1->left,root2->left);
-    if(!LeftIdentical){
-        return false;
-    }
-    bool rightIdentical = isIdentical(root1->right,root2->right);
-    if(!rightIdentical){
-        return false;
-    }
+//     bool LeftIdentical = isIdentical(root1->left,root2->left);
+//     if(!LeftIdentical){
+//         return false;
+//     }
+//     bool rightIdentical = isIdentical(root1->right,root2->right);
+//     if(!rightIdentical){
+//         return false;
+//     }
 
-    return true;
-}
+//     return true;
+// }
 
-bool isSubTree(Node* root , Node* subRoot){
+// bool isSubTree(Node* root , Node* subRoot){
 
-    if(root == NULL && subRoot == NULL){
-        return true;
-    } else if(root == NULL || subRoot == NULL){
-        return false;
-    }
+//     if(root == NULL && subRoot == NULL){
+//         return true;
+//     } else if(root == NULL || subRoot == NULL){
+//         return false;
+//     }
 
-    if(subRoot->data == root->data){
-        // Identical Check  
-        if(isIdentical(root,subRoot)){
-            return true;
-        };
-    }
+//     if(subRoot->data == root->data){
+//         // Identical Check  
+//         if(isIdentical(root,subRoot)){
+//             return true;
+//         };
+//     }
 
-    bool isLeftSubTree = isSubTree(root->left,subRoot);
+//     bool isLeftSubTree = isSubTree(root->left,subRoot);
     
-    if(!isLeftSubTree){
-        return isSubTree(root->right,subRoot);
-    }
-    return true;
+//     if(!isLeftSubTree){
+//         return isSubTree(root->right,subRoot);
+//     }
+//     return true;
 
-}
+// }
+
+// Map 
+
+
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -119,6 +123,6 @@ int main(){
     Node* root = buildTree(nodes);
     idx = -1;
     Node* subRoot = buildTree(node2);
-    cout << isSubTree(root,subRoot);
+    
     return 0;
 };

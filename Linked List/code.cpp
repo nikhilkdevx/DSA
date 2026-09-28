@@ -200,5 +200,6 @@ int main(){
     
     ll.printList();
     ll.swapNodes(2,4);
+    ll.printList();
     return 0;
 }

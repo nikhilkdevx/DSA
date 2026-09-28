@@ -162,22 +162,26 @@ class List{
         Node* toDel = prev->next;
         cout << "going to Del : " << toDel->data << endl;
         prev->next = prev->next->next;
-        delete todel;
+        delete toDel;
     }
 
-    void swapNodes(Node* head){
+    void swapNodes(int key1 ,int key2){
+        
+
+
 
     }
 };
 
 int main(){
     List ll;
-    ll.push_front(5);
+
     ll.push_front(4);
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
-    ll.insert(100,3);
+    
     ll.printList();
+    ll.swapNodes(2,4);
     return 0;
 }

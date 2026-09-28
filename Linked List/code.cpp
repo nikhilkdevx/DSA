@@ -179,11 +179,13 @@ class List{
         }
         Node* secondPrevNode = temp2;
         Node* currTemp2 = temp2->next;
+        Node* temp = currTemp1->next;
 
-        // firstPrevNode->next = currTemp2;
+        firstPrevNode->next = currTemp2;
+        secondPrevNode->next = currTemp1;
 
-
-
+        currTemp1->next = currTemp2->next;
+        currTemp2->next = temp;
 
     }
 };

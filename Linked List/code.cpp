@@ -164,6 +164,10 @@ class List{
         prev->next = prev->next->next;
         delete todel;
     }
+
+    void swapNodes(Node* head){
+
+    }
 };
 
 int main(){

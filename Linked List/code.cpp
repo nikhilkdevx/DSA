@@ -209,7 +209,16 @@ class List{
             return;
         }
 
-        
+        if(temp2->next == temp1){
+            if(secondPrevNode != NULL){
+                secondPrevNode->next = temp1;
+            } else {
+                head = temp1;
+            }
+            temp2->next = temp1->next;
+            temp1->next = temp2;
+            return;
+        }
         Node* currTemp2 = temp2->next;
         Node* temp = currTemp1->next;
 

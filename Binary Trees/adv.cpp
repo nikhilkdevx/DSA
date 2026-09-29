@@ -114,16 +114,14 @@ int heightOfTree(Node* root){
 // }
 
 // Top View of a Tree
- 
+
 
 
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
-    vector<int> node2 = {2,4,-1,-1,6,-1,-1};
+    
     Node* root = buildTree(nodes);
-    idx = -1;
-    Node* subRoot = buildTree(node2);
     
     return 0;
 };

@@ -189,8 +189,14 @@ class List{
             curr = curr->next;
         }
         firstPrevNode = curr;
+
+        Node* secondPrevNode = NULL;
+        curr = head;
+        while(curr != NULL && curr->next != key2){
+            curr = curr->next;
+        }
+        secondPrevNode = curr;
         
-        Node* secondPrevNode = temp2;
         Node* currTemp2 = temp2->next;
         Node* temp = currTemp1->next;
 

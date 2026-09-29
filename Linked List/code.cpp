@@ -192,7 +192,7 @@ class List{
 
         Node* secondPrevNode = NULL;
         curr = head;
-        while(curr != NULL && curr->next != key2){
+        while(curr != NULL && curr->next != temp2){
             curr = curr->next;
         }
         secondPrevNode = curr;
@@ -252,7 +252,7 @@ int main(){
     ll.push_front(1);
     
     ll.printList();
-    ll.swapNodes(2,4);
+    ll.swapNodes(1,4);
     ll.printList();
     return 0;
 }

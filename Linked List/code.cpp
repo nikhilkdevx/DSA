@@ -166,23 +166,37 @@ class List{
     }
 
     void swapNodes(int key1 ,int key2){
+        if(key1 == key2){
+            return;
+        }
         Node* temp1 = head;
         Node* temp2 = head;
         while(temp1->next->data != key1 && temp1->next != NULL){
             temp1 = temp1->next;
         }
-        Node* firstPrevNode = temp1;
-        Node* currTemp1 = temp1->next;
+        
         
         while(temp2->next->data != key2 && temp2->next != NULL){
             temp2 = temp2->next;
         }
+        Node* firstPrevNode = temp1;
+        Node* currTemp1 = temp1->next;
         Node* secondPrevNode = temp2;
         Node* currTemp2 = temp2->next;
         Node* temp = currTemp1->next;
 
-        firstPrevNode->next = currTemp2;
-        secondPrevNode->next = currTemp1;
+        if(currTemp1 == head){
+            head = currTemp2;
+        } else {
+            firstPrevNode->next = currTemp2;
+        }
+        
+        if(currTemp2 == head){
+            head = currTemp1;
+        } else {
+            secondPrevNode->next = currTemp1;
+        }
+        
 
         currTemp1->next = currTemp2->next;
         currTemp2->next = temp;

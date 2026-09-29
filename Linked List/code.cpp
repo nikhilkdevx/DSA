@@ -171,16 +171,25 @@ class List{
         }
         Node* temp1 = head;
         Node* temp2 = head;
-        while(temp1->next->data != key1 && temp1->next != NULL){
+        while(temp1 != NULL  && temp1->data != key1){
             temp1 = temp1->next;
         }
-        
-        
-        while(temp2->next->data != key2 && temp2->next != NULL){
+
+        while(temp2 != NULL  && temp2->data != key2){
             temp2 = temp2->next;
         }
-        Node* firstPrevNode = temp1;
-        Node* currTemp1 = temp1->next;
+
+        if(temp1 == NULL || temp2 == NULL){
+            return;
+        } 
+
+        Node* firstPrevNode = NULL;
+        Node* curr = head;
+        while(curr != NULL && curr->next != temp1){
+            curr = curr->next;
+        }
+        firstPrevNode = curr;
+        
         Node* secondPrevNode = temp2;
         Node* currTemp2 = temp2->next;
         Node* temp = currTemp1->next;

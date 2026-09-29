@@ -209,6 +209,7 @@ class List{
             return;
         }
 
+        // if key 2 is earlier than key1 
         if(temp2->next == temp1){
             if(secondPrevNode != NULL){
                 secondPrevNode->next = temp1;
@@ -219,24 +220,25 @@ class List{
             temp1->next = temp2;
             return;
         }
-        Node* currTemp2 = temp2->next;
-        Node* temp = currTemp1->next;
 
-        if(currTemp1 == head){
-            head = currTemp2;
+
+        // if Nodes are not adjacent
+        if(firstPrevNode != NULL){
+            firstPrevNode->next = temp2;
         } else {
-            firstPrevNode->next = currTemp2;
+            head = temp2;
         }
         
-        if(currTemp2 == head){
-            head = currTemp1;
+        if(secondPrevNode != NULL){
+            secondPrevNode->next = temp1;
         } else {
-            secondPrevNode->next = currTemp1;
+            head = temp1;
         }
-        
 
-        currTemp1->next = currTemp2->next;
-        currTemp2->next = temp;
+        Node* temp = temp1->next;
+        temp1->next = temp2->next;
+        temp2->next = temp;
+
 
     }
 };

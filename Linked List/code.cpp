@@ -196,6 +196,19 @@ class List{
             curr = curr->next;
         }
         secondPrevNode = curr;
+
+        // If key1 is immediately after key2
+        if(temp1->next == temp2){
+            if(firstPrevNode != NULL){
+                firstPrevNode->next = temp2;
+            } else{
+                head = temp2;
+            }
+            temp1->next = temp2->next;
+            temp2->next = temp1;
+            return;
+        }
+
         
         Node* currTemp2 = temp2->next;
         Node* temp = currTemp1->next;

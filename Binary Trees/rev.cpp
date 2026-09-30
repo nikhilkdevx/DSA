@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<queue>
+#include<map>
 using namespace std;
 
 class Node{
@@ -88,7 +89,35 @@ Node* buildTree(vector<int>nodes){
 // }
 
 void topViewOfTree(Node* root){
-    
+    queue<pair<Node* , int>> Q;
+    map<int,int> m;
+    Q.push(make_pair(root,0));
+    while(!Q.empty()){
+        pair<Node* , int> curr = Q.front();
+        Node* currNode = curr.first;
+        int currHD = curr.second;
+        Q.pop();
+
+        if(m[currHD] != 0){
+            m[currHD] = currNode->data;
+        }
+
+        if(currNode->left != NULL){
+            Q.push(make_pair(currNode->left,currHD - 1));
+        }
+
+        if(currNode->right != NULL){
+            Q.push(make_pair(currNode->right,currHD + 1));
+        }
+
+    }
+
+    for(auto it : m){
+        cout << it.second << " ";
+    }
+
+    cout << endl;
+
 }
 
 
@@ -99,5 +128,6 @@ Node* root = buildTree(nodes);
 // inorder(root);
 // postorder(root);
 // levelOrder(root);
+topViewOfTree(root);
 return 0;
 }

@@ -163,6 +163,6 @@ Node* root = buildTree(nodes);
 // postorder(root);
 // levelOrder(root);
 // topViewOfTree(root);
-
+bottomViewOfTree(root);
 return 0;
 }

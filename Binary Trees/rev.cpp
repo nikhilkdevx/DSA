@@ -150,7 +150,6 @@ void bottomViewOfTree(Node* root){
     for(auto it : m){
         cout << it.second << " ";
     }
-
     cout << endl;
 
 }
@@ -164,6 +163,6 @@ Node* root = buildTree(nodes);
 // postorder(root);
 // levelOrder(root);
 // topViewOfTree(root);
-bottomViewOfTree(root);
+
 return 0;
 }

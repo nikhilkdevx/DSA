@@ -192,7 +192,6 @@ void kthHelper(Node* root , int K, int currLevel){
 void kthLevelOfTree(Node*root , int K){
     kthHelper(root,K,1);
     cout << endl;
-
 }
 
 

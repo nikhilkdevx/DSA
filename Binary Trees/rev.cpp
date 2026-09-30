@@ -98,7 +98,7 @@ void topViewOfTree(Node* root){
         int currHD = curr.second;
         Q.pop();
 
-        if(m[currHD] != 0){
+        if(m.count(currHD) == 0){
             m[currHD] = currNode->data;
         }
 

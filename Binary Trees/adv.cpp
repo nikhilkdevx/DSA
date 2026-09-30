@@ -151,6 +151,25 @@ int heightOfTree(Node* root){
 // }
 
 // kth level of a Tree
+void kthLevelOfTree(Node* root , int k){
+    queue<Node*> Q;
+    Q.push(root);
+    while (!Q.empty())
+    {
+        Node* curr = Q.front();
+        Q.pop();
+
+        cout << curr->data << " ";
+        if(curr->left != NULL){
+            Q.push(curr->left);
+        }
+
+        if(curr->right != NULL){
+            Q.push(curr->right);
+        }
+    }
+    
+}
 
 
 int main(){

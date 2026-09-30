@@ -150,30 +150,39 @@ int heightOfTree(Node* root){
 //     cout << endl;
 // }
 
-// kth level of a Tree
-void kthLevelOfTree(Node* root , int k){
-    queue<Node*> Q;
-    Q.push(root);
-    while (!Q.empty())
-    {
-        Node* curr = Q.front();
-        Q.pop();
+// kth level of a Tree [ Iterative Way ]
+// void kthLevelOfTree(Node* root,int k){
+//     queue<Node*> Q;
+//     Q.push(root);
+//     int count = 0;
+//     while (!Q.empty())
+//     {
+//         Node* curr = Q.front();
+//         Q.pop();
+//         if(count == k){
+//             cout << curr->data << " ";
+//         }        
+//         if(curr->left != NULL){
+//             Q.push(curr->left);
+//         }
 
-        cout << curr->data << " ";
-        if(curr->left != NULL){
-            Q.push(curr->left);
-        }
+//         if(curr->right != NULL){
+//             Q.push(curr->right);
+//         }
 
-        if(curr->right != NULL){
-            Q.push(curr->right);
-        }
-    }
+//         count++;
+//     }
     
+// }
+
+void kthLevelOfTree(Node*root , int k){
+    int count = 0;
 }
 
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
+    kthLevelOfTree(root,3);
     return 0;
 };

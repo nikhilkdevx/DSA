@@ -241,6 +241,11 @@ class List{
 
 
     }
+
+    void oddEven(){
+        
+    }
+
 };
 
 int main(){

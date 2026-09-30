@@ -29,62 +29,66 @@ Node* buildTree(vector<int>nodes){
 }
 
 // Traversals
-void preOrder(Node* root){
-    if(root == NULL){
-        return ;
-    }
-    cout << root->data << " ";
-    preOrder(root->left);
-    preOrder(root->right);
-}
+// void preOrder(Node* root){
+//     if(root == NULL){
+//         return ;
+//     }
+//     cout << root->data << " ";
+//     preOrder(root->left);
+//     preOrder(root->right);
+// }
 
-void inorder(Node* root){
-    if(root == NULL){
-        return;
-    }
-    inorder(root->left);
-    cout << root->data << " ";
-    inorder(root->right);
-}
+// void inorder(Node* root){
+//     if(root == NULL){
+//         return;
+//     }
+//     inorder(root->left);
+//     cout << root->data << " ";
+//     inorder(root->right);
+// }
 
-void postorder(Node* root){
-    if(root == NULL){
-        return;
-    }
-    postorder(root->left);
-    postorder(root->right);
-    cout << root->data << " ";
-}
+// void postorder(Node* root){
+//     if(root == NULL){
+//         return;
+//     }
+//     postorder(root->left);
+//     postorder(root->right);
+//     cout << root->data << " ";
+// }
 
-void levelOrder(Node* root){
-    if(root == NULL){
-        return;
-    }
-    queue<Node*> Q;
-    Q.push(root);
-    Q.push(NULL);
-    while(!Q.empty()){
-        Node* curr = Q.front();
-        Q.pop();
-        if(curr == NULL){
-            cout << endl;
-            if(Q.empty()){
-                break;
-            }
-            Q.push(NULL);
-        } else {
-            cout << curr->data << " ";
+// void levelOrder(Node* root){
+//     if(root == NULL){
+//         return;
+//     }
+//     queue<Node*> Q;
+//     Q.push(root);
+//     Q.push(NULL);
+//     while(!Q.empty()){
+//         Node* curr = Q.front();
+//         Q.pop();
+//         if(curr == NULL){
+//             cout << endl;
+//             if(Q.empty()){
+//                 break;
+//             }
+//             Q.push(NULL);
+//         } else {
+//             cout << curr->data << " ";
 
-            if(curr->left != NULL){
-                Q.push(curr->left);
-            }
+//             if(curr->left != NULL){
+//                 Q.push(curr->left);
+//             }
 
-            if(curr->right != NULL){
-                Q.push(curr->right);
-            }
-        }
-    }
+//             if(curr->right != NULL){
+//                 Q.push(curr->right);
+//             }
+//         }
+//     }
 
+// }
+
+void topViewOfTree(Node* root){
+    
 }
 
 
@@ -94,6 +98,6 @@ Node* root = buildTree(nodes);
 // preOrder(root);
 // inorder(root);
 // postorder(root);
-levelOrder(root);
+// levelOrder(root);
 return 0;
 }

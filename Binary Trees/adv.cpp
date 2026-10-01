@@ -175,24 +175,27 @@ int heightOfTree(Node* root){
     
 // }
 
-void kthHelper(Node* root , int K, int currLevel){
-    if(root == NULL){
-        return;
-    }
+// void kthHelper(Node* root , int K, int currLevel){
+//     if(root == NULL){
+//         return;
+//     }
 
-    if(currLevel == K){
-        cout << root->data << " ";
-        return;
-    }
+//     if(currLevel == K){
+//         cout << root->data << " ";
+//         return;
+//     }
 
-    kthHelper(root->left,K,currLevel+1);
-    kthHelper(root->right,K,currLevel+1);
-}
+//     kthHelper(root->left,K,currLevel+1);
+//     kthHelper(root->right,K,currLevel+1);
+// }
 
-void kthLevelOfTree(Node*root , int K){
-    kthHelper(root,K,1);
-    cout << endl;
-}
+// void kthLevelOfTree(Node*root , int K){
+//     kthHelper(root,K,1);
+//     cout << endl;
+// }
+
+
+// Lowest Common Ancestor
 
 
 int main(){

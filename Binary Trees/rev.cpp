@@ -155,7 +155,20 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // Kth level of a Tree 
+void kthLevel(Node* root , int K , int currOrder){
+    if(root == NULL){
+        return ;
 
+    }
+
+    if(currOrder == K){
+        cout << root->data << " ";
+        return;
+    }
+
+    kthLevel(root->left,K,currOrder + 1);
+    kthLevel(root->right,K,currOrder + 1);
+}
 
 int main(){
 vector<int> nodes = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};

@@ -195,7 +195,23 @@ int heightOfTree(Node* root){
 // }
 
 bool rootToNodePath(Node* root , int n,vector<int> &path){
+    if(root == NULL){
+        return false;
+    }
+    path.push_back(root->data);
+    if(root->data == n){
+        return true;
+    }
 
+    bool isLeft = rootToNodePath(root->left,n,path);
+    bool isRight = rootToNodePath(root->right,n,path);
+
+    if(isLeft || isRight){
+        return true;
+    }
+
+    path.pop_back();
+    return false;
 }
 
 // Lowest Common Ancestor

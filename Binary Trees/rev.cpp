@@ -58,33 +58,33 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // void levelOrder(Node* root){
-//     if(root == NULL){
-//         return;
-//     }
-//     queue<Node*> Q;
-//     Q.push(root);
-//     Q.push(NULL);
-//     while(!Q.empty()){
-//         Node* curr = Q.front();
-//         Q.pop();
-//         if(curr == NULL){
-//             cout << endl;
-//             if(Q.empty()){
-//                 break;
-//             }
-//             Q.push(NULL);
-//         } else {
-//             cout << curr->data << " ";
+    // if(root == NULL){
+    //     return;
+    // }
+    // queue<Node*> Q;
+    // Q.push(root);
+    // Q.push(NULL);
+    // while(!Q.empty()){
+    //     Node* curr = Q.front();
+    //     Q.pop();
+    //     if(curr == NULL){
+    //         cout << endl;
+    //         if(Q.empty()){
+    //             break;
+    //         }
+    //         Q.push(NULL);
+    //     } else {
+    //         cout << curr->data << " ";
 
-//             if(curr->left != NULL){
-//                 Q.push(curr->left);
-//             }
+    //         if(curr->left != NULL){
+    //             Q.push(curr->left);
+    //         }
 
-//             if(curr->right != NULL){
-//                 Q.push(curr->right);
-//             }
-//         }
-//     }
+    //         if(curr->right != NULL){
+    //             Q.push(curr->right);
+    //         }
+    //     }
+    // }
 
 // }
 
@@ -171,8 +171,33 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // Kth level by iterative Way
-void kthLevel(Node* root){
+void kthLevel(Node* root,int K){
+if(root == NULL){
+        return;
+    }
+    queue<Node*> Q;
+    Q.push(root);
+    int count = 1;
+    while(!Q.empty()){
+        int levelSize = Q.size();
+        for(int i = 0;i<levelSize; i++){
+            Node* curr = Q.front();
+            Q.pop();
+            if(count == K){
+                cout << curr->data << " ";
+            }
 
+            if(curr->left != NULL){
+                Q.push(curr->left);
+            }
+
+            if(curr->right != NULL){
+                Q.push(curr->right);
+            }
+        }
+        count++;
+        
+    }
 }
 
 int main(){
@@ -184,6 +209,6 @@ Node* root = buildTree(nodes);
 // levelOrder(root);
 // topViewOfTree(root);
 // bottomViewOfTree(root);
-kthLevel(root);
+kthLevel(root,2);
 return 0;
 }

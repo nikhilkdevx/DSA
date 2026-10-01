@@ -179,5 +179,6 @@ Node* root = buildTree(nodes);
 // levelOrder(root);
 // topViewOfTree(root);
 // bottomViewOfTree(root);
+kthLevel(root,3,1);
 return 0;
 }

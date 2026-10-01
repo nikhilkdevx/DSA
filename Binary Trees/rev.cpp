@@ -155,19 +155,24 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // Kth level of a Tree 
-void kthLevel(Node* root , int K , int currOrder){
-    if(root == NULL){
-        return ;
+// void kthLevel(Node* root , int K , int currOrder){
+//     if(root == NULL){
+//         return ;
 
-    }
+//     }
 
-    if(currOrder == K){
-        cout << root->data << " ";
-        return;
-    }
+//     if(currOrder == K){
+//         cout << root->data << " ";
+//         return;
+//     }
 
-    kthLevel(root->left,K,currOrder + 1);
-    kthLevel(root->right,K,currOrder + 1);
+//     kthLevel(root->left,K,currOrder + 1);
+//     kthLevel(root->right,K,currOrder + 1);
+// }
+
+// Kth level by iterative Way
+void kthLevel(Node* root){
+
 }
 
 int main(){
@@ -179,6 +184,6 @@ Node* root = buildTree(nodes);
 // levelOrder(root);
 // topViewOfTree(root);
 // bottomViewOfTree(root);
-kthLevel(root,3,1);
+kthLevel(root);
 return 0;
 }

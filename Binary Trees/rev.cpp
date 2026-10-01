@@ -121,38 +121,40 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // Bottom View of Tree
-void bottomViewOfTree(Node* root){
-    queue<pair<Node* , int>> Q;
-    map<int,int> m;
-    Q.push(make_pair(root,0));
-    while(!Q.empty()){
-        pair<Node* , int> curr = Q.front();
-        Node* currNode = curr.first;
-        int currHD = curr.second;
-        Q.pop();
+// void bottomViewOfTree(Node* root){
+//     queue<pair<Node* , int>> Q;
+//     map<int,int> m;
+//     Q.push(make_pair(root,0));
+//     while(!Q.empty()){
+//         pair<Node* , int> curr = Q.front();
+//         Node* currNode = curr.first;
+//         int currHD = curr.second;
+//         Q.pop();
 
-        if(m.count(currHD) == 0){
-            m[currHD] = currNode->data;
-        } else {
-            m[currHD] = currNode->data;
-        }
+//         if(m.count(currHD) == 0){
+//             m[currHD] = currNode->data;
+//         } else {
+//             m[currHD] = currNode->data;
+//         }
 
-        if(currNode->left != NULL){
-            Q.push(make_pair(currNode->left,currHD - 1));
-        }
+//         if(currNode->left != NULL){
+//             Q.push(make_pair(currNode->left,currHD - 1));
+//         }
 
-        if(currNode->right != NULL){
-            Q.push(make_pair(currNode->right,currHD + 1));
-        }
+//         if(currNode->right != NULL){
+//             Q.push(make_pair(currNode->right,currHD + 1));
+//         }
 
-    }
+//     }
 
-    for(auto it : m){
-        cout << it.second << " ";
-    }
-    cout << endl;
+//     for(auto it : m){
+//         cout << it.second << " ";
+//     }
+//     cout << endl;
 
-}
+// }
+
+// Kth level of a Tree 
 
 
 int main(){
@@ -163,6 +165,6 @@ Node* root = buildTree(nodes);
 // postorder(root);
 // levelOrder(root);
 // topViewOfTree(root);
-bottomViewOfTree(root);
+// bottomViewOfTree(root);
 return 0;
 }

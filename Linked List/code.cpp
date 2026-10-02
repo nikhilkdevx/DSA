@@ -248,23 +248,29 @@ class List{
         Node* evenTail = NULL;
         Node* oddHead = head;
         Node* oddTail = NULL;
-        while(evenHead->data %2 != 0){
+        while(evenHead != NULL &&  evenHead->data %2 != 0 ){
             evenHead = evenHead->next;
         }
-        evenTail = evenHead;
-
-        while(oddHead->data %2 == 0){
+         evenTail = evenHead;
+        
+        while(oddHead != NULL && oddHead->data %2 == 0){
             oddHead = oddHead->next;
         }
         oddTail = oddHead;
 
         while(temp != NULL){
         if(temp->data %2 == 0){
-           
+            if(temp == evenHead){
+                temp = temp->next;
+                continue;
+            }
             evenTail->next = temp;
             evenTail = temp;
         } else {
-            
+            if(temp == oddTail){
+                temp = temp->next;
+                continue;
+            }
             oddTail->next = temp;
             oddTail = temp;
         }

@@ -243,7 +243,35 @@ class List{
     }
 
     void oddEven(){
-        
+        Node* temp = head;
+        Node* evenHead = head;
+        Node* evenTail = NULL;
+        Node* oddHead = head;
+        Node* oddTail = NULL;
+        while(evenHead->data %2 != 0){
+            evenHead = evenHead->next;
+        }
+        evenTail = evenHead;
+
+        while(oddHead->data %2 == 0){
+            oddHead = oddHead->next;
+        }
+        oddTail = oddHead;
+
+        while(temp != NULL){
+        if(temp->data %2 == 0){
+           
+            evenTail->next = temp;
+            evenTail = temp;
+        } else {
+            
+            oddTail->next = temp;
+            oddTail = temp;
+        }
+        temp = temp->next;
+       } 
+       evenTail->next = oddHead;
+       oddTail->next = NULL;
     }
 
 };

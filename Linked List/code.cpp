@@ -295,16 +295,8 @@ class List{
 
 int main(){
     List ll;
-    ll.push_front(5);
-    ll.push_front(7);
-    ll.push_front(13);
-    ll.push_front(10);
-    ll.push_front(2);
-    ll.push_front(8);
     ll.printList();
     ll.oddEven();
     ll.printList();
-    
-    
     return 0;
 }

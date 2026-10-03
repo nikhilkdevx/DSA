@@ -215,7 +215,7 @@ bool rootToNodePath(Node* root , int n,vector<int> &path){
 }
 
 // Lowest Common Ancestor
-bool LCA(Node* root,int n1 , int n2){
+int LCA(Node* root,int n1 , int n2){
     vector<int> path1;
     vector<int> path2;
     rootToNodePath(root, n1,path1);
@@ -228,12 +228,15 @@ bool LCA(Node* root,int n1 , int n2){
 
         lca = path1[i];
     }
+
+    return lca;
 }
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
-    int n1 = 4 , n2 = 5;
+    
     // kthLevelOfTree(root,3);
+    cout << LCA(root,4,3);
     return 0;
 };

@@ -171,44 +171,41 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // Kth level by iterative Way
-void kthLevel(Node* root,int K){
-if(root == NULL){
-        return;
-    }
-    queue<Node*> Q;
-    Q.push(root);
-    int count = 1;
-    while(!Q.empty()){
-        int levelSize = Q.size();
-        for(int i = 0;i<levelSize; i++){
-            Node* curr = Q.front();
-            Q.pop();
-            if(count == K){
-                cout << curr->data << " ";
-            }
+// void kthLevel(Node* root,int K){
+// if(root == NULL){
+//         return;
+//     }
+//     queue<Node*> Q;
+//     Q.push(root);
+//     int count = 1;
+//     while(!Q.empty()){
+//         int levelSize = Q.size();
+//         for(int i = 0;i<levelSize; i++){
+//             Node* curr = Q.front();
+//             Q.pop();
+//             if(count == K){
+//                 cout << curr->data << " ";
+//             }
 
-            if(curr->left != NULL){
-                Q.push(curr->left);
-            }
+//             if(curr->left != NULL){
+//                 Q.push(curr->left);
+//             }
 
-            if(curr->right != NULL){
-                Q.push(curr->right);
-            }
-        }
-        count++;
+//             if(curr->right != NULL){
+//                 Q.push(curr->right);
+//             }
+//         }
+//         count++;
         
-    }
-}
+//     }
+// }
+
+// LCA 
+
 
 int main(){
 vector<int> nodes = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
 Node* root = buildTree(nodes);
-// preOrder(root);
-// inorder(root);
-// postorder(root);
-// levelOrder(root);
-// topViewOfTree(root);
-// bottomViewOfTree(root);
-kthLevel(root,3);
+
 return 0;
 }

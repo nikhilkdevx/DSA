@@ -243,11 +243,17 @@ class List{
     }
 
     void oddEven(){
+        if(head == NULL){
+            return;
+        }
         Node* temp = head;
         Node* evenHead = head;
         Node* evenTail = NULL;
         Node* oddHead = head;
         Node* oddTail = NULL;
+        if(temp->next == NULL){
+            return;
+        }
         while(evenHead != NULL &&  evenHead->data %2 != 0 ){
             evenHead = evenHead->next;
         }
@@ -267,7 +273,7 @@ class List{
             evenTail->next = temp;
             evenTail = temp;
         } else {
-            if(temp == oddTail){
+            if(temp == oddHead){
                 temp = temp->next;
                 continue;
             }
@@ -276,8 +282,13 @@ class List{
         }
         temp = temp->next;
        } 
+       if(evenTail == NULL){
+        return;
+       }
        evenTail->next = oddHead;
-       oddTail->next = NULL;
+       if(oddTail != NULL){
+        oddTail->next = NULL;
+       }
     }
 
 };
@@ -290,6 +301,8 @@ int main(){
     ll.push_front(10);
     ll.push_front(2);
     ll.push_front(8);
+    ll.printList();
+    ll.oddEven();
     ll.printList();
     
     

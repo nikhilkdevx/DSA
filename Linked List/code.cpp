@@ -317,6 +317,27 @@ void mergeLinkedList(Node* head1, Node* head2,Node* head3){
     tail1->next = head2;
     tail2->next = head3;
 
+    temp = head1;
+    while(temp != NULL){
+        Node* temp2 = temp->next;
+        while(temp2 != NULL){
+            if(temp->data > temp2->data){
+                int curr = temp->data;
+                temp->data = temp2->data;
+                temp2->data = curr;
+                
+            }
+            temp2 = temp2->next;
+        }
+        temp = temp->next;
+    }
+
+    temp = head1;
+    while(temp != NULL){
+        cout << temp->data << "->";
+        temp = temp->next;
+    }
+    cout << "NULL";
 }
 
 int main(){

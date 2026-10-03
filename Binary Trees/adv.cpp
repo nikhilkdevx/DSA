@@ -194,49 +194,53 @@ int heightOfTree(Node* root){
 //     cout << endl;
 // }
 
-bool rootToNodePath(Node* root , int n,vector<int> &path){
-    if(root == NULL){
-        return false;
-    }
-    path.push_back(root->data);
-    if(root->data == n){
-        return true;
-    }
+// Lowest Common Ancestor [ o (n) ]
+// bool rootToNodePath(Node* root , int n,vector<int> &path){
+//     if(root == NULL){
+//         return false;
+//     }
+//     path.push_back(root->data);
+//     if(root->data == n){
+//         return true;
+//     }
 
-    bool isLeft = rootToNodePath(root->left,n,path);
-    bool isRight = rootToNodePath(root->right,n,path);
+//     bool isLeft = rootToNodePath(root->left,n,path);
+//     bool isRight = rootToNodePath(root->right,n,path);
 
-    if(isLeft || isRight){
-        return true;
-    }
+//     if(isLeft || isRight){
+//         return true;
+//     }
 
-    path.pop_back();
-    return false;
-}
+//     path.pop_back();
+//     return false;
+// }
 
-// Lowest Common Ancestor
-int LCA(Node* root,int n1 , int n2){
-    vector<int> path1;
-    vector<int> path2;
-    rootToNodePath(root, n1,path1);
-    rootToNodePath(root, n1,path2);
-    int lca = -1;
-    for(int i = 0 , j = 0 ; i<path1.size() && j < path2.size(); i++,j++){
-        if(path1[i] != path2[j]){
-            return lca;
-        }
 
-        lca = path1[i];
-    }
+// int LCA(Node* root,int n1 , int n2){
+//     vector<int> path1;
+//     vector<int> path2;
+//     rootToNodePath(root, n1,path1);
+//     rootToNodePath(root, n1,path2);
+//     int lca = -1;
+//     for(int i = 0 , j = 0 ; i<path1.size() && j < path2.size(); i++,j++){
+//         if(path1[i] != path2[j]){
+//             return lca;
+//         }
 
-    return lca;
-}
+//         lca = path1[i];
+//     }
+
+//     return lca;
+// }
+
+// LCA [Approach 2]
+
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
     
     // kthLevelOfTree(root,3);
-    cout << LCA(root,4,3);
+    // cout << LCA(root,4,3);
     return 0;
 };

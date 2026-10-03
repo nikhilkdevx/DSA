@@ -201,7 +201,25 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // LCA 
+bool rootToNode(Node* root,vector<int> &path,int n){
+    if(root == NULL){
+        return false;
+    }
+    path.push_back(root->data);
+    if(root->data == n){
+        return true;
+    }
 
+    bool isLeft = rootToNode(root->left,path,n);
+    bool isRight = rootToNode(root->right,path,n);
+
+    if(isLeft || isRight){
+        return true;
+    }
+    path.pop_back();
+    return false;
+
+}
 int LCA(Node* root , int n1, int n2){
     vector<int> path1;
     vector<int> path2;

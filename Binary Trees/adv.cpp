@@ -258,6 +258,6 @@ int main(){
     Node* root = buildTree(nodes);
     
     // kthLevelOfTree(root,3);
-    cout << LCA(root,4,3);
+    cout << LCA(root,4,5)->data;
     return 0;
 }; 

@@ -292,24 +292,31 @@ class List{
     }
 
 };
-
+void mergeLinkedList(Node* head1, Node* head2,Node* head3){
+    Node* temp = head1;
+    Node* tail1 = NULL;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    tail1 = temp;
+    cout << tail1->data << endl;
+}
 int main(){
     List ll1;
     ll1.push_back(1);
     ll1.push_back(3);
     ll1.push_back(7);
-    ll1.printList();
 
     List ll2;
     ll2.push_back(2);
     ll2.push_back(4);
     ll2.push_back(8);
-    ll2.printList();
-
+   
     List ll3;
     ll3.push_back(5);
     ll3.push_back(6);
     ll3.push_back(9);
-    ll3.printList();
+
+    mergeLinkedList(ll1.head,ll2.head,ll3.head);
     return 0;
 }

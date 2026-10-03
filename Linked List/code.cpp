@@ -294,9 +294,22 @@ class List{
 };
 
 int main(){
-    List ll;
-    ll.printList();
-    ll.oddEven();
-    ll.printList();
+    List ll1;
+    ll1.push_back(1);
+    ll1.push_back(3);
+    ll1.push_back(7);
+    ll1.printList();
+
+    List ll2;
+    ll2.push_back(2);
+    ll2.push_back(4);
+    ll2.push_back(8);
+    ll2.printList();
+
+    List ll3;
+    ll3.push_back(5);
+    ll3.push_back(6);
+    ll3.push_back(9);
+    ll3.printList();
     return 0;
 }

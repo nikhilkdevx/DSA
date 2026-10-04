@@ -15,6 +15,9 @@ public:
     }
 };
 
+bool palindrom(Node* head){
+    
+}
 int main(){
     Node* head = new Node(1);
     head->next = new Node(2);

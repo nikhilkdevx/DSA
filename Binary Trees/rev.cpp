@@ -201,38 +201,43 @@ Node* buildTree(vector<int>nodes){
 // }
 
 // LCA 
-bool rootToNode(Node* root,vector<int> &path,int n){
-    if(root == NULL){
-        return false;
-    }
-    path.push_back(root->data);
-    if(root->data == n){
-        return true;
-    }
+// bool rootToNode(Node* root,vector<int> &path,int n){
+//     if(root == NULL){
+//         return false;
+//     }
+//     path.push_back(root->data);
+//     if(root->data == n){
+//         return true;
+//     }
 
-    bool isLeft = rootToNode(root->left,path,n);
-    bool isRight = rootToNode(root->right,path,n);
+//     bool isLeft = rootToNode(root->left,path,n);
+//     bool isRight = rootToNode(root->right,path,n);
 
-    if(isLeft || isRight){
-        return true;
-    }
-    path.pop_back();
-    return false;
+//     if(isLeft || isRight){
+//         return true;
+//     }
+//     path.pop_back();
+//     return false;
 
-}
-int LCA(Node* root , int n1, int n2){
-    vector<int> path1;
-    vector<int> path2;
-    rootToNode(root,path1,n1);
-    rootToNode(root,path2,n2);
-    int lca = -1;
-    for(int i = 0,j=0;i<path1.size() && path2.size();i++ , j++){
-        if(path1[i] != path2[j]){
-            return lca;
-        }
-        lca = path1[i];
-    }
-    return lca;
+// }
+// int LCA(Node* root , int n1, int n2){
+//     vector<int> path1;
+//     vector<int> path2;
+//     rootToNode(root,path1,n1);
+//     rootToNode(root,path2,n2);
+//     int lca = -1;
+//     for(int i = 0,j=0;i<path1.size() && path2.size();i++ , j++){
+//         if(path1[i] != path2[j]){
+//             return lca;
+//         }
+//         lca = path1[i];
+//     }
+//     return lca;
+// }
+
+// Revising Lca with method 2
+Node* LCA(Node* root , int n1 , int n2){
+    
 }
 
 int main(){

@@ -254,20 +254,36 @@ Node* LCA(Node* root , int n1, int n2){
 }
 
 int distOflcaToNode(Node* root , int n){
-    
+    if(root == NULL){
+        return -1;
+    }
+    if(root->data == n){
+        return 0;
+    }
+    int leftDist = distOflcaToNode(root->left , n);
+    if(leftDist != -1){
+        return leftDist + 1;
+    }
+    int rightDist = distOflcaToNode(root->right,n);
+    if(rightDist != -1){
+        return rightDist + 1;
+    }
+    return -1;
 }
 
 
 // Min Distanc Between Nodes 
 int minDistance(Node* root , int n1 , int n2){
-    int lca = LCA(root , n1,n2)->data;
+    Node* lca = LCA(root , n1,n2);
 
-
+    int dist1 = distOflcaToNode(lca,n1);
+    int dist2 = distOflcaToNode(lca,n2);
+    return dist1 + dist2 ; 
 }
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
-    cout << minDistance(root , 4,6);
+    cout << minDistance(root,4,6);
     return 0;
 }; 

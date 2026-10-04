@@ -17,7 +17,7 @@ public:
     }
 };
 
-bool palindrome(Node *head){
+bool palindrome(Node* head){
     if(head == NULL){
         cout << "List is Empty";
         return true;
@@ -48,31 +48,17 @@ bool palindrome(Node *head){
 
 int main()
 {
-    Node *head1 = new Node(1);
-    head1->next = new Node(2);
-    head1->next->next = new Node(2);
-    head1->next->next->next = new Node(1);
-
-    while (head1 != NULL)
-    {
-        cout << head1->data << "->";
-        head1 = head1->next;
-    }
-
-    cout << endl;
+    // Node* head1 = new Node(1);
+    // head1->next = new Node(2);
+    // head1->next->next = new Node(2);
+    // head1->next->next->next = new Node(1);
+    // cout << palindrome(head1);
 
     Node* head2 = new Node(1);
     head2->next = new Node(2);
     head2->next->next = new Node(3);
-    
-    while (head2 != NULL)
-    {
-        cout << head2->data << "->";
-        head2 = head2->next;
-    }
 
-    cout << endl;
-
+    cout << palindrome(head2);
 
     return 0;
 }

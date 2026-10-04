@@ -252,12 +252,14 @@ Node* LCA(Node* root , int n1 , int n2){
         return root;
     }
 
-    return leftLCA == NULL ? leftLCA : rightLCA;
+    return leftLCA == NULL ? rightLCA : leftLCA;
 }
 
 int main(){
 vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
 Node* root = buildTree(nodes);
-cout << "LCA = " << LCA(root,4,5);
+cout << "LCA = " << LCA(root,4,5)->data;
+cout << endl;
+cout << "LCA = " << LCA(root,4,6)->data;
 return 0;
 }

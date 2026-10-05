@@ -256,6 +256,24 @@ Node* LCA(Node* root , int n1 , int n2){
 }
 
 int CalculateDistance(Node* root , int n){
+    if(root == NULL){
+        return -1;
+    }
+    if(root->data == n){
+        return 0;
+
+    }
+    int leftDist = CalculateDistance(root->left,n);
+    if(leftDist != -1){
+        return leftDist + 1;
+    } 
+    
+    int rightDist = CalculateDistance(root->right,n);
+    if(rightDist != -1){
+        return rightDist + 1;
+    }
+
+    return -1;
 
 }
 // Revising Shortest Path

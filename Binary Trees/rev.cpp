@@ -278,17 +278,18 @@ int CalculateDistance(Node* root , int n){
 // Revising Shortest Path
 int dist(Node* root , int n1, int n2){
     if(root == NULL){
-        return ;
+        return -1;
     }
     Node* lca = LCA(root,n1,n2);
-    int dist1 = CalculateDistance(root , n1);
-    int dist2 = CalculateDistance(root , n2);
-
+    int dist1 = CalculateDistance(lca , n1);
+    int dist2 = CalculateDistance(lca , n2);
     return dist1 + dist2;
 }
 int main(){
 vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
 Node* root = buildTree(nodes);
-cout << "Shortest Distance = " << dist(root,4,6);
+cout << "LCA = " << LCA(root , 4,5)->data;
+cout << endl; 
+cout << "Shortest Distance = " << dist(root,2,6);
 return 0;
 }

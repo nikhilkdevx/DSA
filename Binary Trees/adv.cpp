@@ -284,6 +284,6 @@ int minDistance(Node* root , int n1 , int n2){
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
-    cout << minDistance(root,4,6);
+    cout << minDistance(root,5,3);
     return 0;
 }; 

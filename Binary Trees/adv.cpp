@@ -301,33 +301,12 @@ int heightOfTree(Node* root){
 //     return validVal+1;
 // }
 
-Node* KthAncestor(Node* root , int node , int K , int &Count){
-    if(root == NULL){
-        return NULL;
-    }
-    if(root->data == node){
-        return root;
-    }
-    Node* left = KthAncestor(root->left,node,K,Count);
-    Node* right = KthAncestor(root->right,node,K,Count);
-    if(left == NULL && right == NULL){
-        return NULL;
-    }
-    Node* found = left == NULL ? right : left;
-    Count++;
+// Transform to Sum Tree
 
-    if(Count == K){
-        return root;
-    }
 
-    return found;
-
-}
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
-    // cout << minDistance(root,5,3);
-    int Count = 0;
-    cout << KthAncestor(root ,6,2,Count)->data;
+    
     return 0;
 }; 

@@ -282,23 +282,27 @@ int heightOfTree(Node* root){
 // }
 
 // Kth Ancestor of Node
-int KthAncestor(Node* root , int n , int k){
-    if(root == NULL){
-        return -1;
-    }
-    if(root->data == n){
-        return 0;
-    }
-    int left = KthAncestor(root->left,n,k);
-    int right = KthAncestor(root->right,n,k);
-    if(left == -1 && right == -1){
-        return -1;
-    }
-    int validVal = left == -1 ? right : left;
-    if(validVal + 1 == k){
-        cout << "Kth Ancestor : " << root->data << endl;
-    }
-    return validVal+1;
+// int KthAncestor(Node* root , int n , int k){
+//     if(root == NULL){
+//         return -1;
+//     }
+//     if(root->data == n){
+//         return 0;
+//     }
+//     int left = KthAncestor(root->left,n,k);
+//     int right = KthAncestor(root->right,n,k);
+//     if(left == -1 && right == -1){
+//         return -1;
+//     }
+//     int validVal = left == -1 ? right : left;
+//     if(validVal + 1 == k){
+//         cout << "Kth Ancestor : " << root->data << endl;
+//     }
+//     return validVal+1;
+// }
+
+Node* KthAncestor(Node* root , int node , int K , int Count){
+    
 }
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};

@@ -302,18 +302,16 @@ int heightOfTree(Node* root){
 // }
 
 // Transform to Sum Tree
-Node* transForm(Node* root){
+int transForm(Node* root){
     if(root == NULL){
-        return NULL;
+        return 0;
     }
-    Node* leftVal = transForm(root->left);
-    int leftData = leftVal == NULL ? 0 : leftVal->data;
-    Node* rightVal = transForm(root->right);
-    int rightData = rightVal == NULL ? 0 : rightVal->data;
-    int finalVal = leftData + rightData + root->data;
-    root->data = finalVal;
-    return root;
-
+    int leftOld = transForm(root->left);
+    int rightOld = transForm(root->right);
+    int currOld = root->data;
+    root->data = leftOld + rightOld + root->left->data + root->right->data;
+    return currOld;
+    
 }
 
 int main(){

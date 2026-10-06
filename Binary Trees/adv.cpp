@@ -302,7 +302,19 @@ int heightOfTree(Node* root){
 // }
 
 // Transform to Sum Tree
+Node* transForm(Node* root){
+    if(root == NULL){
+        return NULL;
+    }
+    Node* leftVal = transForm(root->left);
+    int leftData = leftVal == NULL ? 0 : leftVal->data;
+    Node* rightVal = transForm(root->right);
+    int rightData = rightVal == NULL ? 0 : rightVal->data;
+    int finalVal = leftData + rightData + root->data;
+    root->data = finalVal;
+    return root;
 
+}
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};

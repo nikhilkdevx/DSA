@@ -328,6 +328,6 @@ int main(){
     Node* root = buildTree(nodes);
     // cout << minDistance(root,5,3);
     int Count = 0;
-    cout << KthAncestor(root ,6,1,Count)->data;
+    cout << KthAncestor(root ,6,2,Count)->data;
     return 0;
 }; 

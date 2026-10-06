@@ -301,6 +301,17 @@ int heightOfTree(Node* root){
 //     return validVal+1;
 // }
 
+Node* preorder(Node* root){
+    if(root == NULL){
+        return NULL;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+    return root;
+
+}
+
 // Transform to Sum Tree
 int transForm(Node* root){
     if(root == NULL){
@@ -309,7 +320,14 @@ int transForm(Node* root){
     int leftOld = transForm(root->left);
     int rightOld = transForm(root->right);
     int currOld = root->data;
-    root->data = leftOld + rightOld + root->left->data + root->right->data;
+    root->data = leftOld + rightOld ;
+    if(root->left != NULL){
+        root->data += root->left->data;
+    }
+    if(root->right != NULL){
+        root->data += root->right->data;
+    }
+    root->left->data + root->right->data;
     return currOld;
     
 }
@@ -317,6 +335,7 @@ int transForm(Node* root){
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
-    
+    transForm(root);
+    preorder(root);
     return 0;
 }; 

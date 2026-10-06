@@ -48,50 +48,51 @@ using namespace std;
 // }
 
 // Solving Question 2
-void decodedStr(string &str , string &ans){
-    string ans1 = "";
-    stack<char> temp;
-    for(int i = 0;i<str.size();i++){
-        char curr = str[i];
-        temp.push(curr);
-    }
-    stack<pair<int , string >> S;
-    int currDigit = 0;
-    string currChar = "";
+string decodedString(string str) {
+    stack<pair<int, string>> s;
 
-    while(!temp.empty()){
-        if(temp.top() == ']'){
-            temp.pop();
-            while(temp.top() != '['){
-            currChar.push_front(temp.top());
-            temp.pop();
+    string curr = "";
+    int num = 0;
+
+    for (int i = 0; i < str.size(); i++) {
+
+        // Build the number
+        if (isdigit(str[i])) {
+            num = num * 10 + (str[i] - '0');
+        }
+
+        // Opening bracket
+        else if (str[i] == '[') {
+            s.push({num, curr});
+
+            num = 0;
+            curr = "";
+        }
+
+        // Normal character
+        else if (isalpha(str[i])) {
+            curr += str[i];
+        }
+
+        // Closing bracket
+        else if (str[i] == ']') {
+
+            int repeat = s.top().first;
+            string previous = s.top().second;
+
+            s.pop();
+
+            string temp = "";
+
+            for (int j = 0; j < repeat; j++) {
+                temp += curr;
             }
-            temp.pop();
-            currDigit = temp.top();
-            temp.pop();
-            S.push(make_pair(currDigit,currChar));
-            currDigit = 0;
-            currChar = "";
-        } else{
-            ans1.push_front(temp.top());
-            temp.pop();
+
+            curr = previous + temp;
         }
-        
     }
 
-    string ans2 = "";
-
-    while(!S.empty()){
-        for(int i = 0 ;i<S.top().first;i++){
-            ans2.push_back(S.top().second);
-        }
-        S.pop();
-
-    }
-
-    ans = ans2 + ans1;
-    
-
+    return curr;
 }
 
 int main()
@@ -109,7 +110,6 @@ int main()
     // cout << palindrome(head2);
 
     string str = "3[a]2[bc]ef";
-    string ans = "";
-    decodedStr(str,ans);
+    cout << decodedString(str);
     return 0;
 }

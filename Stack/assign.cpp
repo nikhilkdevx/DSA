@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include<string>
+#include<sstream>
 using namespace std;
 
 // class Node
@@ -96,8 +97,46 @@ using namespace std;
 // }
 
 // solving question no 3
-int main()
-{
-    String str = 
+
+string simplifyPath(string path) {
+
+    stack<string> s;
+
+    stringstream ss(path);
+    string word;
+
+    while (getline(ss, word, '/')) {
+
+        if (word == "" || word == ".") {
+            continue;
+        }
+
+        else if (word == "..") {
+            if (!s.empty()) {
+                s.pop();
+            }
+        }
+
+        else {
+            s.push(word);
+        }
+    }
+
+    string ans = "";
+
+    while (!s.empty()) {
+        ans = "/" + s.top() + ans;
+        s.pop();
+    }
+
+    return ans;
+}
+
+int main() {
+
+    string path = "/home/user/Documents/../Pictures";
+
+    cout << simplifyPath(path);
+
     return 0;
 }

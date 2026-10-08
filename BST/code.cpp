@@ -3,21 +3,37 @@
 using namespace std;
 
 class Node{
-    int val;
+public:
+    int data;
     Node* left;
     Node* right;
 
-    Node(int val){
-        this->val = val;
+    Node(int data){
+        this->data = data;
         left  = NULL;
         right = NULL;
     }
 };
 
-static int idx = -1;
+Node* insert(Node* root , int val){
+    if(root == NULL){
+        root = new Node(val);
+        return root;
+    }
+    if(val < root->data){
+        root->left = insert(root->left,val);
+    } else {
+        root->right = insert(root->right,val);
+    }
+    return root;
+}
 
 Node* buildBST(int arr[],int n){
-    
+    Node* root = NULL;
+    for(int i = 0; i<n; i++){
+        root = insert(root,arr[i]);
+    }
+    return root;
     
 }
 

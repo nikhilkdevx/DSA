@@ -15,6 +15,15 @@ public:
     }
 };
 
+void inorder(Node* root ){
+    if(root == NULL){
+        return ;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
 Node* insert(Node* root , int val){
     if(root == NULL){
         root = new Node(val);
@@ -40,6 +49,8 @@ Node* buildBST(int arr[],int n){
 int main(){
     int arr[6] = {5,1,3,4,2,7};
     Node* root = buildBST(arr,6);
+    inorder(root);
+    cout << endl;
     return 0;
 
 }

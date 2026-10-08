@@ -321,14 +321,7 @@ int transForm(Node* root){
     int rightOld = transForm(root->right);
     int currOld = root->data;
     root->data = leftOld + rightOld ;
-    if(root->left != NULL){
-        root->data += root->left->data;
-    }
-    if(root->right != NULL){
-        root->data += root->right->data;
-    }
-    root->left->data + root->right->data;
-    return currOld;
+    return currOld + leftOld + rightOld ;
     
 }
 

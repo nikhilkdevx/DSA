@@ -16,17 +16,14 @@ class Node{
 
 static int idx = -1;
 
-Node* buildTree(vector<int>nodes){
-    idx++;
-    if(nodes[idx] == -1){
-        return NULL;
-    }
-    Node* left = buildTree(nodes);
+Node* buildBST(int arr[],int n){
+    
     
 }
 
 int main(){
-    vector<int> nodes = {5,2,1,-1,-1,4,3,-1,-1,-1,6,-1,7,-1,-1};
-    Node* root = buildTree(nodes);
+    int arr[6] = {5,1,3,4,2,7};
+    Node* root = buildBST(arr,6);
+    return 0;
 
 }

@@ -14,7 +14,7 @@ public:
         right = NULL;
     }
 };
-
+// INORDER WILL ALWAYS GIVE SORTED IN BST
 void inorder(Node* root ){
     if(root == NULL){
         return ;

@@ -85,6 +85,7 @@ Node* deleteNode(Node* root , int val){
         root->right = deleteNode(root->right,IS->data);
         return root;
     }
+    return root;
     
 }
 Node* buildBST(int arr[],int n){
@@ -101,9 +102,10 @@ int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};  
     
     Node* root = buildBST(arr,9);
-    // inorder(root);
-    cout << search(root,6);
+    inorder(root);
+    deleteNode(root,5);
     cout << endl;
+    inorder(root);
     return 0;
 
 }

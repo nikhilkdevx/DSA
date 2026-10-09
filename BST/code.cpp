@@ -48,6 +48,7 @@ Node* buildBST(int arr[],int n){
 
 int main(){
     int arr[6] = {5,1,3,4,2,7};
+    
     Node* root = buildBST(arr,6);
     inorder(root);
     cout << endl;

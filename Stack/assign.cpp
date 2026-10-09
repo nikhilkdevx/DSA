@@ -133,13 +133,36 @@ using namespace std;
 // }
 
 // Solving Question no 4
-
+int waterStored(vector<int>height){
+    int n = height.size();
+    stack<int> S;
+    vector<int>nextGreaterRight = {n};
+    vector<int>prevGreaterLeft = {n};
+    nextGreaterRight[n-1] = -1;
+    S.push(n-1);
+    for(int i = n-2; i>=0; i--){
+        while(!S.empty()){
+            int currIdx = height[i];
+            int prevIdx = height[S.top()];
+            if(currIdx < prevIdx){
+                nextGreaterRight[i] = currIdx;
+                S.push(i);
+            } else {
+                S.pop();
+            }
+        }
+        if(S.empty()){
+            nextGreaterRight[i] = -1;
+            S.push(i);
+        }
+    }
+}
 
 int main() {
-
     // string path = "/home/user/Documents/../Pictures";
 
     // cout << simplifyPath(path);
-
+    vector<int>height = {7, 0, 4, 2, 5, 0, 6, 4, 0, 5};
+    cout << waterStored(height);
     return 0;
 }

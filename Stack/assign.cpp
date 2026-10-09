@@ -98,45 +98,48 @@ using namespace std;
 
 // solving question no 3
 
-string simplifyPath(string path) {
+// string simplifyPath(string path) {
 
-    stack<string> s;
+//     stack<string> s;
 
-    stringstream ss(path);
-    string word;
+//     stringstream ss(path);
+//     string word;
 
-    while (getline(ss, word, '/')) {
+//     while (getline(ss, word, '/')) {
 
-        if (word == "" || word == ".") {
-            continue;
-        }
+//         if (word == "" || word == ".") {
+//             continue;
+//         }
 
-        else if (word == "..") {
-            if (!s.empty()) {
-                s.pop();
-            }
-        }
+//         else if (word == "..") {
+//             if (!s.empty()) {
+//                 s.pop();
+//             }
+//         }
 
-        else {
-            s.push(word);
-        }
-    }
+//         else {
+//             s.push(word);
+//         }
+//     }
 
-    string ans = "";
+//     string ans = "";
 
-    while (!s.empty()) {
-        ans = "/" + s.top() + ans;
-        s.pop();
-    }
+//     while (!s.empty()) {
+//         ans = "/" + s.top() + ans;
+//         s.pop();
+//     }
 
-    return ans;
-}
+//     return ans;
+// }
+
+// Solving Question no 4
+
 
 int main() {
 
-    string path = "/home/user/Documents/../Pictures";
+    // string path = "/home/user/Documents/../Pictures";
 
-    cout << simplifyPath(path);
+    // cout << simplifyPath(path);
 
     return 0;
 }

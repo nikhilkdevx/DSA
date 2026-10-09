@@ -37,8 +37,18 @@ Node* insert(Node* root , int val){
     return root;
 }
 // Search In a BST
-bool Search(Node* root , int key){
-
+bool search(Node* root , int key){
+    if(root == NULL){
+        return false;
+    }
+    if(root->data == key){
+        return true;
+    }
+    if(root->data > key){
+       return  search(root->left,key);
+    }else {
+       return search(root->right,key);
+    };
 }
 Node* buildBST(int arr[],int n){
     Node* root = NULL;
@@ -50,9 +60,10 @@ Node* buildBST(int arr[],int n){
 }
 
 int main(){
-    int arr[6] = {5,1,3,4,2,7};
+    // int arr[6] = {5,1,3,4,2,7};
+    int arr[9] = {8,5,3,1,4,6,10,11,14};  
     
-    Node* root = buildBST(arr,6);
+    Node* root = buildBST(arr,9);
     inorder(root);
     cout << endl;
     return 0;

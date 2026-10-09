@@ -36,7 +36,10 @@ Node* insert(Node* root , int val){
     }
     return root;
 }
+// Search In a BST
+bool Search(Node* root , int key){
 
+}
 Node* buildBST(int arr[],int n){
     Node* root = NULL;
     for(int i = 0; i<n; i++){

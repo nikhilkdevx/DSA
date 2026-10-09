@@ -64,7 +64,8 @@ int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};  
     
     Node* root = buildBST(arr,9);
-    inorder(root);
+    // inorder(root);
+    cout << search(root,6);
     cout << endl;
     return 0;
 

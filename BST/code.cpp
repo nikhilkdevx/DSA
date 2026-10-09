@@ -50,6 +50,8 @@ bool search(Node* root , int key){
        return search(root->right,key);
     };
 }
+// Deleting Node in BST
+
 Node* buildBST(int arr[],int n){
     Node* root = NULL;
     for(int i = 0; i<n; i++){

@@ -50,6 +50,14 @@ bool search(Node* root , int key){
        return search(root->right,key);
     };
 }
+
+Node* getInorderSuccessor(Node* root){
+    while(root->left != NULL){
+        root = root->left;
+    }
+    return root;
+}
+
 // Deleting Node in BST
 Node* deleteNode(Node* root , int val){
     if(root == NULL){
@@ -60,13 +68,24 @@ Node* deleteNode(Node* root , int val){
     } else if(val > root->data) {
         root->right = deleteNode(root->right,val);
     } else {
+        // case 1  : 0 child
         if(root->left == NULL && root->right == NULL){
             delete root;
             return NULL;
         } 
 
-        
+        // case 2 : 1 child
+        if(root->left == NULL || root->right == NULL){
+            return root->left == NULL ? root->right : root->left;
+        }
+
+        // case 3 : 2 child
+        Node* IS = getInorderSuccessor(root->right);
+        root->data = IS->data;
+        root->right = deleteNode(root->right,IS->data);
+        return root;
     }
+    
 }
 Node* buildBST(int arr[],int n){
     Node* root = NULL;

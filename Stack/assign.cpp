@@ -133,51 +133,82 @@ using namespace std;
 // }
 
 // Solving Question no 4
-int waterStored(vector<int>height){
+// int waterStored(vector<int>height){
+//     int n = height.size();
+//     stack<int> S;
+//     vector<int>nextGreaterRight(n,-1);
+//     vector<int>prevGreaterLeft(n,-1);
+//     vector<int>Water(n,0);
+
+//     // Next Greater Right
+//     for(int i = n-1 ; i>=0 ; i-- ){
+//         while(!S.empty() && height[i] >= height[S.top()]){
+//             S.pop();
+//         }
+//         if(!S.empty()){
+//             nextGreaterRight[i] = S.top();
+
+//         }
+//         S.push(i);
+//     }
+
+//     //Clearing the Stack 
+//     while(!S.empty()){
+//         S.pop();
+//     }
+
+//     // Prev Greater Left 
+//     for(int i = 0;i<n;i++){
+//         while(!S.empty() && height[i] >= height[S.top()]){
+//             S.pop();
+//         }
+//         if(!S.empty()){
+//             prevGreaterLeft[i] = S.top();
+//         }
+//         S.push(i);
+//     }
+
+//     // Calculating Water Stored at Each idx
+//     for(int i = 0;i<height.size();i++){
+//         Water[i] = max(0,min(height[prevGreaterLeft[i]],height[nextGreaterRight[i]])) - height[i];
+//     }
+
+//     //Total WaterCount 
+//     int totalWater = 0;
+//     for(int i = 0;i<n;i++){
+//         totalWater += Water[i];
+//     }
+//     return totalWater;
+// }
+
+int waterStored(vector<int>& height) {
     int n = height.size();
-    stack<int> S;
-    vector<int>nextGreaterRight(n,-1);
-    vector<int>prevGreaterLeft(n,-1);
-    vector<int>Water(n,0);
 
-    // Next Greater Right
-    for(int i = n-1 ; i>=0 ; i-- ){
-        while(!S.empty() && height[i] >= height[S.top()]){
-            S.pop();
-        }
-        if(!S.empty()){
-            nextGreaterRight[i] = S.top();
+    if (n == 0) return 0;
 
-        }
-        S.push(i);
+    vector<int> leftMax(n);
+    vector<int> rightMax(n);
+    vector<int> water(n, 0);
+
+    leftMax[0] = height[0];
+
+    for (int i = 1; i < n; i++) {
+        leftMax[i] = max(leftMax[i - 1], height[i]);
     }
 
-    //Clearing the Stack 
-    while(!S.empty()){
-        S.pop();
+    rightMax[n - 1] = height[n - 1];
+
+    for (int i = n - 2; i >= 0; i--) {
+        rightMax[i] = max(rightMax[i + 1], height[i]);
     }
 
-    // Prev Greater Left 
-    for(int i = 0;i<n;i++){
-        while(!S.empty() && height[i] >= height[S.top()]){
-            S.pop();
-        }
-        if(!S.empty()){
-            prevGreaterLeft[i] = S.top();
-        }
-        S.push(i);
-    }
-
-    // Calculating Water Stored at Each idx
-    for(int i = 0;i<height.size();i++){
-        Water[i] = max(0,min(height[prevGreaterLeft[i]],height[nextGreaterRight[i]])) - height[i];
-    }
-
-    //Total WaterCount 
     int totalWater = 0;
-    for(int i = 0;i<n;i++){
-        totalWater += Water[i];
+
+    for (int i = 0; i < n; i++) {
+        water[i] = max(0, min(leftMax[i], rightMax[i]) - height[i]);
+        totalWater += water[i];
     }
+
     return totalWater;
 }
 

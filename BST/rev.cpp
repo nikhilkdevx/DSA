@@ -28,6 +28,21 @@ Node* insert(Node* root , int val){
     return root;
 }
 
+bool search(Node* root,int K){
+    if(root == NULL){
+        return false;
+    }
+    if(root->data == K){
+        return true;
+    }
+    if(root->data > K){
+        bool left = search(root->left,K);
+    } else {
+        bool right = search(root->right,K);
+    }
+    return false;
+}
+
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;
     for(int i = 0; i< n ; i++){

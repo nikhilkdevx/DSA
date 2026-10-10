@@ -90,7 +90,20 @@ Node* deleteNode(Node* root , int val){
 }
 
 //Print in Range
-
+void PrintInRange(Node* root,int st,int end){
+    if(root == NULL){
+        return;
+    }
+    if(st <= root->data && root->data <= end){
+        cout << root->data << " ";
+        PrintInRange(root->left,st,end);
+        PrintInRange(root->right,st,end);
+    } else if (root->data < st){
+        PrintInRange(root->right,st,end);
+    } else {
+        PrintInRange(root->left,st,end);
+    }
+}
 Node* buildBST(int arr[],int n){
     Node* root = NULL;
     for(int i = 0; i<n; i++){

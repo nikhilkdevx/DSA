@@ -52,7 +52,6 @@ using namespace std;
 // };
 
 //Queue using array
-
 class Queue{
     int* arr;
     int capacity;

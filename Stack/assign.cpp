@@ -136,31 +136,43 @@ using namespace std;
 int waterStored(vector<int>height){
     int n = height.size();
     stack<int> S;
-    vector<int>nextGreaterRight = {n};
-    vector<int>prevGreaterLeft = {n};
-    nextGreaterRight[n-1] = -1;
-    S.push(n-1);
-    for(int i = n-2; i>=0; i--){
-        while(!S.empty()){
-            int currIdx = height[i];
-            int prevIdx = height[S.top()];
-            if(currIdx < prevIdx){
-                nextGreaterRight[i] = currIdx;
-                S.push(i);
-            } else {
-                S.pop();
-            }
+    vector<int>nextGreaterRight(n,-1);
+    vector<int>prevGreaterLeft(n,-1);
+    vector<int>Water(n,0);
+
+    // Next Greater Right
+    for(int i = n-1 ; i>=0 ; i-- ){
+        while(!S.empty() && height[i] >= height[S.top()]){
+            S.pop();
         }
-        if(S.empty()){
-            nextGreaterRight[i] = -1;
-            S.push(i);
+        if(!S.empty()){
+            nextGreaterRight[i] = S.top();
+
         }
+        S.push(i);
     }
+
+    //Clearing the Stack 
+    while(!S.empty()){
+        S.pop();
+    }
+
+    // Prev Greater Left 
+    for(int i = 0;i<n;i++){
+        while(!S.empty() && height[i] >= height[S.top()]){
+            S.pop();
+        }
+        if(!S.empty()){
+            prevGreaterLeft[i] = S.top();
+        }
+        S.push(i);
+    }
+
+
 }
 
 int main() {
     // string path = "/home/user/Documents/../Pictures";
-
     // cout << simplifyPath(path);
     vector<int>height = {7, 0, 4, 2, 5, 0, 6, 4, 0, 5};
     cout << waterStored(height);

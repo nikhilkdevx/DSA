@@ -168,7 +168,17 @@ int waterStored(vector<int>height){
         S.push(i);
     }
 
+    // Calculating Water Stored at Each idx
+    for(int i = 0;i<height.size();i++){
+        Water[i] = max(0,min(height[prevGreaterLeft[i]],height[nextGreaterRight[i]])) - height[i];
+    }
 
+    //Total WaterCount 
+    int totalWater = 0;
+    for(int i = 0;i<n;i++){
+        totalWater += Water[i];
+    }
+    return totalWater;
 }
 
 int main() {

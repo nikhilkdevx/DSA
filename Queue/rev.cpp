@@ -39,6 +39,7 @@ using namespace std;
 class Stack{
     queue<int> q1;
     queue<int> q2;
+public:
     void push(int val){
         while (!q1.empty()){
             q2.push(q1.front());
@@ -81,6 +82,17 @@ int main(){
     //      q.front();
     //      cout << " ";
     //      q.pop();
+    // }
+    Stack S;
+    S.pop();
+    // S.push(1);
+    // S.push(2);
+    // S.push(3);
+    // S.push(4);
+
+    // while(!S.empty()){
+    //     cout << S.top() << " ";
+    //     S.pop();
     // }
     return 0;
 }

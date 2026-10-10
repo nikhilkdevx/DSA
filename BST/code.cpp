@@ -95,14 +95,36 @@ void PrintInRange(Node* root,int st,int end){
         return;
     }
     if(st <= root->data && root->data <= end){
-        cout << root->data << " ";
         PrintInRange(root->left,st,end);
+        cout << root->data << " ";
         PrintInRange(root->right,st,end);
     } else if (root->data < st){
         PrintInRange(root->right,st,end);
     } else {
         PrintInRange(root->left,st,end);
     }
+}
+
+void printPath(vector<int>path){
+    for(int i = 0;i<path.size();i++){
+        cout << path[i] << " ";
+    }
+    cout  << endl;
+}
+
+// Root to Leaf Path
+void RootToLeaf(Node* root){
+    vector<int>path;
+    path.push_back(root->data);
+    if(root->left != NULL && root->right != NULL){
+        printPath(path);
+        path.pop_back();
+        return;
+
+    }
+    RootToLeaf(root->left);
+    RootToLeaf(root->right);
+    path.pop_back();
 }
 Node* buildBST(int arr[],int n){
     Node* root = NULL;
@@ -116,12 +138,12 @@ Node* buildBST(int arr[],int n){
 int main(){
     // int arr[6] = {5,1,3,4,2,7};
     int arr[9] = {8,5,3,1,4,6,10,11,14};  
-    
     Node* root = buildBST(arr,9);
-    inorder(root);
-    deleteNode(root,5);
-    cout << endl;
-    inorder(root);
+    // inorder(root);
+    // deleteNode(root,5);
+    // cout << endl;
+    // inorder(root);
+    PrintInRange(root,5,12);
     return 0;
 
 }

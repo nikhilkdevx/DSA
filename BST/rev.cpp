@@ -15,6 +15,15 @@ public:
     }
 };
 
+void inorder(Node* root){
+    if(root == NULL){
+        return ;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
 Node* insert(Node* root , int val){
     if(root == NULL){
         root = new Node(val);
@@ -37,8 +46,10 @@ bool search(Node* root,int K){
     }
     if(root->data > K){
         bool left = search(root->left,K);
+        return left;
     } else {
         bool right = search(root->right,K);
+        return right;
     }
     return false;
 }
@@ -54,6 +65,7 @@ Node* BuildTree(int arr[] , int n){
 int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};
     Node* root = BuildTree(arr,9);
-    
+    // inorder(root);
+    cout << search(root,5);
     return 0;
 }

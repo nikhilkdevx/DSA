@@ -54,6 +54,9 @@ bool search(Node* root,int K){
     return false;
 }
 
+// Deleting a node in BST
+
+
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;
     for(int i = 0; i< n ; i++){

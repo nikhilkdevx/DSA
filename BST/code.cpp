@@ -143,7 +143,8 @@ int main(){
     // deleteNode(root,5);
     // cout << endl;
     // inorder(root);
-    PrintInRange(root,5,12);
+    // PrintInRange(root,5,12);
+    RootToLeaf(root);
     return 0;
 
 }

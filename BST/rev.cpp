@@ -55,7 +55,21 @@ bool search(Node* root,int K){
 }
 
 // Deleting a node in BST
-
+Node* deleteNode(Node* root,int k){
+    if(root == NULL){
+        return NULL;
+    }
+    if(root->data == k){
+        if(root->left == NULL && root->right == NULL){
+            delete root;
+            return NULL;
+        } else if(root->left == NULL || root->right == NULL){
+            if(root->left == NULL){
+                
+            }
+        }
+    }
+}
 
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;

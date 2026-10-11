@@ -76,7 +76,9 @@ Node* deleteNode(Node* root , int val){
 
         // case 2 : 1 child
         if(root->left == NULL || root->right == NULL){
-            return root->left == NULL ? root->right : root->left;
+            Node* child = root->left == NULL ? root->right : root->left;
+            delete root;
+            return child;
         }
 
         // case 3 : 2 child
@@ -139,12 +141,14 @@ int main(){
     // int arr[6] = {5,1,3,4,2,7};
     int arr[9] = {8,5,3,1,4,6,10,11,14};  
     Node* root = buildBST(arr,9);
-    // inorder(root);
-    // deleteNode(root,5);
-    // cout << endl;
-    // inorder(root);
+    inorder(root);
+    deleteNode(root,10);
+    cout << endl;
+    inorder(root);
+    cout << endl;
+    cout << root->right->data;
     // PrintInRange(root,5,12);
-    RootToLeaf(root);
+    // RootToLeaf(root);
     return 0;
 
 }

@@ -64,9 +64,11 @@ Node* deleteNode(Node* root,int k){
             delete root;
             return NULL;
         } else if(root->left == NULL || root->right == NULL){
-            if(root->left == NULL){
-                
-            }
+            Node* child = root->left == NULL ? root->right : root->left;
+            delete root;
+            return child;
+        } else {
+            
         }
     }
 }

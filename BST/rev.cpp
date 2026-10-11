@@ -78,10 +78,15 @@ Node* deleteNode(Node* root,int k){
         } else {
             Node* IS = getInorderSuccessor(root->right);
             root->data = IS->data;
-            root->right = IS->right;
-            delete IS;
+            root->right = deleteNode(root->right,IS->data);
+            return root;
         }
+    } else if(root->data > k){
+        root->left = deleteNode(root->left,k);
+    } else {
+        root->right = deleteNode(root->right,k);
     }
+    return root;
 }
 
 Node* BuildTree(int arr[] , int n){

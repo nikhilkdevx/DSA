@@ -54,6 +54,14 @@ bool search(Node* root,int K){
     return false;
 }
 
+//GetInorderSuccesor
+Node* getInorderSuccessor(Node* root){
+    while(root->left != NULL){
+        root = root->left;
+    }
+    return root;
+}
+
 // Deleting a node in BST
 Node* deleteNode(Node* root,int k){
     if(root == NULL){
@@ -68,7 +76,10 @@ Node* deleteNode(Node* root,int k){
             delete root;
             return child;
         } else {
-            
+            Node* IS = getInorderSuccessor(root->right);
+            root->data = IS->data;
+            root->right = IS->right;
+            delete IS;
         }
     }
 }

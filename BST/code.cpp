@@ -140,7 +140,7 @@ Node* buildBST(int arr[],int n){
 
 bool validateHelper(Node* root , Node* min,Node* max){
     if(root == NULL){
-        return false;
+        return true;
     }
     if(min != NULL && root->data < min->data){
         return false;
@@ -148,8 +148,7 @@ bool validateHelper(Node* root , Node* min,Node* max){
     if(max != NULL && root->data > max->data){
         return false;
     }
-    return
-    validateHelper(root->left,min,root) && 
+    return validateHelper(root->left,min,root) && 
     validateHelper(root->right,root,max);
 }
 bool validateBST(Node* root){
@@ -169,7 +168,8 @@ int main(){
     // cout << endl;
     // cout << root->right->data;
     // PrintInRange(root,5,12);
-    RootToLeaf(root,path);
+    // 
+    cout << validateBST(root);
     return 0;
 
 }

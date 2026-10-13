@@ -137,7 +137,9 @@ Node* buildBST(int arr[],int n){
 }
 
 // Validate BST
-
+bool validateBST(Node* root){
+    
+}
 
 int main(){
     // int arr[6] = {5,1,3,4,2,7};

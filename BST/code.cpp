@@ -137,10 +137,12 @@ Node* buildBST(int arr[],int n){
 }
 
 // Validate BST
+
+bool validateHelper(Node* root , Node* min,Node* max){
+    
+}
 bool validateBST(Node* root){
-    if(root == NULL){
-        return false;
-    }
+    return validateHelper(root,NULL,NULL);
     
 }
 

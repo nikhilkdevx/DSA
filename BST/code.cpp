@@ -142,10 +142,10 @@ bool validateHelper(Node* root , Node* min,Node* max){
     if(root == NULL){
         return true;
     }
-    if(min != NULL && root->data < min->data){
+    if(min != NULL && root->data <= min->data){
         return false;
     }
-    if(max != NULL && root->data > max->data){
+    if(max != NULL && root->data >= max->data){
         return false;
     }
     return validateHelper(root->left,min,root) && 
@@ -160,6 +160,7 @@ int main(){
     // int arr[6] = {5,1,3,4,2,7};
     int arr[9] = {8,5,3,1,4,6,10,11,14};  
     Node* root = buildBST(arr,9);
+    root->data = 15;
     vector<int>path;
     // inorder(root);
     // deleteNode(root,10);

@@ -138,6 +138,9 @@ Node* buildBST(int arr[],int n){
 
 // Validate BST
 bool validateBST(Node* root){
+    if(root == NULL){
+        return false;
+    }
     
 }
 

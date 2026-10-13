@@ -141,6 +141,13 @@ bool validateBST(Node* root){
     if(root == NULL){
         return false;
     }
+    int leftCheck = root->left->data;
+    if(root->data < leftCheck){
+        return false;
+    } else {
+        validateBST(root->left);
+    }
+
     
 }
 

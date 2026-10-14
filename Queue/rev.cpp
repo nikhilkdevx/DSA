@@ -36,40 +36,42 @@ using namespace std;
 // };
 
 // Revising stack using 2 queues
-class Stack{
-    queue<int> q1;
-    queue<int> q2;
-public:
-    void push(int val){
-        while (!q1.empty()){
-            q2.push(q1.front());
-            q1.pop();
+// class Stack{
+//     queue<int> q1;
+//     queue<int> q2;
+// public:
+//     void push(int val){
+//         while (!q1.empty()){
+//             q2.push(q1.front());
+//             q1.pop();
 
-        }
-        q1.push(val);
-        while (!q2.empty()){
-            q1.push(q2.front());
-            q2.pop();
-        }
+//         }
+//         q1.push(val);
+//         while (!q2.empty()){
+//             q1.push(q2.front());
+//             q2.pop();
+//         }
         
-    }
+//     }
 
-    int top(){
-        return q1.front();
-    }
+//     int top(){
+//         return q1.front();
+//     }
 
-    void pop(){
-        if(q1.empty()){
-            cout << "Already Empty";
-            return;
-        }
-        q1.pop();
-    }
+//     void pop(){
+//         if(q1.empty()){
+//             cout << "Already Empty";
+//             return;
+//         }
+//         q1.pop();
+//     }
 
-    bool empty(){
-        return q1.empty();
-    }
-};
+//     bool empty(){
+//         return q1.empty();
+//     }
+// };
+
+// Queue Reversal
 
 int main(){
     // Queue q;
@@ -83,8 +85,8 @@ int main(){
     //      cout << " ";
     //      q.pop();
     // }
-    Stack S;
-    S.pop();
+    // Stack S;
+    // S.pop();
     // S.push(1);
     // S.push(2);
     // S.push(3);

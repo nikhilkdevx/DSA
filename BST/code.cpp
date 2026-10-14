@@ -127,6 +127,7 @@ void RootToLeaf(Node* root,vector<int> &path){
     RootToLeaf(root->right,path);
     path.pop_back();
 }
+// For General BST
 Node* buildBST(int arr[],int n){
     Node* root = NULL;
     for(int i = 0; i<n; i++){
@@ -157,14 +158,34 @@ bool validateBST(Node* root){
 }
 
 // Balanced BST
+// Fob Balanced BST
+Node* buildBSTfromSorted(int arr[],int st,int end){
+    if(st > end){
+        return NULL;
+    }
+    int mid = st + (end - st) / 2;
+    Node* curr = new Node(arr[mid]);
+    curr->left = buildBSTfromSorted(arr,st,mid-1);
+    curr->right = buildBSTfromSorted(arr,mid+1,end);
+    return curr;
+}
 
+void preorder(Node* root){
+    if(root == NULL){
+        return ;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
 
 int main(){
     // int arr[6] = {5,1,3,4,2,7};
-    int arr[9] = {8,5,3,1,4,6,10,11,14};  
-    Node* root = buildBST(arr,9);
-    root->data = 15;
-    vector<int>path;
+    // int arr[9] = {8,5,3,1,4,6,10,11,14}; 
+    int arr[7] = {3,4,5,6,7,8,9}; 
+    // Node* root = buildBST(arr,7);
+    Node* root = buildBSTfromSorted(arr,0,6);
+    preorder(root);
     // inorder(root);
     // deleteNode(root,10);
     // cout << endl;
@@ -173,7 +194,7 @@ int main(){
     // cout << root->right->data;
     // PrintInRange(root,5,12);
     // 
-    cout << validateBST(root);
+    // cout << validateBST(root);
     return 0;
 
 }

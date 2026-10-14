@@ -130,6 +130,31 @@ using namespace std;
 //         }
 //     }
 // }
+
+class Stack{
+    deque<int>q;
+    public:
+    int data;
+    Stack(int val){
+        this->data = val;
+    }
+    void push(int val){
+        q.push_front(val);
+    }
+    void pop(){
+        if(q.empty()){
+            cout << "Stack is Already Empty";
+        }
+        q.pop_front();
+    }
+    void top(){
+        cout << q.front();
+    }
+    bool empty(){
+        return q.empty();
+    }
+
+};
 int main(){
     // queue<int> q;
     // for(int i = 1;i<= 10;i++){

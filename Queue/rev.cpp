@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stack>
 #include<queue>
+#include<string>
 using namespace std;
 
 //Revising Queue using 2 Stacks
@@ -91,30 +92,37 @@ using namespace std;
 // }
 
 // Interleave 2 Queues
-void interleaveQueue(queue<int>&q){
-    int n = q.size();
-    queue<int> first;
-    for(int i = 0;i<n/2;i++){
-        first.push(q.front());
-        q.pop();
-    }
-    while(!first.empty()){
-        q.push(first.front());
-        first.pop();
-        q.push(q.front());
-        q.pop();
-    } 
-    while(!q.empty()){
-        cout << q.front() << " ";
-        q.pop();
-    }  
+// void interleaveQueue(queue<int>&q){
+//     int n = q.size();
+//     queue<int> first;
+//     for(int i = 0;i<n/2;i++){
+//         first.push(q.front());
+//         q.pop();
+//     }
+//     while(!first.empty()){
+//         q.push(first.front());
+//         first.pop();
+//         q.push(q.front());
+//         q.pop();
+//     } 
+//     while(!q.empty()){
+//         cout << q.front() << " ";
+//         q.pop();
+//     }  
+// }
+
+// NoN Repeating Letter
+string NonRepeating(string str){
+
 }
 int main(){
-    queue<int> q;
-    for(int i = 1;i<= 10;i++){
-        q.push(i);
-    }
-    interleaveQueue(q);
+    // queue<int> q;
+    // for(int i = 1;i<= 10;i++){
+    //     q.push(i);
+    // }
+    // interleaveQueue(q);
     // QueueReversal(q);
+    string str =  "aabccxb";
+    NonRepeating(str);
     return 0;
 }

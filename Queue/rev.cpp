@@ -161,13 +161,13 @@ int main(){
     // QueueReversal(q);
     // string str =  "aabccxb";
     // NonRepeating(str);
-    Stack s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    s.push(4);
-    s.top();
-    cout << endl;
-    cout << s.empty();
+    // Stack s;
+    // s.push(1);
+    // s.push(2);
+    // s.push(3);
+    // s.push(4);
+    // s.top();
+    // cout << endl;
+    // cout << s.empty();
     return 0;
 }

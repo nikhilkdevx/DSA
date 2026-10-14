@@ -92,13 +92,29 @@ using namespace std;
 
 // Interleave 2 Queues
 void interleaveQueue(queue<int>&q){
-
+    int n = q.size();
+    queue<int> first;
+    for(int i = 0;i<n/2;i++){
+        first.push(q.front());
+        q.pop();
+    }
+    while(!first.empty()){
+        q.push(first.front());
+        first.pop();
+        q.push(q.front());
+        q.pop();
+    } 
+    while(!q.empty()){
+        cout << q.front() << " ";
+        q.pop();
+    }  
 }
 int main(){
     queue<int> q;
     for(int i = 1;i<= 10;i++){
         q.push(i);
     }
+    interleaveQueue(q);
     // QueueReversal(q);
     return 0;
 }

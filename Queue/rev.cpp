@@ -91,9 +91,14 @@ using namespace std;
 // }
 
 // Interleave 2 Queues
+void interleaveQueue(queue<int>&q){
 
+}
 int main(){
     queue<int> q;
+    for(int i = 1;i<= 10;i++){
+        q.push(i);
+    }
     // QueueReversal(q);
     return 0;
 }

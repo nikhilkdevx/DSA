@@ -72,8 +72,22 @@ using namespace std;
 // };
 
 // Queue Reversal
-void QueueReversal(queue<int> q){
+void QueueReversal(queue<int> &q){
+    stack<int>s;
+    while(!q.empty()){
+        s.push(q.front());
+        q.pop();
+    }
 
+    while(!s.empty()){
+        q.push(s.top());
+        s.pop();
+    }
+
+    while(!q.empty()){
+        cout << q.front() << " ";
+        q.pop();
+    }
 }
 int main(){
     queue<int> q;
@@ -81,11 +95,6 @@ int main(){
     q.push(2);
     q.push(3);
     q.push(4);
-
-    while(!q.empty()){
-        cout << q.front() << " ";
-        q.pop();
-    }
 
     return 0;
 }

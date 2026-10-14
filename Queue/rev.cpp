@@ -72,29 +72,28 @@ using namespace std;
 // };
 
 // Queue Reversal
-void QueueReversal(queue<int> &q){
-    stack<int>s;
-    while(!q.empty()){
-        s.push(q.front());
-        q.pop();
-    }
+// void QueueReversal(queue<int> &q){
+//     stack<int>s;
+//     while(!q.empty()){
+//         s.push(q.front());
+//         q.pop();
+//     }
 
-    while(!s.empty()){
-        q.push(s.top());
-        s.pop();
-    }
+//     while(!s.empty()){
+//         q.push(s.top());
+//         s.pop();
+//     }
 
-    while(!q.empty()){
-        cout << q.front() << " ";
-        q.pop();
-    }
-}
+//     while(!q.empty()){
+//         cout << q.front() << " ";
+//         q.pop();
+//     }
+// }
+
+// Interleave 2 Queues
+
 int main(){
     queue<int> q;
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    q.push(4);
-    QueueReversal(q);
+    // QueueReversal(q);
     return 0;
 }

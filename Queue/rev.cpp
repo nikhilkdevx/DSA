@@ -131,17 +131,35 @@ using namespace std;
 //     }
 // }
 
-class Stack{
-    deque<int>q;
-    public:
+// class Stack{
+//     deque<int>q;
+//     public:
     
+//     void push(int val){
+//         q.push_front(val);
+//     }
+//     void pop(){
+//         if(q.empty()){
+//             cout << "Stack is Already Empty";
+//         }
+//         q.pop_front();
+//     }
+//     void top(){
+//         cout << q.front();
+//     }
+//     bool empty(){
+//         return q.empty();
+//     }
+
+// };
+
+class Queue{
+    deque<int> q;
+    public:
     void push(int val){
-        q.push_front(val);
+        q.push_back(val);
     }
     void pop(){
-        if(q.empty()){
-            cout << "Stack is Already Empty";
-        }
         q.pop_front();
     }
     void top(){
@@ -150,8 +168,7 @@ class Stack{
     bool empty(){
         return q.empty();
     }
-
-};
+}
 int main(){
     // queue<int> q;
     // for(int i = 1;i<= 10;i++){

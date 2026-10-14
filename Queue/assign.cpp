@@ -27,6 +27,6 @@ int main(){
     int tickets[3] = {2,3,2}; 
     int n = 3;
     int k = 2;
-   
+    cout << totalTime(tickets,k,n) << endl;
     return 0;
 }

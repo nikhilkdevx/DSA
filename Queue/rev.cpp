@@ -168,7 +168,7 @@ class Queue{
     bool empty(){
         return q.empty();
     }
-}
+};
 int main(){
     // queue<int> q;
     // for(int i = 1;i<= 10;i++){
@@ -186,5 +186,11 @@ int main(){
     // s.top();
     // cout << endl;
     // cout << s.empty();
+    Queue q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    q.top();
     return 0;
 }

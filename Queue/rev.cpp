@@ -139,12 +139,6 @@ int main(){
     // QueueReversal(q);
     // string str =  "aabccxb";
     // NonRepeating(str);
-    deque<int> d;
-    d.push_front(2);
-    d.push_front(1);
-    d.push_back(3);
-    d.push_back(4);
-    cout << d.back() << " ";
-    cout << d.front() << " ";
+    
     return 0;
 }

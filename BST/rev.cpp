@@ -106,6 +106,7 @@ int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};
     Node* root = BuildTree(arr,9);
     // inorder(root);
-    cout << search(root,5);
+    // cout << search(root,5);
+    vector<int> path;
     return 0;
 }

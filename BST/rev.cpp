@@ -99,17 +99,21 @@ void printPath(vector<int> &path){
     }
     cout << endl;
 }
+
 void rootToLeaf(Node* root,vector<int> &path){
     if(root == NULL){
-        return;
+        return ;
     }
-    if(root->left != NULL && root->right != NULL){
-        path.push_back(root->data);
-        rootToLeaf(root->left,path);
-        rootToLeaf(root->right,path);
+    path.push_back(root->data);
+    if(root->left == NULL && root->right == NULL){
+        printPath(path);
+        path.pop_back();
+        
     }
-    printPath(path);
-    path.pop_back();
+    rootToLeaf(root->left,path);
+    rootToLeaf(root->right,path);
+    
+    
 }
 
 Node* BuildTree(int arr[] , int n){
@@ -126,5 +130,6 @@ int main(){
     // inorder(root);
     // cout << search(root,5);
     vector<int> path;
+    rootToLeaf(root,path);
     return 0;
 }

@@ -20,6 +20,7 @@ void inorder(Node* root ){
         return ;
     }
     inorder(root->left);
+
     cout << root->data << " ";
     inorder(root->right);
 }
@@ -180,13 +181,47 @@ void preorder(Node* root){
 }
 
 // BST to Balanced BST
+void inorderSeq(Node* root,vector<int>&v){
+    if(root == NULL){
+        return;
+    }
+    inorderSeq(root->left,v);
+    v.push_back(root->data);
+    inorderSeq(root->right,v);
+}
 
+Node* buildBSTfromSortedVector(vector<int>arr,int st,int end){
+    if(st > end){
+        return NULL;
+    }
+    int mid = st + (end - st) / 2;
+    Node* curr = new Node(arr[mid]);
+    curr->left = buildBSTfromSortedVector(arr,st,mid-1);
+    curr->right = buildBSTfromSortedVector(arr,mid+1,end);
+    return curr;
+}
+
+Node* BSTtoBalanced(Node* root){
+    vector<int>v;
+    if(root == NULL){
+        return NULL;
+    }
+    inorderSeq(root,v);
+    root = buildBSTfromSortedVector(v,0,v.size()-1);
+
+    return root;
+    
+}
 
 int main(){
     // int arr[6] = {5,1,3,4,2,7};
-    int arr[9] = {8,5,3,1,4,6,10,11,14}; 
+    // int arr[9] = {8,5,3,1,4,6,10,11,14}; 
     // int arr[7] = {3,4,5,6,7,8,9}; 
-    Node* root = buildBST(arr,7);  
+    int arr[7] = {6,5,4,3,7,8,9};
+    Node* root = buildBST(arr,7); 
+    root = BSTtoBalanced(root);
+    preorder(root);
+    cout << endl;
     // Node* root = buildBSTfromSorted(arr,0,6);
     // preorder(root);
     // inorder(root);
@@ -196,7 +231,7 @@ int main(){
     // cout << endl;
     // cout << root->right->data;
     // PrintInRange(root,5,12);
-    // 
+    
     // cout << validateBST(root);
     return 0;
 

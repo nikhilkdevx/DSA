@@ -1,5 +1,7 @@
 #include<iostream>
 #include<queue>
+#include<deque>
+#include<vector>
 using namespace std;
 
 // int totalTime(int tickets[3],int k, int n){
@@ -25,8 +27,12 @@ using namespace std;
 
 // Solving Question no 2
 
-int main(){
-    int gas[]  = {1, 2, 3, 4, 5};
-    int cost[] = {3, 4, 5, 1, 2};
+
+int main() {
+    vector<int> gas = {1, 2, 3, 4, 5};
+    vector<int> cost = {3, 4, 5, 1, 2};
+
+    cout << gasStation(gas, cost) << endl;
+
     return 0;
 }

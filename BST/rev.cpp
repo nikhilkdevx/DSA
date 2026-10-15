@@ -108,10 +108,12 @@ void rootToLeaf(Node* root,vector<int> &path){
     if(root->left == NULL && root->right == NULL){
         printPath(path);
         path.pop_back();
+        return;
         
     }
     rootToLeaf(root->left,path);
     rootToLeaf(root->right,path);
+    path.pop_back();
     
     
 }

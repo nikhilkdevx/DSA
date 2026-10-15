@@ -184,11 +184,11 @@ void preorder(Node* root){
 
 int main(){
     // int arr[6] = {5,1,3,4,2,7};
-    // int arr[9] = {8,5,3,1,4,6,10,11,14}; 
-    int arr[7] = {3,4,5,6,7,8,9}; 
-    // Node* root = buildBST(arr,7);
-    Node* root = buildBSTfromSorted(arr,0,6);
-    preorder(root);
+    int arr[9] = {8,5,3,1,4,6,10,11,14}; 
+    // int arr[7] = {3,4,5,6,7,8,9}; 
+    Node* root = buildBST(arr,7);  
+    // Node* root = buildBSTfromSorted(arr,0,6);
+    // preorder(root);
     // inorder(root);
     // deleteNode(root,10);
     // cout << endl;

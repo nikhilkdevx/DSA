@@ -93,6 +93,18 @@ Node* deleteNode(Node* root,int k){
 
 // Root to Leaf Path
 
+void rootToLeaf(Node* root,vector<int> &path){
+    if(root == NULL){
+        return;
+    }
+    if(root->left != NULL && root->right != NULL){
+        path.push_back(root->data);
+        rootToLeaf(root->left,path);
+        rootToLeaf(root->right,path);
+    }
+    printPath(path);
+    path.pop_back();
+}
 
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;

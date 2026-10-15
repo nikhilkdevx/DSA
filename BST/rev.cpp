@@ -92,7 +92,13 @@ Node* deleteNode(Node* root,int k){
 // Print in Range
 
 // Root to Leaf Path
-
+void printPath(vector<int> &path){
+    cout << "Path : ";
+    for(int i = 0;i<path.size();i++){
+        cout << path[i] << " ";
+    }
+    cout << endl;
+}
 void rootToLeaf(Node* root,vector<int> &path){
     if(root == NULL){
         return;

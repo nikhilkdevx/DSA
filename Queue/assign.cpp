@@ -59,18 +59,33 @@ void queueReversal(queue<int> &q,int k){
     while(!q.empty()){
         if(q.front() == k){
             s.push(q.front());
+            q.pop();
             break;
         }
         s.push(q.front());
+        q.pop();
+    }
+
+    if(q.empty()){
+        cout << "K is Not Present.";
+        return;
     }
 
     while(!s.empty()){
         q.push(s.top());
+        s.pop();
     }
 
     while(q.front() != k){
         q.push(q.front());
+        q.pop();
     }
+
+    while (!q.empty()){
+        cout << q.front() << " ";
+        q.pop();
+    }
+    
 }
 
 int main() {
@@ -81,7 +96,7 @@ int main() {
     q.push(4);
     q.push(5);
 
-    int k = 3;
+    int k = 7;
     queueReversal(q,k);
     return 0;
 }

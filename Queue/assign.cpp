@@ -53,9 +53,19 @@ using namespace std;
 // }
 
 // Solving Question no 3
+void queueReversal(queue<int> &q,int k){
 
+}
 
 int main() {
+    queue<int>q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    q.push(5);
 
+    int k = 3;
+    queueReversal(q,k);
     return 0;
 }

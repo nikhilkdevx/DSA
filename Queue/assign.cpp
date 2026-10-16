@@ -55,7 +55,22 @@ using namespace std;
 
 // Solving Question no 3
 void queueReversal(queue<int> &q,int k){
-    stack
+    stack<int>s;
+    while(!q.empty()){
+        if(q.front() == k){
+            s.push(q.front());
+            break;
+        }
+        s.push(q.front());
+    }
+
+    while(!s.empty()){
+        q.push(s.top());
+    }
+
+    while(q.front() != k){
+        q.push(q.front());
+    }
 }
 
 int main() {

@@ -25,6 +25,8 @@ void inorder(Node* root ){
     inorder(root->right);
 }
 
+
+
 Node* insert(Node* root , int val){
     if(root == NULL){
         root = new Node(val);
@@ -37,6 +39,16 @@ Node* insert(Node* root , int val){
     }
     return root;
 }
+
+Node* buildBST(int arr[],int n){
+    Node* root = NULL;
+    for(int i = 0; i<n; i++){
+        root = insert(root,arr[i]);
+    }
+    return root;
+    
+}
+
 // Search In a BST
 bool search(Node* root , int key){
     if(root == NULL){
@@ -128,18 +140,8 @@ void RootToLeaf(Node* root,vector<int> &path){
     RootToLeaf(root->right,path);
     path.pop_back();
 }
-// For General BST
-Node* buildBST(int arr[],int n){
-    Node* root = NULL;
-    for(int i = 0; i<n; i++){
-        root = insert(root,arr[i]);
-    }
-    return root;
-    
-}
 
 // Validate BST
-
 bool validateHelper(Node* root , Node* min,Node* max){
     if(root == NULL){
         return true;
@@ -158,8 +160,12 @@ bool validateBST(Node* root){
     
 }
 
-// Balanced BST
-// Fob Balanced BST
+
+
+
+// Balanced BST [Topic Started]
+
+//-------> For Balanced BST
 Node* buildBSTfromSorted(int arr[],int st,int end){
     if(st > end){
         return NULL;
@@ -180,7 +186,7 @@ void preorder(Node* root){
     preorder(root->right);
 }
 
-// BST to Balanced BST
+//-------> BST to Balanced BST
 void inorderSeq(Node* root,vector<int>&v){
     if(root == NULL){
         return;
@@ -211,7 +217,7 @@ Node* BSTtoBalanced(Node* root){
 
     return root;
     
-}
+};
 
 int main(){
     // int arr[6] = {5,1,3,4,2,7};

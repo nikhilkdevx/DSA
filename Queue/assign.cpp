@@ -2,6 +2,7 @@
 #include<queue>
 #include<deque>
 #include<vector>
+#include<stack>
 using namespace std;
 
 // int totalTime(int tickets[3],int k, int n){
@@ -54,7 +55,7 @@ using namespace std;
 
 // Solving Question no 3
 void queueReversal(queue<int> &q,int k){
-
+    stack
 }
 
 int main() {

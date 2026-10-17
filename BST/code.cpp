@@ -226,22 +226,12 @@ int main(){
     // int arr[6] = {5,1,3,4,2,7};
     // int arr[9] = {8,5,3,1,4,6,10,11,14}; 
     // int arr[7] = {3,4,5,6,7,8,9}; 
-    int arr[7] = {6,5,4,3,7,8,9};
+    // int arr[7] = {6,5,4,3,7,8,9};
+    int arr[9] = {50,30,60,5,20,45,70,65,80};
     Node* root = buildBST(arr,7); 
-    root = BSTtoBalanced(root);
+    // root = BSTtoBalanced(root);
     preorder(root);
     cout << endl;
-    // Node* root = buildBSTfromSorted(arr,0,6);
-    // preorder(root);
-    // inorder(root);
-    // deleteNode(root,10);
-    // cout << endl;
-    // inorder(root);
-    // cout << endl;
-    // cout << root->right->data;
-    // PrintInRange(root,5,12);
-    
-    // cout << validateBST(root);
     return 0;
 
 }

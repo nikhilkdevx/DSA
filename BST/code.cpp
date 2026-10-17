@@ -269,12 +269,15 @@ int main(){
     // int arr[9] = {8,5,3,1,4,6,10,11,14}; 
     // int arr[7] = {3,4,5,6,7,8,9}; 
     // int arr[7] = {6,5,4,3,7,8,9};
-    int arr[9] = {50,30,60,5,20,45,70,65,80}; 
-    Node* root = buildBST(arr,7); 
+    // int arr[9] = {50,30,60,5,20,45,70,65,80}; 
+    int arr1[3] = {1,2,4};
+    int arr2[3] = {9,3,12};
+    Node* root1 = buildBST(arr1,3);
+    Node* root2 = buildBST(arr2,3); 
     // root = BSTtoBalanced(root);
     // preorder(root);
-    largestBST(root);
-    cout << "Max Size : " << maxSize;
+    // largestBST(root);
+    // cout << "Max Size : " << maxSize;
     cout << endl;
     return 0;
 

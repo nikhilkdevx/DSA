@@ -220,17 +220,51 @@ Node* BSTtoBalanced(Node* root){
 };
 
 // Size of Largest BST in BT
+class Info{
+public:
+    bool isBST;
+    int min;
+    int max;
+    int sz;
+    Info(bool isBST,int min, int max , int sz){
+        this->isBST = isBST;
+        this->min = min;
+        this->max = max;
+        this->sz = sz;
+    }
+};
 
+static int maxSize;
+
+Info* largestBST(Node* root) {
+    if(root == NULL){
+        return new Info(true,INT_MAX,INT_MIN,0);
+    }
+    Info* leftInfo =  largestBST(root->left);
+    Info* rightInfo =  largestBST(root->right);
+
+    int currMin = min(root->data,min(leftInfo->min,rightInfo->min));
+    int currMax = max(root->data,max(leftInfo->max,rightInfo->max));
+    int currSz = leftInfo->sz + rightInfo->sz + 1;
+    if(leftInfo->isBST && rightInfo->isBST 
+    && root->data > leftInfo->max
+    && root->data < rightInfo->min) {
+        maxSize = max(maxSize,currSz);
+        return new Info(true,currMin,currMax,currSz);
+    }
+
+    return new Info(false,currMin,currMax,currSz);
+}
 
 int main(){
     // int arr[6] = {5,1,3,4,2,7};
     // int arr[9] = {8,5,3,1,4,6,10,11,14}; 
     // int arr[7] = {3,4,5,6,7,8,9}; 
     // int arr[7] = {6,5,4,3,7,8,9};
-    int arr[9] = {50,30,60,5,20,45,70,65,80};
+    int arr[9] = {50,30,60,5,20,45,70,65,80}; 
     Node* root = buildBST(arr,7); 
     // root = BSTtoBalanced(root);
-    preorder(root);
+    // preorder(root);
     cout << endl;
     return 0;
 

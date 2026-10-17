@@ -235,10 +235,16 @@ public:
 };
 
 static int maxSize;
-
+static Node* largestroot;
 Info* largestBST(Node* root) {
+    // if(root == NULL){
+    //     return new Info(true,INT_MAX,INT_MIN,0);
+    // }
     if(root == NULL){
-        return new Info(true,INT_MAX,INT_MIN,0);
+        return NULL;
+    }
+    if(root->left == NULL && root->right == NULL){
+        return new Info(true , root->data,root->data,1);
     }
     Info* leftInfo =  largestBST(root->left);
     Info* rightInfo =  largestBST(root->right);
@@ -265,6 +271,8 @@ int main(){
     Node* root = buildBST(arr,7); 
     // root = BSTtoBalanced(root);
     // preorder(root);
+    largestBST(root);
+    cout << "Max Size : " << maxSize;
     cout << endl;
     return 0;
 

@@ -17,9 +17,9 @@ int maxActivities(vector<int> start ,vector<int> end ){
     return count;
 }
 
-bool compare(pair<int,int> p1,pair<int,int>p2){
-    return p1.second < p2.second;
-}
+// bool compare(pair<int,int> p1,pair<int,int>p2){
+//     return p1.second < p2.second;
+// }
 
 int main(){
     vector<int> start = {1,3,0,5,8,5};

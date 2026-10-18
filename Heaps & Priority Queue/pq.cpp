@@ -41,7 +41,7 @@ struct comparePair{
 };
 
 int main(){
-    priority_queue<pair<string,int>> pq;
+    priority_queue<pair<string,int>,vector<pair<string,int>>,comparePair> pq;
 
     pq.push(make_pair("Nik",90));
     pq.push(make_pair("Ridhi",30));

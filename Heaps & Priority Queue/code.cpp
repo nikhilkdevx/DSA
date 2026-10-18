@@ -25,6 +25,9 @@ public:
     }
 
     void heapify(int parI){
+        if(parI >= vec.size()){
+            return;
+        }
         int leftChild = 2 * parI + 1;
         int rightChild = 2 * parI + 2;
         int maxIdx = parI;
@@ -35,7 +38,10 @@ public:
             maxIdx = rightChild;
         }
 
-        swap(parI,maxIdx);
+        swap(vec[parI],vec[maxIdx]);
+        if(maxIdx != parI) { // Swap with Child Node
+            heapify(maxIdx);
+        }
     }
     void pop(){
         // Step 1
@@ -63,7 +69,10 @@ int main(){
     heap.push(10);
     heap.push(100);
     heap.push(60);
+   
 
+    cout << "top = " << heap.top() << endl;
+    heap.pop();
     cout << "top = " << heap.top() << endl;
     return 0;
 }

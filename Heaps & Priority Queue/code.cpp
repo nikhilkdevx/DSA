@@ -24,8 +24,28 @@ public:
 
     }
 
-    void pop(){
+    void heapify(int parI){
+        int leftChild = 2 * parI + 1;
+        int rightChild = 2 * parI + 2;
+        int maxIdx = parI;
+        if(leftChild < vec.size() && vec[leftChild] > vec[maxIdx]){
+            maxIdx = leftChild;
+        }
+        if(rightChild < vec.size() && vec[rightChild] > vec[maxIdx]){
+            maxIdx = rightChild;
+        }
 
+        swap(parI,maxIdx);
+    }
+    void pop(){
+        // Step 1
+        swap(vec[0] , vec[vec.size() -1]);
+
+        // Step 2
+        vec.pop_back();
+
+        // step 3
+        heapify(0);
     }
 
     int top(){
@@ -43,4 +63,7 @@ int main(){
     heap.push(10);
     heap.push(100);
     heap.push(60);
+
+    cout << "top = " << heap.top() << endl;
+    return 0;
 }

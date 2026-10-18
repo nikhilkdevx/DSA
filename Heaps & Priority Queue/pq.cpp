@@ -19,8 +19,22 @@ using namespace std;
 //     return 0;
 // }
 
+class Student{
+public:
+    string name;
+    int marks;
+    Student(string name, int marks){
+        this->name = name;
+        this->marks = marks;
+    }
+};
+
 // Priority Queues for Pairs / Objects
 
 int main(){
-    
+    priority_queue<Student> pq;
+    pq.push(Student("Nik",90));
+    pq.push(Student("Ridhi",30));
+    pq.push(Student("Anjali",90));
+
 }

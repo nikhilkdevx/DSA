@@ -1,4 +1,4 @@
-// Topic --> Priority Queue
+// Topic --> Priority Queue ---> these are made with the help of Heaps.
 
 #include<iostream>
 #include<queue>

@@ -65,14 +65,16 @@ public:
 
 int main(){
     Heap heap;
-    heap.push(50);
-    heap.push(10);
-    heap.push(100);
-    heap.push(60);
+    heap.push(9);
+    heap.push(4);
+    heap.push(8);
+    heap.push(1);
+    heap.push(2);
+    heap.push(5);
    
-
-    cout << "top = " << heap.top() << endl;
-    heap.pop();
-    cout << "top = " << heap.top() << endl;
+    while(!heap.empty()){
+       cout << "top = " << heap.top() << endl;
+        heap.pop(); 
+    }
     return 0;
 }

@@ -27,6 +27,10 @@ public:
         this->name = name;
         this->marks = marks;
     }
+
+    bool operator < (const Student &obj) const {
+        return this->marks < obj.marks;
+    }
 };
 
 // Priority Queues for Pairs / Objects
@@ -36,5 +40,10 @@ int main(){
     pq.push(Student("Nik",90));
     pq.push(Student("Ridhi",30));
     pq.push(Student("Anjali",90));
+
+    while(!pq.empty()){
+        cout <<" top =" << pq.top().marks << endl;
+        pq.pop();
+    }
 
 }

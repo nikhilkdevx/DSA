@@ -10,6 +10,6 @@ int main(){
     pq.push(20);
     pq.push(3);
 
-    cout << pq.top() << endl;
+    cout << "top : " << pq.top() << endl;
     return 0;
 }

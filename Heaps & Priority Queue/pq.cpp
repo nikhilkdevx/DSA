@@ -19,30 +19,36 @@ using namespace std;
 //     return 0;
 // }
 
-class Student{
-public:
-    string name;
-    int marks;
-    Student(string name, int marks){
-        this->name = name;
-        this->marks = marks;
-    }
+// class Student{
+// public:
+//     string name;
+//     int marks;
+//     Student(string name, int marks){
+//         this->name = name;
+//         this->marks = marks;
+//     }
 
-    bool operator < (const Student &obj) const {
-        return this->marks < obj.marks;
+//     bool operator < (const Student &obj) const {
+//         return this->marks < obj.marks;
+//     }
+// };
+
+// Priority Queues for Pairs / Objects
+struct comparePair{
+    bool operator () (pair<string,int> &p1, pair<string,int> &p2){
+        return p1.second < p2.second;
     }
 };
 
-// Priority Queues for Pairs / Objects
-
 int main(){
-    priority_queue<Student> pq;
-    pq.push(Student("Nik",90));
-    pq.push(Student("Ridhi",30));
-    pq.push(Student("Anjali",90));
+    priority_queue<pair<string,int>> pq;
+
+    pq.push(make_pair("Nik",90));
+    pq.push(make_pair("Ridhi",30));
+    pq.push(make_pair("Anjali",80));
 
     while(!pq.empty()){
-        cout <<" top =" << pq.top().marks << endl;
+        cout <<" top =" << pq.top().second << endl;
         pq.pop();
     }
 

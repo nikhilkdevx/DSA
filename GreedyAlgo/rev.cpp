@@ -21,4 +21,5 @@ int maxActivities(vector<int>start,vector<int> end ){
 int main(){
     vector<int>start = {1,3,0,5,8,5};
     vector<int> end = {2,4,6,7,9,9};
+    cout << "Max No of Activities = " << maxActivities(start,end) << endl;
 }

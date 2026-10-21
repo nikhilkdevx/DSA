@@ -34,7 +34,7 @@ void fractionalKnapSack(vector<int>val,vector<int>wt,int W){
     vector<pair<double,int>>ratio(n,make_pair(0.0,0));
 
     for(int i = 0; i<n;i++){
-        double r = val[i] / wt [i] ;
+        double r = val[i] / wt[i] ;
         ratio[i] =  make_pair(r,i);
     }
 
@@ -51,6 +51,7 @@ void fractionalKnapSack(vector<int>val,vector<int>wt,int W){
             break;
         }
     }
+    cout << "Max Value = " << TotalPrice << endl;
 }
 int main(){
     // vector<int>start = {1,3,0,5,8,5};

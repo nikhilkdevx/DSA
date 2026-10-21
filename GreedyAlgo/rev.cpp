@@ -24,8 +24,21 @@ using namespace std;
 // }
 
 // Fractional KnapSack
+
+bool compare(pair<double,int> p1,pair<double,int> p2){
+    return p1.first > p2.first;
+}
+
 void fractionalKnapSack(vector<int>val,vector<int>wt,int W){
-    
+    int n = val.size();
+    vector<pair<double,int>>ratio(n,make_pair(0.0,0));
+
+    for(int i = 0; i<n;i++){
+        double r = val[i] / wt [i] ;
+        ratio[i] =  make_pair(r,i);
+    }
+
+    sort(ratio.begin(),ratio.end(),compare);
 }
 int main(){
     // vector<int>start = {1,3,0,5,8,5};

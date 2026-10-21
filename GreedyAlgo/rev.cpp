@@ -25,37 +25,45 @@ using namespace std;
 
 // Fractional KnapSack
 
-bool compare(pair<double,int> p1,pair<double,int> p2){
-    return p1.first > p2.first;
-}
+// bool compare(pair<double,int> p1,pair<double,int> p2){
+//     return p1.first > p2.first;
+// }
 
-void fractionalKnapSack(vector<int>val,vector<int>wt,int W){
-    int n = val.size();
-    vector<pair<double,int>>ratio(n,make_pair(0.0,0));
+// void fractionalKnapSack(vector<int>val,vector<int>wt,int W){
+//     int n = val.size();
+//     vector<pair<double,int>>ratio(n,make_pair(0.0,0));
 
-    for(int i = 0; i<n;i++){
-        double r = val[i] / wt[i] ;
-        ratio[i] =  make_pair(r,i);
+//     for(int i = 0; i<n;i++){
+//         double r = val[i] / wt[i] ;
+//         ratio[i] =  make_pair(r,i);
+//     }
+
+//     sort(ratio.begin(),ratio.end(),compare);
+//     int TotalPrice = 0;
+//     for(int i = 0;i<n;i++){
+//         int idx = ratio[i].second;
+//         if(W >= wt[idx]){
+//             TotalPrice += val[idx];
+//             W -= wt[idx];
+//         } else {
+//             TotalPrice += ratio[i].first * W;
+//             W = 0;
+//             break;
+//         }
+//     }
+//     cout << "Max Value = " << TotalPrice << endl;
+// }
+
+// Absolute Difference
+    void absoluteDiff(vector<int>a,vector<int>b){
+        sort(a.begin(),a.end());
+        sort(b.begin(),b.end());
     }
 
-    sort(ratio.begin(),ratio.end(),compare);
-    int TotalPrice = 0;
-    for(int i = 0;i<n;i++){
-        int idx = ratio[i].second;
-        if(W >= wt[idx]){
-            TotalPrice += val[idx];
-            W -= wt[idx];
-        } else {
-            TotalPrice += ratio[i].first * W;
-            W = 0;
-            break;
-        }
-    }
-    cout << "Max Value = " << TotalPrice << endl;
-}
+
 int main(){
-    // vector<int>start = {1,3,0,5,8,5};
-    // vector<int> end = {2,4,6,7,9,9};
+    vector<int>start = {1,3,0,5,8,5};
+    vector<int> end = {2,4,6,7,9,9};
     // cout << "Max No of Activities = " << maxActivities(start,end) << endl;
 
     // vector<int> start = {0,1,2};

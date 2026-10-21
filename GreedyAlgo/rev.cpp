@@ -81,10 +81,10 @@ int main(){
     //     cout << acitvity[i].first << "," << acitvity[i].second << endl;
     // }
     
-    vector<int> val = {60,100,120};
-    vector<int> wt = {10,20,30};
-    int W = 50;
-    fractionalKnapSack(val,wt,W);
+    // vector<int> val = {60,100,120};
+    // vector<int> wt = {10,20,30};
+    // int W = 50;
+    // fractionalKnapSack(val,wt,W);
     return 0;
     
 }

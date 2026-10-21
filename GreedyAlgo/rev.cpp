@@ -39,6 +39,18 @@ void fractionalKnapSack(vector<int>val,vector<int>wt,int W){
     }
 
     sort(ratio.begin(),ratio.end(),compare);
+    int TotalPrice = 0;
+    for(int i = 0;i<n;i++){
+        int idx = ratio[i].second;
+        if(W >= wt[idx]){
+            TotalPrice += val[idx];
+            W -= wt[idx];
+        } else {
+            TotalPrice += ratio[i].first * W;
+            W = 0;
+            break;
+        }
+    }
 }
 int main(){
     // vector<int>start = {1,3,0,5,8,5};

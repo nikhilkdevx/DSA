@@ -59,13 +59,18 @@ using namespace std;
         sort(a.begin(),a.end());
         sort(b.begin(),b.end());
         int absoluteDiff = 0;
-        for(int )
+        for(int i=0;i<a.size();i++){
+            absoluteDiff += abs(a[i] - b[i]);
+        }
+
+        cout << "Min Absolute Diff = " << absoluteDiff << endl;
     }
 
 
 int main(){
     vector<int>start = {1,3,0,5,8,5};
     vector<int> end = {2,4,6,7,9,9};
+    absoluteDiff(start,end);
     // cout << "Max No of Activities = " << maxActivities(start,end) << endl;
 
     // vector<int> start = {0,1,2};

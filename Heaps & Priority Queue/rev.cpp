@@ -23,10 +23,13 @@ class Student{
     int marks;
     string Name;
 public:
-    Student(int marks, string name){
-        this->marks = marks;
+    string name(string name){
         this->Name = name;
-    };
+    }
+
+    int marks(int marks){
+        this->marks = marks;
+    }
 
     bool operator < (const Student &obj) const {
         return this->marks < obj.marks;
@@ -34,5 +37,24 @@ public:
 };
 
 int main(){
+    priority_queue<int> p;
+    Student s1;
+    s1.marks(100);
+    s1.name("Nik");
+
+    Student s2;
+    s2.marks(300);
+    s2.name("Nan");
+
+    Student s3;
+    s3.marks(500);
+    s3.name("Gud");
+
+    Student s4;
+    s4.marks(450);
+    s4.name("Abhi");
+
+    ;
+
     
 }

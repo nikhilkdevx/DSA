@@ -20,41 +20,34 @@ using namespace std;
 
 //Priority Queues On Class
 class Student{
+    public:
     int marks;
     string Name;
-public:
-    string name(string name){
+
+    Student(string name,int marks) {
+        this->marks = marks;
         this->Name = name;
     }
 
-    int marks(int marks){
-        this->marks = marks;
-    }
-
     bool operator < (const Student &obj) const {
-        return this->marks < obj.marks;
+        return this->marks > obj.marks;
     }
 };
 
 int main(){
-    priority_queue<int> p;
-    Student s1;
-    s1.marks(100);
-    s1.name("Nik");
+    priority_queue<Student> p;
+    p.push(Student("Nik",85));
+    p.push(Student("Madhu",95));
+    p.push(Student("Nandani",100));
+    p.push(Student("Gudiya",100));
+    p.push(Student("Abhi",90));
 
-    Student s2;
-    s2.marks(300);
-    s2.name("Nan");
+    while (!p.empty()){
+        cout << p.top().Name << " " << p.top().marks << endl;
+        p.pop();
+    }
 
-    Student s3;
-    s3.marks(500);
-    s3.name("Gud");
-
-    Student s4;
-    s4.marks(450);
-    s4.name("Abhi");
-
-    ;
+    return 0;
 
     
 }

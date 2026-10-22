@@ -118,6 +118,18 @@ void rootToLeaf(Node* root,vector<int> &path){
     
 }
 
+bool validateBST(Node* root, Node* min ,Node* max){
+    if (root == NULL){
+        return true;
+    }
+
+    if(min != NULL && root->data <= min->data){
+        return false;
+    }
+
+    
+}
+
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;
     for(int i = 0; i< n ; i++){

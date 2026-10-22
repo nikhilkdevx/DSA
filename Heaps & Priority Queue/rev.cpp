@@ -39,12 +39,12 @@ using namespace std;
 
 struct comparePair{
     bool operator() (pair<string,int> &p1, pair<string,int> &p2){
-        return p1.second < p2.second;
+        return p1.second > p2.second;
     }
 };
 
 int main(){
-    priority_queue<pair<string,int>> p;
+    priority_queue<pair<string,int>,vector<pair<string,int>>,comparePair> p;
     p.push(make_pair("Nik",85));
     p.push(make_pair("Madhu",95));
     p.push(make_pair("Nandani",100));

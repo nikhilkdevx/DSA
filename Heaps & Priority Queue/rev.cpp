@@ -6,7 +6,7 @@ using namespace std;
 
 // Priority Queues 
 int main(){
-    priority_queue<int> p;
+    priority_queue<int,vector<int>,greater<int>> p;
     p.push(2);
     p.push(9);
     p.push(0);

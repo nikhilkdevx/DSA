@@ -73,7 +73,7 @@ class Heap{
         int x = v.size() - 1;
         int parI = (x - 1) / 2 ;
 
-        while(parI >= 0 && v[x] > v[parI]){
+        while(parI >= 0 && v[x] < v[parI]){
             swap(v[x],v[parI]);
             x = parI;
             parI = (x - 1) / 2;
@@ -91,10 +91,10 @@ class Heap{
         int rightChild = 2 * parI + 2;
         int maxIdx = parI;
         
-        if(leftChild < v.size() && v[leftChild] > v[maxIdx]){
+        if(leftChild < v.size() && v[leftChild] < v[maxIdx]){
             maxIdx = leftChild;
         }
-        if(rightChild < v.size() && v[rightChild] > v[maxIdx]){
+        if(rightChild < v.size() && v[rightChild] < v[maxIdx]){
             maxIdx = rightChild;
         }
 

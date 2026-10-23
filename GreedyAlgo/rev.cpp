@@ -109,7 +109,22 @@ using namespace std;
 
 // Job Sequence 
 
+class job{
+    int idx;
+    int deadline;
+    int profit;
 
+    public:
+    job(int idx,int deadline,int profit){
+        this->deadline = deadline;
+        this->idx = idx;
+        this->profit = profit;
+    }
+};
+
+void jobSeq(vector<pair<int,int>>pairs){
+
+};
 
 
 int main(){
@@ -148,6 +163,13 @@ int main(){
     // vector<int> Coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
     // int V = 590;
     // getMinChange(Coins,V);
+
+    int n = 4;
+    vector<pair<int,int>> jobs(n,make_pair(0,0));
+    jobs[0] = make_pair(4,20);
+    jobs[1] = make_pair(1,10);
+    jobs[2] = make_pair(1,40);
+    jobs[3] = make_pair(1,30);
     return 0;
     
 }

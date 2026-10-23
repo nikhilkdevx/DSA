@@ -89,7 +89,7 @@ using namespace std;
 
 // Indian Coins
 
-
+void
 
 
 int main(){
@@ -124,6 +124,10 @@ int main(){
     // pairs[3] = make_pair(27,40);
     // pairs[4] = make_pair(50,90);
     // maxChainLength(pairs);
+
+    vector<int> Coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
+    int V = 590;
+
     return 0;
     
 }

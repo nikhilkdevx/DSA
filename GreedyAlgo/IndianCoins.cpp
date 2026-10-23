@@ -12,6 +12,7 @@ int getMinChange(vector<int> Coins, int V)
         if (V >= Coins[i])
         {
             ans += V / Coins[i];
+            cout << Coins[i] << ",";
             V = V % Coins[i];
         }
     }

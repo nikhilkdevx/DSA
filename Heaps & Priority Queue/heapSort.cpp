@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-void heapify(int parI,vector<int>vec,int n){
+void heapify(int parI,vector<int>&vec,int n){
     if(parI >= vec.size()){
         return;
     }
@@ -15,25 +15,30 @@ void heapify(int parI,vector<int>vec,int n){
     if(rightChild < vec.size() && vec[rightChild] > vec[maxIdx]){
         maxIdx = rightChild;
     }
-    swap(vec[maxIdx],vec[parI]);
+    
     if(parI != maxIdx){
-        heapify(maxIdx,vec,n);
+        swap(vec[maxIdx],vec[parI]);
+        heapify(maxIdx,vec,n); 
     }
 }
 
-void heapSort(vector<int>vec){
+void heapSort(vector<int>&vec){
     int n = vec.size();
-    for(int i = n/2 ; i >= 0; i--){
+    for(int i = n/2 -1 ; i >= 0; i--){
         heapify(i,vec,n);
+    }
+
+    for(int i = n-1; i>=0 ; i--){
+        swap(vec[0],vec[i]);
+        heapify(0,vec,i);
     }
 }
 
 int main(){
-    vector<int>vec(5,0);
-    vec[0] = 1;
-    vec[1] = 4;
-    vec[2] = 2;
-    vec[3] = 5;
-    vec[4] = 3;
+    vector<int>vec = {5,4,2,1,3};
+    heapSort(vec);
+    for(int i = 0 ; i< vec.size();i++){
+        cout << vec[i] << " ";
+    }
 
 }

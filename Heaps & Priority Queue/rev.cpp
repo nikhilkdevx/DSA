@@ -67,4 +67,19 @@ class Heap{
     vector<int>v;
     public:
 
+    void push(int val){
+
+    }
+
+    void pop(){
+
+    }
+
+    int top(){
+        return v[0];
+    }
+
+    bool empty(){
+        return v.size() == 0;
+    }
 };

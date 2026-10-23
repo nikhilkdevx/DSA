@@ -89,7 +89,14 @@ using namespace std;
 
 // Indian Coins
 
-void
+void getMinChange(vector<int>coins,int v){
+    int ans = 0;
+    while (v != 0)
+    {
+        
+    }
+    
+}
 
 
 int main(){
@@ -127,7 +134,7 @@ int main(){
 
     vector<int> Coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
     int V = 590;
-
+    getMinChange(Coins,V);
     return 0;
     
 }

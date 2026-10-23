@@ -118,3 +118,16 @@ class Heap{
         return v.size() == 0;
     }
 };
+
+int main(){
+    Heap heap;
+    heap.push(1);
+    heap.push(3);
+    heap.push(2);
+    heap.push(4);
+
+    cout << heap.top() << endl ;
+    heap.pop();
+    cout << heap.top() ;
+
+}

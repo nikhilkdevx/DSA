@@ -81,7 +81,32 @@ class Heap{
 
     }
 
+
+    void heapify(int parI){
+        if(parI >= v.size()){
+            return;
+        }
+
+        int leftChild = 2 * parI + 1;
+        int rightChild = 2 * parI + 2;
+        int maxIdx = parI;
+        
+        if(leftChild < v.size() && v[leftChild] > v[maxIdx]){
+            maxIdx = leftChild;
+        }
+        if(rightChild < v.size() && v[rightChild] > v[maxIdx]){
+            maxIdx = rightChild;
+        }
+
+        swap(v[maxIdx],v[parI]);
+        if(parI != maxIdx){
+            heapify(maxIdx);
+        }
+    }
     void pop(){
+        swap(v[0],v[v.size() - 1]);
+        v.pop_back();
+        heapify(0);
 
     }
 

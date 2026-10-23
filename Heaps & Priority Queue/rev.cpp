@@ -68,6 +68,16 @@ class Heap{
     public:
 
     void push(int val){
+        v.push_back(val);
+
+        int x = v.size() - 1;
+        int parI = (x - 1) / 2 ;
+
+        while(parI >= 0 && v[x] > v[parI]){
+            swap(v[x],v[parI]);
+            x = parI;
+            parI = (x - 1) / 2;
+        }
 
     }
 

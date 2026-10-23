@@ -91,10 +91,19 @@ using namespace std;
 
 void getMinChange(vector<int>coins,int v){
     int ans = 0;
-    while (v != 0)
-    {
+    int n = coins.size();
+    for(int i = n-1;i>=0;i--){
+        if(v >= coins[i] && v > 0){
+            ans += v / coins[i]; // it will give the quotient
+            cout << coins[i] << ",";
+            v = v % coins[i]; // modulo will give the remainder
+        }
+
         
     }
+    cout << endl;
+
+    cout << "The Min Change required are " << ans << endl;
     
 }
 

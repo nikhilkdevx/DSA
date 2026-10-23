@@ -37,26 +37,34 @@ using namespace std;
 
 // Prirority Queues For Pairs
 
-struct comparePair{
-    bool operator() (pair<string,int> &p1, pair<string,int> &p2){
-        return p1.second > p2.second;
-    }
-};
+// struct comparePair{
+//     bool operator() (pair<string,int> &p1, pair<string,int> &p2){
+//         return p1.second > p2.second;
+//     }
+// };
 
-int main(){
-    priority_queue<pair<string,int>,vector<pair<string,int>>,comparePair> p;
-    p.push(make_pair("Nik",85));
-    p.push(make_pair("Madhu",95));
-    p.push(make_pair("Nandani",100));
-    p.push(make_pair("Gudiya",100));
-    p.push(make_pair("Abhi",90));
+// int main(){
+//     priority_queue<pair<string,int>,vector<pair<string,int>>,comparePair> p;
+//     p.push(make_pair("Nik",85));
+//     p.push(make_pair("Madhu",95));
+//     p.push(make_pair("Nandani",100));
+//     p.push(make_pair("Gudiya",100));
+//     p.push(make_pair("Abhi",90));
 
-    while (!p.empty()){
-        cout << p.top().first << " " << p.top().second << endl;
-        p.pop();
-    }
+//     while (!p.empty()){
+//         cout << p.top().first << " " << p.top().second << endl;
+//         p.pop();
+//     }
 
-    return 0;
+//     return 0;
 
     
-}
+// }
+
+// Heaps Revision 
+
+class Heap{
+    vector<int>v;
+    public:
+
+};

@@ -68,6 +68,24 @@ using namespace std;
 
 // Max Chain of Langth
 
+bool compare(pair<int,int> p1,pair<int,int>p2){
+    return p1.second < p2.second;
+}
+
+void maxChainLength(vector<pair<int,int>> pairs){
+    int n = pairs.size();
+    sort(pairs.begin(),pairs.end(),compare);
+    int count = 1;
+    int curr = pairs[0].second;
+    for(int i = 1;i<pairs.size();i++){
+        if(curr < pairs[i].first){
+            count++;
+            curr = pairs[i].second;
+        }
+    }
+
+    cout << "Max Length of Chain Pairs Can be " << count;
+};
 
 
 int main(){
@@ -95,6 +113,13 @@ int main(){
     // vector<int> wt = {10,20,30};
     // int W = 50;
     // fractionalKnapSack(val,wt,W);
+    vector<pair<int,int>> pairs(5,make_pair(0,0));
+    pairs[0] = make_pair(5,24);
+    pairs[1] = make_pair(39,60);
+    pairs[2] = make_pair(5,28);
+    pairs[3] = make_pair(27,40);
+    pairs[4] = make_pair(50,90);
+    maxChainLength(pairs);
     return 0;
     
 }

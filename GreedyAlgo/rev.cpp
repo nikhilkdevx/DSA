@@ -89,23 +89,23 @@ using namespace std;
 
 // Indian Coins
 
-void getMinChange(vector<int>coins,int v){
-    int ans = 0;
-    int n = coins.size();
-    for(int i = n-1;i>=0;i--){
-        if(v >= coins[i] && v > 0){
-            ans += v / coins[i]; // it will give the quotient
-            cout << coins[i] << ",";
-            v = v % coins[i]; // modulo will give the remainder
-        }
+// void getMinChange(vector<int>coins,int v){
+//     int ans = 0;
+//     int n = coins.size();
+//     for(int i = n-1;i>=0;i--){
+//         if(v >= coins[i] && v > 0){
+//             ans += v / coins[i]; // it will give the quotient
+//             cout << coins[i] << ",";
+//             v = v % coins[i]; // modulo will give the remainder
+//         }
 
         
-    }
-    cout << endl;
+//     }
+//     cout << endl;
 
-    cout << "The Min Change required are " << ans << endl;
+//     cout << "The Min Change required are " << ans << endl;
     
-}
+// }
 
 
 int main(){
@@ -141,9 +141,9 @@ int main(){
     // pairs[4] = make_pair(50,90);
     // maxChainLength(pairs);
 
-    vector<int> Coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
-    int V = 590;
-    getMinChange(Coins,V);
+    // vector<int> Coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
+    // int V = 590;
+    // getMinChange(Coins,V);
     return 0;
     
 }

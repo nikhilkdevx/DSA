@@ -12,15 +12,10 @@ void minDistance(vector<pair<int,int>> cars,int k){
         pq.push(sqrt(pow(cars[i].first,2) + pow(cars[i].second,2)));
     }
 
-    if(pq.top() <= k){
-        cout << "The nearby Car is " << pq.top() << endl;
-    } else {
-        cout << "No Cars Available in " << k << " distance" << endl;
+    for(int i = 0;i<k;i++){
+        cout << pq.top() << endl;
+        pq.pop();
     }
-
-    
-
-
 }
 
 int main(){
@@ -30,6 +25,7 @@ int main(){
     Cars[1] = make_pair(5,-1);
     Cars[2] = make_pair(-2,4);
     int k = 2;
+    minDistance(Cars,k);
 
     // For Testing
     // cout << pow(-6,2) << endl; // 9;

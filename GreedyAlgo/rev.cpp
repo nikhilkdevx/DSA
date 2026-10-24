@@ -110,11 +110,12 @@ using namespace std;
 // Job Sequence 
 
 class job{
+    public:
     int idx;
     int deadline;
     int profit;
 
-    public:
+    
     job(int idx,int deadline,int profit){
         this->deadline = deadline;
         this->idx = idx;
@@ -123,7 +124,32 @@ class job{
 };
 
 void jobSeq(vector<pair<int,int>>pairs){
+    int n = pairs.size();
+    vector<job>jobs;
+    for(int i = 0;i<n;i++){
+        jobs.emplace_back(i,pairs[i].first,pairs[i].second);
+    }
+    sort(jobs.begin(),jobs.end(),[](job &a,job &b){
+        return a.profit > b.profit;
+    });
+    int maxDeadline = 0;
+    for(int i = 0;i<n;i++){
+        maxDeadline = max(maxDeadline,jobs[i].deadline);
+    }
+    vector<bool>slots(maxDeadline + 1 ,false);
+    int totalProfit = 0;
+    for(int i = 0; i<n;i++){
+        for(int slot = jobs[i].deadline;slot >= 1;slot--){
+            if(slots[slot] == false){
+                slots[slot] == true;
+                totalProfit += jobs[i].profit;
+                break;
+            }
+        }
+    
+    }
 
+    cout << "Max Profit " << totalProfit << endl;
 };
 
 
@@ -170,6 +196,7 @@ int main(){
     jobs[1] = make_pair(1,10);
     jobs[2] = make_pair(1,40);
     jobs[3] = make_pair(1,30);
+    jobSeq(jobs);
     return 0;
     
 }

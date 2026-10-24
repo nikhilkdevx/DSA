@@ -3,16 +3,17 @@
 using namespace std;
 
 void heapify(int parI,vector<int>&vec,int n){
-    if(parI >= vec.size()){
+
+    if(parI >= n){
         return;
     }
     int leftChild = 2 * parI + 1;
     int rightChild = 2 * parI + 2;
     int maxIdx = parI;
-    if(leftChild < vec.size() && vec[leftChild] > vec[maxIdx]){
+    if(leftChild < n && vec[leftChild] > vec[maxIdx]){
         maxIdx = leftChild;
     }
-    if(rightChild < vec.size() && vec[rightChild] > vec[maxIdx]){
+    if(rightChild < n && vec[rightChild] > vec[maxIdx]){
         maxIdx = rightChild;
     }
     
@@ -27,18 +28,20 @@ void heapSort(vector<int>&vec){
     for(int i = n/2 -1 ; i >= 0; i--){
         heapify(i,vec,n);
     }
-
+    cout << "Now Arranging the els" << endl;
     for(int i = n-1; i>=0 ; i--){
         swap(vec[0],vec[i]);
         heapify(0,vec,i);
     }
+
+    for(int i = 0 ; i< n;i++){
+        cout << vec[i] << " ";
+    }
 }
 
 int main(){
-    vector<int>vec = {5,4,2,1,3};
+    vector<int>vec = {5,1,3,4,2};
     heapSort(vec);
-    for(int i = 0 ; i< vec.size();i++){
-        cout << vec[i] << " ";
-    }
+    
 
 }

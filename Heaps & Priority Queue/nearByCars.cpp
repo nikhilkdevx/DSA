@@ -25,14 +25,14 @@ void minDistance(vector<pair<int,int>> pos,int k){
     vector<car>cars;
     
     for(int i = 0 ;i<n;i++){
-        int dist = sqrt(pow(pos[i].first,2) + pow(pos[i].second,2));
+        int dist = pow(pos[i].first,2) + pow(pos[i].second,2);
         cars.push_back(car(i,dist));
     }
 
     priority_queue<car>pq(cars.begin(),cars.end()); 
 
     for(int i = 0;i<k;i++){
-        cout << pq.top().idx << endl;
+        cout << "Car " << pq.top().idx << endl;
         pq.pop();
     }
 }
@@ -43,7 +43,7 @@ int main(){
     pos[0] = make_pair(3,3);
     pos[1] = make_pair(5,-1);
     pos[2] = make_pair(-2,4);
-    int k = 2;
+    int k = 1;
     minDistance(pos,k);
 
     // For Testing

@@ -4,6 +4,17 @@
 #include<cmath>
 using namespace std;
 
+class car{
+public:
+    int idx;
+    int distance;
+    car(int idx , int d){
+        this->idx = idx;
+        this->distance = d;
+    }
+
+};
+
 void minDistance(vector<pair<int,int>> cars,int k){
     int n = cars.size();
     priority_queue<float,vector<float>,greater<float>>pq;

@@ -13,11 +13,12 @@ public:
         this->distance = d;
     }
 
+    bool operator < (const car &obj) const {
+        return this->distance > obj.distance;
+    }
+
 };
 
-bool compareObj(car &c1,car &c2){
-    return c1.distance < c2.distance;  
-};
 
 void minDistance(vector<pair<int,int>> pos,int k){
     int n = pos.size();
@@ -28,10 +29,10 @@ void minDistance(vector<pair<int,int>> pos,int k){
         cars.push_back(car(i,dist));
     }
 
-    
+    priority_queue<car>pq(cars.begin(),cars.end()); 
 
     for(int i = 0;i<k;i++){
-        cout << pq.top() << endl;
+        cout << pq.top().idx << endl;
         pq.pop();
     }
 }

@@ -30,4 +30,4 @@ int main(){
     minLength(length);
 }
 
-// Solve Merge Stone
+// Solve Merge Stone [Qno 1000 leet code]

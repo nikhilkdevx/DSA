@@ -22,9 +22,11 @@ using namespace std;
 // };
 
 // question 2
+string largestOddString(string s){
 
+}
 
 int main(){
-    string s = "";
+    string s = "572";
     // cout << splitStrings(s);
 }

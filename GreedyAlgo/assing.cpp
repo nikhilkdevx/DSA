@@ -34,6 +34,7 @@ string largestOddString(string s){
 }
 
 int main(){
-    string s = "572";
+    string s = "579683";
     // cout << splitStrings(s);
+    cout << largestOddString(s);
 }

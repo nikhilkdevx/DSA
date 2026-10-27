@@ -23,7 +23,14 @@ using namespace std;
 
 // question 2
 string largestOddString(string s){
-
+    string ans = "";
+    for(int i =0;i<s.size();i++){
+        char curr = s[i];
+        if(curr == '1' || curr == '3' || curr == '5' || curr == '7' || curr == '9'){
+            ans.push_back(curr);
+        }
+    }
+    return ans;
 }
 
 int main(){

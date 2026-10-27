@@ -3,13 +3,22 @@
 #include<algorithm>
 using namespace std;
 
-void splitStrings(string s){
+int splitStrings(string s){
     int balance = 0;
     int count = 0;
     for(int i = 0;i<s.size();i++){
         char curr = s[i];
-
+        if(curr == 'R'){
+            balance++;
+        }
+        if(curr == 'L'){
+            balance--;
+        }
+        if(balance == 0){
+            count++;
+        }
     }
+    return count;
 };
 
 int main(){

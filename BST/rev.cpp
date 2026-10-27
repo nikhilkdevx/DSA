@@ -127,6 +127,14 @@ bool validateBST(Node* root, Node* min ,Node* max){
         return false;
     }
 
+    if(max != NULL && root->data >= max->data){
+        return false;
+    }
+
+    return validateBST(root->left,min,root) && validateBST(root->right,root,max);
+
+    
+
     
 }
 

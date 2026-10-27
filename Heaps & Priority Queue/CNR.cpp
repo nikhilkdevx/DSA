@@ -27,5 +27,7 @@ void minLength(vector<int>length){
 
 int main(){
     vector<int> length = {4,3,2,6};
-
+    minLength(length);
 }
+
+// Solve Merge Stone

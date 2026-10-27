@@ -22,5 +22,6 @@ int splitStrings(string s){
 };
 
 int main(){
-    string s = "RLRRLLRLRL";
+    string s = "";
+    cout << splitStrings(s);
 }

@@ -139,9 +139,9 @@ void jobSeq(vector<pair<int,int>>pairs){
     vector<bool>slots(maxDeadline + 1 ,false);
     int totalProfit = 0;
     for(int i = 0; i<n;i++){
-        for(int slot = jobs[i].deadline;slot >= 1;slot--){
-            if(slots[slot] == false){
-                slots[slot] == true;
+        for(int j = jobs[i].deadline;j >= 1;j--){
+            if(slots[j] == false){
+                slots[j] == true;
                 totalProfit += jobs[i].profit;
                 break;
             }

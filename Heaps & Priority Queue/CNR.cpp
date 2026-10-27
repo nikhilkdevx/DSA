@@ -6,6 +6,11 @@
 #include<cmath>
 using namespace std;
 
-int main(){
+void minLength(vector<int>length){
     
+}
+
+int main(){
+    vector<int> length = {4,3,2,6};
+
 }

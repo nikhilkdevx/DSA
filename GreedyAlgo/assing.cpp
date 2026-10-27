@@ -34,11 +34,14 @@ string largestOddString(string s){
             ans.push_back(curr);
         }
     }
+    if(ans == ""){
+        cout << "Num has no odd Integers." << endl;
+    }
     return ans;
 }
 
 int main(){
-    string s = "8888887";
+    string s = "2468";
     // cout << splitStrings(s);
     cout << largestOddString(s);
 }

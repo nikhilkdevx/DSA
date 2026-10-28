@@ -132,11 +132,11 @@ bool validateBST(Node* root, Node* min ,Node* max){
     }
 
     return validateBST(root->left,min,root) && validateBST(root->right,root,max);
-
-    
-
     
 }
+
+// Balanced BST
+    
 
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;
@@ -151,7 +151,8 @@ int main(){
     Node* root = BuildTree(arr,9);
     // inorder(root);
     // cout << search(root,5);
-    vector<int> path;
-    rootToLeaf(root,path);
+    // vector<int> path;
+    // rootToLeaf(root,path);
+    cout << validateBST(root,NULL,NULL);
     return 0;
 }

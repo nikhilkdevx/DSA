@@ -26,7 +26,6 @@ void inorder(Node* root){
 
 void preorder(Node* root){
     if(root == NULL){
-        cout << "Tree is Empty." << endl;
         return;
     }
     cout << root->data << ",";
@@ -179,10 +178,9 @@ int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};
     Node* root = BuildTree(arr,9);
     vector<int>SortedArr;
-    int n = SortedArr.size();
     inorderSeq(root,SortedArr);
-    Node* newRoot =  balancedBSTfromSortedArr(SortedArr,0,n-1);
-    preorder(newRoot);
-
+    int n = SortedArr.size();
+    root =  balancedBSTfromSortedArr(SortedArr,0,n-1);
+    preorder(root);
     return 0;
 }

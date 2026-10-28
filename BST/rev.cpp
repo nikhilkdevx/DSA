@@ -195,6 +195,23 @@ Info* largestBST(Node* root){
     if(root == NULL){
         return;
     }
+    if(root->left == NULL && root->right == NULL){
+        return new Info(true,root->data,root->data,1);
+    }
+    Info* leftInfo = largestBST(root->left);
+    Info* rightInfo = largestBST(root->right);
+
+    int currMin = min(root->data,min(leftInfo->min,rightInfo->min));
+    int currMax = min(root->data,max(leftInfo->max,rightInfo->max));
+    int currsz = leftInfo->sz + rightInfo->sz + 1;
+
+    if(leftInfo->isBST && rightInfo->isBST && root->data > leftInfo->max && root->data < rightInfo->min){
+        maxSize = max(currsz,maxSize);
+        return new Info(true,currMin,currMax,maxSize);
+    }
+
+    return new Info(false,currMin,currMax,currsz);
+
 }
 
 int main(){

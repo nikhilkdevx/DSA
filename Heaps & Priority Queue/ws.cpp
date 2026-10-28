@@ -46,5 +46,5 @@ int main(){
                                  {1,0,0,0},
                                  {1,0,0,0}};  
                                  
-   weakestSoldier(matrix,2); 
+   weakestSoldier(matrix,3); 
 }   

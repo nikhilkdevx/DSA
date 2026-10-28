@@ -191,6 +191,11 @@ class Info{
 static int maxSize;
 static Node* largestroot;
 
+Info* largestBST(Node* root){
+    if(root == NULL){
+        return;
+    }
+}
 
 int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};

@@ -24,6 +24,15 @@ void inorder(Node* root){
     inorder(root->right);
 }
 
+void preorder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    cout << root->data << ",";
+    preorder(root->left);
+    preorder(root->right);
+}
+
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;
     for(int i = 0; i< n ; i++){
@@ -31,6 +40,8 @@ Node* BuildTree(int arr[] , int n){
     }
     return root;
 }
+
+
 
 Node* insert(Node* root , int val){
     if(root == NULL){
@@ -172,6 +183,8 @@ int main(){
     vector<int>SortedArr;
     int n = SortedArr.size();
     inorderSeq(root,SortedArr);
-    balancedBSTfromSortedArr(SortedArr,0,n-1);
+    Node* root =  balancedBSTfromSortedArr(SortedArr,0,n-1);
+    preorder(root);
+
     return 0;
 }

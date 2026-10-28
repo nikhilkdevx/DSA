@@ -136,7 +136,14 @@ bool validateBST(Node* root, Node* min ,Node* max){
 }
 
 // Balanced BST
-    
+    void inorderSeq(Node* root,vector<int> &SortedArr){
+        if(root == NULL){
+            return;
+        }
+        inorderSeq(root->left,SortedArr);
+        SortedArr.push_back(root->data);
+        inorderSeq(root->right,SortedArr);
+    }
 
 Node* BuildTree(int arr[] , int n){
     Node* root = NULL;
@@ -149,10 +156,10 @@ Node* BuildTree(int arr[] , int n){
 int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};
     Node* root = BuildTree(arr,9);
-    // inorder(root);
-    // cout << search(root,5);
-    // vector<int> path;
-    // rootToLeaf(root,path);
-    cout << validateBST(root,NULL,NULL);
+    vector<int>SortedArr;
+    inorderSeq(root,SortedArr);
+   for(int i = 0;i<SortedArr.size();i++){
+        cout << SortedArr[i] << ",";
+    }
     return 0;
 }

@@ -26,22 +26,13 @@ void inorder(Node* root){
 
 void preorder(Node* root){
     if(root == NULL){
+        cout << "Tree is Empty." << endl;
         return;
     }
     cout << root->data << ",";
     preorder(root->left);
     preorder(root->right);
 }
-
-Node* BuildTree(int arr[] , int n){
-    Node* root = NULL;
-    for(int i = 0; i< n ; i++){
-        root = insert(root,arr[i]);
-    }
-    return root;
-}
-
-
 
 Node* insert(Node* root , int val){
     if(root == NULL){
@@ -52,6 +43,14 @@ Node* insert(Node* root , int val){
         root->left = insert(root->left,val);
     } else {
         root->right = insert(root->right,val);
+    }
+    return root;
+}
+
+Node* BuildTree(int arr[] , int n){
+    Node* root = NULL;
+    for(int i = 0; i< n ; i++){
+        root = insert(root,arr[i]);
     }
     return root;
 }
@@ -176,15 +175,14 @@ bool validateBST(Node* root, Node* min ,Node* max){
     }
 
 
-
 int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};
     Node* root = BuildTree(arr,9);
     vector<int>SortedArr;
     int n = SortedArr.size();
     inorderSeq(root,SortedArr);
-    Node* root =  balancedBSTfromSortedArr(SortedArr,0,n-1);
-    preorder(root);
+    Node* newRoot =  balancedBSTfromSortedArr(SortedArr,0,n-1);
+    preorder(newRoot);
 
     return 0;
 }

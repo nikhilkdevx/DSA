@@ -159,7 +159,6 @@ bool validateBST(Node* root){
     return validateHelper(root,NULL,NULL);
     
 }
-
 // Balanced BST [Topic Started]
 
 //-------> For Balanced BST

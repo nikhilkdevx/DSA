@@ -173,6 +173,23 @@ bool validateBST(Node* root, Node* min ,Node* max){
         return curr;
     }
 // Largest BST in a BT
+class Info{
+    public:
+    bool isBST;
+    int min;
+    int max;
+    int sz;
+
+    Info(bool isBST,int min,int max,int sz){
+        this->isBST = isBST;
+        this->min = min;
+        this->max = max;
+        this->sz = sz;
+    }
+};
+
+static int maxSize;
+static Node* largestroot;
 
 
 int main(){

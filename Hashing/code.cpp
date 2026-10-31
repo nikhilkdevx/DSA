@@ -18,6 +18,13 @@ class Node{
     }
 };
 
+class HashTable {
+    public:
+    int totalSize;
+    int currSize;
+    
+};
+
 int main(){
      
 }

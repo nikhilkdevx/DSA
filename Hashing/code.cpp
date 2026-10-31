@@ -19,12 +19,46 @@ class Node{
 };
 
 class HashTable {
-    public:
     int totalSize;
     int currSize;
+    Node** table;
     
+    int hashFunction(string key){
+        int idx = 0;
+        for(int i = 0;i<key.size();i++){
+            idx = idx + (key[i] * key[i]) % totalSize;
+        }
+        return idx;
+    }
+    public:
+    
+    
+    HashTable(int size){
+        totalSize = size;
+        currSize = 0;
+        table = new Node*[totalSize];
+
+        for(int i = 0;i<totalSize;i++){
+            table[i] = NULL;
+        }
+
+    }
+
+    void insert(string key,int val){
+
+    }
+
+    void remove(string key){
+
+    }
+
+    int search(string key){
+
+    }
 };
 
 int main(){
-     
+    HashTable ht;
+
+
 }

@@ -214,13 +214,12 @@ Info* largestBST(Node* root){
 
 }
 
+// Merge 2 BSTs
+
+
 int main(){
     int arr[9] = {8,5,3,1,4,6,10,11,14};
     Node* root = BuildTree(arr,9);
-    vector<int>SortedArr;
-    inorderSeq(root,SortedArr);
-    int n = SortedArr.size();
-    root =  balancedBSTfromSortedArr(SortedArr,0,n-1);
-    preorder(root);
+    
     return 0;
 }

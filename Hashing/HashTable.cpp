@@ -113,7 +113,21 @@ class HashTable {
         return -1;
     }
     void remove(string key){
-
+        int idx = hashFunction(key);
+        Node* temp = table[idx];
+        Node* prev = temp;
+        while(temp != NULL){
+            if(temp->key == key){ // head
+                if(prev == temp){
+                    table[idx] = temp->next;
+                } else {
+                    prev->next = temp->next;
+                }
+                break;
+            }
+            prev = temp;
+            temp = temp->next;
+        }
     }
 
     void print(){
@@ -140,7 +154,9 @@ int main(){
     ht.insert("Canada",100);
 
     ht.print();
-
+    ht.remove("China");
+    cout << endl;
+    ht.print();
     return 0;
 
 }

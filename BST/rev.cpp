@@ -214,12 +214,32 @@ Info* largestBST(Node* root){
 
 }
 
-// Merge 2 BSTs
+void InorderForVector(Node* root,vector<int>& arr){
+    if(root == NULL){
+        return;
+    }
+    InorderForVector(root->left,arr);
+    arr.push_back(root->data);
+    InorderForVector(root->right,arr);
 
+}
+
+// Merge 2 BSTs
+Node* merge2BSTs(Node* root1,Node* root2){
+    vector<int>arr1;
+    vector<int>arr2;
+    vector<int>mergedBST;
+    InorderForVector(root1,arr1);
+    InorderForVector(root2,arr2);
+    
+}
 
 int main(){
-    int arr[9] = {8,5,3,1,4,6,10,11,14};
-    Node* root = BuildTree(arr,9);
+    int arr[3] = {1,2,3};
+    int arr2[3] = {9,3,12};
+    Node* root1 = BuildTree(arr,3);
+    Node* root2 = BuildTree(arr2,3);
+    Node* mergedRoot = merge2BSTs(root1,root2);
     
     return 0;
 }

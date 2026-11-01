@@ -25,7 +25,6 @@ class Node{
 };
 
 class HashTable {
-
     int totalSize;
     int currSize;
     Node** table;
@@ -35,7 +34,7 @@ class HashTable {
         for(int i = 0;i<key.size();i++){
             idx = idx + (key[i] * key[i]) % totalSize;
         }
-        return idx;
+        return idx%totalSize;
     }
 
     void rehash(){
@@ -43,6 +42,7 @@ class HashTable {
         int oldSize = totalSize;
 
         totalSize = 2 * oldSize;
+        currSize = 0;
         table = new Node*[totalSize];
         for(int i = 0;i<totalSize;i++){
             table[i] = NULL;
@@ -65,7 +65,7 @@ class HashTable {
 
     public:
     
-    HashTable(int size){
+    HashTable(int size = 5){
         totalSize = size;
         currSize = 0;
         table = new Node*[totalSize];
@@ -79,9 +79,8 @@ class HashTable {
     void insert(string key,int val){ // Avg Case --> O(1) but worst Case O(n) due to rehashing
         int idx = hashFunction(key);
         Node* newNode = new Node(key,val);
-        Node* head = table[idx];
-        newNode->next = head;
-        head = newNode;
+        newNode->next = table[idx];
+        table[idx] = newNode;
         currSize++;
 
         double lambda = currSize / (double)totalSize; // O(n)
@@ -117,11 +116,31 @@ class HashTable {
 
     }
 
+    void print(){
+        for(int i = 0;i<totalSize;i++){
+            cout << "idx" << i<< "->";
+            Node* temp = table[i];
+            while(temp != NULL){
+                cout << "(" << temp->key << "," << temp->val << ")" << "->" ;
+                temp = temp->next;
+            }
+            cout << endl;
+        }
+    }
     
 };
 
 int main(){
     HashTable ht;
+    ht.insert("India",150);
+    ht.insert("China",150);
+    ht.insert("US",50);
+    ht.insert("Nepal",10);
+    ht.insert("UK",20);
+    ht.insert("Canada",100);
 
+    ht.print();
+
+    return 0;
 
 }

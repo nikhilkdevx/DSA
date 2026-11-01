@@ -16,9 +16,16 @@ class Node{
         this->val = val;
         next = NULL;
     }
+
+    ~Node(){
+        if(next != NULL){
+            delete next;
+        }
+    }
 };
 
 class HashTable {
+
     int totalSize;
     int currSize;
     Node** table;
@@ -30,6 +37,32 @@ class HashTable {
         }
         return idx;
     }
+
+    void rehash(){
+        Node** oldTable = table;
+        int oldSize = totalSize;
+
+        totalSize = 2 * oldSize;
+        table = new Node*[totalSize];
+        for(int i = 0;i<totalSize;i++){
+            table[i] = NULL;
+        }
+
+        for(int i = 0;i<oldSize;i++){
+            Node* temp = oldTable[i];
+            while(temp != NULL){
+                insert(temp->key,temp->val);
+                temp = temp->next;
+            }
+
+            if(oldTable[i] != NULL){
+                delete oldTable[i];
+            }
+        }
+
+        delete[] oldTable;
+    }
+
     public:
     
     HashTable(int size){
@@ -43,7 +76,7 @@ class HashTable {
 
     }
 
-    void insert(string key,int val){
+    void insert(string key,int val){ // Avg Case --> O(1) but worst Case O(n) due to rehashing
         int idx = hashFunction(key);
         Node* newNode = new Node(key,val);
         Node* head = table[idx];
@@ -51,7 +84,7 @@ class HashTable {
         head = newNode;
         currSize++;
 
-        double lambda = currSize / (double)totalSize;
+        double lambda = currSize / (double)totalSize; // O(n)
         if(lambda > 1){
             rehash();
         }

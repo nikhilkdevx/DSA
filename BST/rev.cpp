@@ -247,6 +247,14 @@ Node* merge2BSTs(Node* root1,Node* root2){
     while(j < arr2.size()){
         mergedBST.push_back(arr2[j++]);
     }
+    int n = mergedBST.size();
+    int arr[n] = {0};
+    for(int i = 0 ;i<n;i++){
+        arr[i] = mergedBST[i];
+    }
+
+    Node* mergedBSTRoot = BuildTree(arr,n);
+    return mergedBSTRoot;
 }
 
 int main(){
@@ -255,6 +263,7 @@ int main(){
     Node* root1 = BuildTree(arr,3);
     Node* root2 = BuildTree(arr2,3);
     Node* mergedRoot = merge2BSTs(root1,root2);
+    preorder(mergedRoot);
     
     return 0;
 }

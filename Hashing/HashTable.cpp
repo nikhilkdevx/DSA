@@ -90,13 +90,34 @@ class HashTable {
         }
     }
 
+    bool exists(string key){
+        int idx = hashFunction(key);
+        Node* temp = table[idx];
+        while(temp != NULL){
+            if(temp->key == key){
+                return true;
+            }
+            temp = temp->next;
+        }
+        return false;
+    }
+
+    int search(string key){
+        int idx = hashFunction(key);
+        Node* temp = table[idx];
+        while(temp != NULL){
+            if(temp->key == key){
+                return temp->val;
+            }
+            temp = temp->next;
+        }
+        return -1;
+    }
     void remove(string key){
 
     }
 
-    int search(string key){
-
-    }
+    
 };
 
 int main(){

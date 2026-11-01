@@ -42,22 +42,20 @@ using namespace std;
 
 
 // questn 3 
-void lexiographical(int n, int k){
-    string s = "";
-    for (int i =  0 ; i<n;i++){
-        s.push_back('a');
-    }
+string lexiographical(int n, int k){
+    string s(n,'a');
     int st = k - n;
-    for(int i = n-1;i>0;i--){
-        if(st > 25) {
-            s[i] = 'z';
-        }
-    }
+    for(int i = n-1;i>=0;i--){
+        int add = min(st,25);
+        s[i] += add;
+        st -= add;
 
+    }
+    return s;
     
 }
 
 int main(){
-    lexiographical(3);
+    cout << lexiographical(3,50);
     
 }

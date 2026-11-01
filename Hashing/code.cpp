@@ -22,7 +22,7 @@ class HashTable {
     int totalSize;
     int currSize;
     Node** table;
-    
+
     int hashFunction(string key){
         int idx = 0;
         for(int i = 0;i<key.size();i++){
@@ -31,7 +31,6 @@ class HashTable {
         return idx;
     }
     public:
-    
     
     HashTable(int size){
         totalSize = size;
@@ -45,7 +44,17 @@ class HashTable {
     }
 
     void insert(string key,int val){
+        int idx = hashFunction(key);
+        Node* newNode = new Node(key,val);
+        Node* head = table[idx];
+        newNode->next = head;
+        head = newNode;
+        currSize++;
 
+        double lambda = currSize / (double)totalSize;
+        if(lambda > 1){
+            rehash();
+        }
     }
 
     void remove(string key){

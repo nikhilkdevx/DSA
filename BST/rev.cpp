@@ -231,7 +231,22 @@ Node* merge2BSTs(Node* root1,Node* root2){
     vector<int>mergedBST;
     InorderForVector(root1,arr1);
     InorderForVector(root2,arr2);
+    int i = 0 , j = 0;
+    while( i < arr1.size() && j < arr2.size()){
+        if(arr1[i] < arr2[j]){
+            mergedBST.push_back(arr1[i++]);
+        } else {
+            mergedBST.push_back(arr2[j++]);
+        }
+    }
+
+    while(i < arr1.size()){
+        mergedBST.push_back(arr1[i++]);
+    }
     
+    while(j < arr2.size()){
+        mergedBST.push_back(arr2[j++]);
+    }
 }
 
 int main(){

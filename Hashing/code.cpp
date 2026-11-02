@@ -6,7 +6,6 @@
 // unordered sets / maps uses hash table wehere ordered ones uses red black trees having o(logn) time complexity
 
 
-
 // #include<iostream>
 // #include<unordered_map>
 // using namespace std;
@@ -40,31 +39,32 @@
 
 #include<iostream>
 #include<map>
+#include<unordered_set>
 using namespace std;
 
-int main(){
-    map<string,int>m;
-    m["India"] = 150;
-    m["China"] = 100;
-    m["Nepal"] = 20;
-    // print
-    m["Nepal"] = 200;
-    for(pair<string,int> country : m){
-        cout << country.first << "," << country.second << endl;
-    }
+// int main(){
+//     map<string,int>m;
+//     m["India"] = 150;
+//     m["China"] = 100;
+//     m["Nepal"] = 20;
+//     // print
+//     m["Nepal"] = 200;
+//     for(pair<string,int> country : m){
+//         cout << country.first << "," << country.second << endl;
+//     }
 
-    // count == 1 then yes or if 0 then No 
-    if(m.count("Nepal")){
-        cout << "Nepal Exists\n";
-    } else {
-        cout << "Nepal Doesn't Exists\n";
-    }
+//     // count == 1 then yes or if 0 then No 
+//     if(m.count("Nepal")){
+//         cout << "Nepal Exists\n";
+//     } else {
+//         cout << "Nepal Doesn't Exists\n";
+//     }
 
-    m.erase("Nepal");
-    if(m.count("Nepal")){
-        cout << "Nepal Exists\n";
-    } else {
-        cout << "Nepal Doesn't Exists\n";
-    }
-    return 0; 
-}
+//     m.erase("Nepal");
+//     if(m.count("Nepal")){
+//         cout << "Nepal Exists\n";
+//     } else {
+//         cout << "Nepal Doesn't Exists\n";
+//     }
+//     return 0; 
+// }

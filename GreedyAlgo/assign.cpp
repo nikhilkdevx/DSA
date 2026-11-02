@@ -58,19 +58,19 @@ using namespace std;
 // questn 4
 int Stocks(vector<int>&prices){
     int n = prices.size();
-    vector<int>sell(prices.begin(),prices.end());
-    sell[0] = INT_MIN;
-    vector<int>buy(prices.begin(),prices.end());
-    buy[n-1] = INT_MAX;
     int maxProfit = 0;
-    for(int i = 0;i<n;i++){
-        for(int j = 0;j<n;j++){
-            if(buy[i] < sell[j]){
-                int profit = sell[j] - buy[i];
-                maxProfit = max(profit,maxProfit);
-            }
-        }
-    }
+
+    // Brute Force
+    // for(int i = 0;i<n;i++){
+    //     for(int j = i + 1;j<n;j++){
+    //         if(prices[j] > prices[i]){
+    //             int profit = prices[j] - prices[i];
+    //             maxProfit = max(profit,maxProfit);
+    //         }
+    //     }
+    // }
+
+    
     return maxProfit;
 }
 

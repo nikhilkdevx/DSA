@@ -42,20 +42,26 @@ using namespace std;
 
 
 // questn 3 
-string lexiographical(int n, int k){
-    string s(n,'a');
-    int st = k - n;
-    for(int i = n-1;i>=0;i--){
-        int add = min(st,25);
-        s[i] += add;
-        st -= add;
+// string lexiographical(int n, int k){
+//     string s(n,'a');
+//     int st = k - n;
+//     for(int i = n-1;i>=0;i--){
+//         int add = min(st,25);
+//         s[i] += add;
+//         st -= add;
 
-    }
-    return s;
+//     }
+//     return s;
     
+// }
+
+// questn 4
+void Stocks(vector<int>&prices){
+
 }
 
 int main(){
-    cout << lexiographical(3,50);
+    vector<int>prices = {7,1,5,3,6,4};
+    Stocks(prices);
     
 }

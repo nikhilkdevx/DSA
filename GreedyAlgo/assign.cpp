@@ -59,7 +59,7 @@ using namespace std;
 int Stocks(vector<int>&prices){
     int n = prices.size();
     int maxProfit = 0;
-
+    int minPrice = INT_MAX;
     // Brute Force
     // for(int i = 0;i<n;i++){
     //     for(int j = i + 1;j<n;j++){
@@ -70,7 +70,12 @@ int Stocks(vector<int>&prices){
     //     }
     // }
 
-    
+    // Optimized
+    for(int i = 0;i<n;i++){
+        minPrice = min(minPrice,prices[i]);
+        int profit = prices[i] - minPrice;
+        maxProfit = max(profit,maxProfit);
+    }
     return maxProfit;
 }
 

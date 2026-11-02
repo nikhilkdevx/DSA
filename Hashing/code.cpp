@@ -74,7 +74,20 @@ int main(){
     s.insert(1);
     s.insert(5);
     s.insert(3);
-    s.insert(2);
+    
+
 
     cout << s.size() << endl;
+    s.erase(3);
+    if(s.find(3) != s.end()){
+        cout << "Exists\n";
+    } else {
+        cout  << "Doesnt Exists\n";
+    }
+
+    for(auto el : s){
+        cout << el << " ";
+    }
+    cout << endl;
+    return 0;
 }

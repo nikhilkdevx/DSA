@@ -59,14 +59,14 @@ using namespace std;
 int Stocks(vector<int>&prices){
     int n = prices.size();
     vector<int>sell(prices.begin(),prices.end());
-    sell[0] = 0;
+    sell[0] = INT_MIN;
     vector<int>buy(prices.begin(),prices.end());
-    buy[n-1] = 0;
+    buy[n-1] = INT_MAX;
     int maxProfit = 0;
     for(int i = 0;i<n;i++){
         for(int j = 0;j<n;j++){
-            if(buy[i] < sell[i]){
-                int profit = sell[i] - buy[i];
+            if(buy[i] < sell[j]){
+                int profit = sell[j] - buy[i];
                 maxProfit = max(profit,maxProfit);
             }
         }
@@ -76,6 +76,6 @@ int Stocks(vector<int>&prices){
 
 int main(){
     vector<int>prices = {7,1,5,3,6,4};
-    Stocks(prices);
+    cout << "Max Profit : " << Stocks(prices);
     
 }

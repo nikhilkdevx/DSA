@@ -77,8 +77,6 @@ int main(){
     s.insert(3);
     s.insert(10);
     
-
-
     cout << s.size() << endl;
     s.erase(3);
     if(s.find(3) != s.end()){

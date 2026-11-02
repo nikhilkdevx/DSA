@@ -57,7 +57,11 @@ using namespace std;
 
 // questn 4
 void Stocks(vector<int>&prices){
-
+    int n = prices.size();
+    vector<int>sell(prices.begin(),prices.end());
+    sell[0] = 0;
+    vector<int>buy(prices.begin(),prices.end());
+    buy[n-1] = 0;
 }
 
 int main(){

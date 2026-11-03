@@ -82,6 +82,8 @@ using namespace std;
 // question 5
 
 int main(){
-    
+    vector<int>arr = {7,2,5,10,8};
+    int n = arr.size();
+    int k = 2;
     
 }

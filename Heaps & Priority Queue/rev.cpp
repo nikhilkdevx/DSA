@@ -63,71 +63,66 @@ using namespace std;
 
 // Heaps Revision 
 
-class Heap{
-    vector<int>v;
-    public:
+// class Heap{
+//     vector<int>v;
+//     public:
 
-    void push(int val){
-        v.push_back(val);
+//     void push(int val){
+//         v.push_back(val);
 
-        int x = v.size() - 1;
-        int parI = (x - 1) / 2 ;
+//         int x = v.size() - 1;
+//         int parI = (x - 1) / 2 ;
 
-        while(parI >= 0 && v[x] < v[parI]){
-            swap(v[x],v[parI]);
-            x = parI;
-            parI = (x - 1) / 2;
-        }
+//         while(parI >= 0 && v[x] < v[parI]){
+//             swap(v[x],v[parI]);
+//             x = parI;
+//             parI = (x - 1) / 2;
+//         }
 
-    }
+//     }
 
 
-    void heapify(int parI){
-        if(parI >= v.size()){
-            return;
-        }
+//     void heapify(int parI){
+//         if(parI >= v.size()){
+//             return;
+//         }
 
-        int leftChild = 2 * parI + 1;
-        int rightChild = 2 * parI + 2;
-        int maxIdx = parI;
+//         int leftChild = 2 * parI + 1;
+//         int rightChild = 2 * parI + 2;
+//         int maxIdx = parI;
         
-        if(leftChild < v.size() && v[leftChild] < v[maxIdx]){
-            maxIdx = leftChild;
-        }
-        if(rightChild < v.size() && v[rightChild] < v[maxIdx]){
-            maxIdx = rightChild;
-        }
+//         if(leftChild < v.size() && v[leftChild] < v[maxIdx]){
+//             maxIdx = leftChild;
+//         }
+//         if(rightChild < v.size() && v[rightChild] < v[maxIdx]){
+//             maxIdx = rightChild;
+//         }
 
-        swap(v[maxIdx],v[parI]);
-        if(parI != maxIdx){
-            heapify(maxIdx);
-        }
-    }
-    void pop(){
-        swap(v[0],v[v.size() - 1]);
-        v.pop_back();
-        heapify(0);
+//         swap(v[maxIdx],v[parI]);
+//         if(parI != maxIdx){
+//             heapify(maxIdx);
+//         }
+//     }
+//     void pop(){
+//         swap(v[0],v[v.size() - 1]);
+//         v.pop_back();
+//         heapify(0);
 
-    }
+//     }
 
-    int top(){
-        return v[0];
-    }
+//     int top(){
+//         return v[0];
+//     }
 
-    bool empty(){
-        return v.size() == 0;
-    }
-};
+//     bool empty(){
+//         return v.size() == 0;
+//     }
+// };
+
+// NearBy Cars
+
 
 int main(){
-    Heap heap;
-    heap.push(1);
-    heap.push(3);
-    heap.push(2);
-    heap.push(4);
-
-    cout << heap.top() << endl ;
-    heap.pop();
-    cout << heap.top() ;
+    
 
 }

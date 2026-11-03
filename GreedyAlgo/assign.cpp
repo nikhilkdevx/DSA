@@ -56,31 +56,32 @@ using namespace std;
 // }
 
 // questn 4
-int Stocks(vector<int>&prices){
-    int n = prices.size();
-    int maxProfit = 0;
-    int minPrice = INT_MAX;
-    // Brute Force
-    // for(int i = 0;i<n;i++){
-    //     for(int j = i + 1;j<n;j++){
-    //         if(prices[j] > prices[i]){
-    //             int profit = prices[j] - prices[i];
-    //             maxProfit = max(profit,maxProfit);
-    //         }
-    //     }
-    // }
+// int Stocks(vector<int>&prices){
+//     int n = prices.size();
+//     int maxProfit = 0;
+//     int minPrice = INT_MAX;
+//     // Brute Force
+//     // for(int i = 0;i<n;i++){
+//     //     for(int j = i + 1;j<n;j++){
+//     //         if(prices[j] > prices[i]){
+//     //             int profit = prices[j] - prices[i];
+//     //             maxProfit = max(profit,maxProfit);
+//     //         }
+//     //     }
+//     // }
 
-    // Optimized
-    for(int i = 0;i<n;i++){
-        minPrice = min(minPrice,prices[i]);
-        int profit = prices[i] - minPrice;
-        maxProfit = max(profit,maxProfit);
-    }
-    return maxProfit;
-}
+//     // Optimized
+//     for(int i = 0;i<n;i++){
+//         minPrice = min(minPrice,prices[i]);
+//         int profit = prices[i] - minPrice;
+//         maxProfit = max(profit,maxProfit);
+//     }
+//     return maxProfit;
+// }
+
+// question 5
 
 int main(){
-    vector<int>prices = {7,1,5,3,6,4};
-    cout << "Max Profit : " << Stocks(prices);
+    
     
 }

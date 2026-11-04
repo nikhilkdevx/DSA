@@ -18,16 +18,15 @@ bool validAnagram(string s, string t){
     for(int i = 0 ;i<t.size();i++){
         if(m.count(t[i])){
             m[t[i]]--;
+            if(m[t[i]] == 0){
+                m.erase(t[i]);
+            }
         } else {
             return false;
         }
     }
 
-    if(m.size() != 0){
-        return false;
-    }
-    
-    return true;
+    return m.size() == 0;
     
 }
 

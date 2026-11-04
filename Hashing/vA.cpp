@@ -6,5 +6,6 @@
 using namespace std;
 
 int main(){
-    
+    string s = "race"; 
+    string t = "care"
 }

@@ -26,6 +26,6 @@ void majorityElement(vector<int>nums){
 
 int main(){
     vector<int> nums = {1,3,2,5,1,3,1,5,1};
-    
+    majorityElement(nums);
     return 0; 
 }

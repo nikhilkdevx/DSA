@@ -2,11 +2,11 @@
 
 #include<iostream>
 #include<vector>
-#include<map>
+#include<unordered_map>
 using namespace std;
 
 bool validAnagram(string s, string t){
-    map<char , int> m;
+    unordered_map<char , int> m;
     for(int i = 0 ;i<s.size();i++){
         if(m.count(s[i])){
             m[s[i]]++;
@@ -14,6 +14,7 @@ bool validAnagram(string s, string t){
             m[s[i]] = 1;
         }
     }
+
     for(int i = 0 ;i<t.size();i++){
         if(m.count(t[i])){
             m[t[i]]--;
@@ -21,9 +22,11 @@ bool validAnagram(string s, string t){
             return false;
         }
     }
+
     if(m.size() != 0){
         return false;
     }
+    
     return true;
     
 }
@@ -31,5 +34,6 @@ bool validAnagram(string s, string t){
 int main(){
     string s = "race"; 
     string t = "care";
+    cout << validAnagram(s,t);
     return 0;
 }

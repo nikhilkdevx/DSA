@@ -3,7 +3,7 @@
 // Unordered Sets is used where less space complexity but more time complexity
 // If We have to maitain order then just use map in place of unordered maps
 // Maps store Key values pair where sets just store unique keys
-// unordered sets / maps uses hash table wehere ordered ones uses red black trees having o(logn) time complexity
+// unordered sets / maps uses hash table where ordered ones uses red black trees having o(logn) time complexity
 
 
 // #include<iostream>

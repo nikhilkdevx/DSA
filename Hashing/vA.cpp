@@ -5,11 +5,27 @@
 #include<map>
 using namespace std;
 
-void validAnagram(string s, string t){
+bool validAnagram(string s, string t){
     map<char , int> m;
     for(int i = 0 ;i<s.size();i++){
-        m[s[i]] = 1;
+        if(m.count(s[i])){
+            m[s[i]]++;
+        } else {
+            m[s[i]] = 1;
+        }
     }
+    for(int i = 0 ;i<t.size();i++){
+        if(m.count(t[i])){
+            m[t[i]]--;
+        } else {
+            return false;
+        }
+    }
+    if(m.size() != 0){
+        return false;
+    }
+    return true;
+    
 }
 
 int main(){

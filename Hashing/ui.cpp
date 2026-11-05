@@ -16,7 +16,7 @@ void Union(vector<int>arr1,vector<int>arr2){
     }
 
     for(auto el : ui){
-        cout << "Union : " << el << " ";
+        cout  << el << " ";
     }
     cout << endl;
 }
@@ -29,7 +29,8 @@ void Intersection(vector<int>arr1,vector<int>arr2){
 
     for(int i = 0;i<arr2.size();i++){
         if(it.find(arr2[i]) != it.end()){
-            cout << "Intersection : " << arr2[i] << " ";
+            cout << arr2[i] << " ";
+            it.erase(arr2[i]);
         }
     }
     cout << endl;

@@ -2,6 +2,7 @@
 #include<vector>
 #include<string>
 #include<queue>
+#include<cmath>
 using namespace std;
 
 // Priority Queues 
@@ -120,7 +121,13 @@ using namespace std;
 // };
 
 // NearBy Cars
-
+int nearByCars(vector<pair<int,int>> pos,int k){
+    vector<pair<int,int>>dist;
+    for(int i = 0;i<pos.size();i++){
+        int car = pos[i].first * pos[i].first + (pos[i].second * pos[i].second);
+        dist.push_back(make_pair(i,car));
+    }
+}
 
 int main(){
     int n = 3;

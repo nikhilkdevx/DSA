@@ -17,7 +17,7 @@ void printItinerary(unordered_map<string,string>tickets){
         }
     }
 
-    cout << "start" << "->";
+    cout << start << "->";
     while(tickets.count(start)){
         cout << tickets[start] << "->";
         start = tickets[start];
@@ -32,5 +32,6 @@ int main(){
     tickets["Mumbai"] = "Delhi";
     tickets["Goa"] = "Chennai";
     tickets["Delhi"] = "Goa";
+    printItinerary(tickets);
     return 0;
 }

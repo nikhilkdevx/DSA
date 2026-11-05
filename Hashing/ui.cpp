@@ -14,10 +14,14 @@ void Union(vector<int>arr1,vector<int>arr2){
     for(int i = 0;i<arr2.size();i++){
         ui.insert(arr2[i]);
     }
+
+    for(auto el : ui){
+        cout << el << " ";
+    }
 }
 
 int main(){
     vector<int>arr1 = {7,3,9};
     vector<int>arr2 = {6,3,9,2,9,4};
-
+    Union(arr1,arr2);
 }

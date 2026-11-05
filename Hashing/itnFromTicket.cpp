@@ -11,8 +11,20 @@ void printItinerary(unordered_map<string,string>tickets){
     }
 
     string start = "";
-    for
-}
+    for(pair<string,string> ticket : tickets){
+        if(to.find(ticket.first) == to.end()){
+            start = ticket.first;
+        }
+    }
+
+    cout << "start" << "->";
+    while(tickets.count(start)){
+        cout << tickets[start] << "->";
+        start = tickets[start];
+    }
+
+    cout << "destination\n";
+};
 
 int main(){
     unordered_map<string , string> tickets;

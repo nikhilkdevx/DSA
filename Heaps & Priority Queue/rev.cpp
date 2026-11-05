@@ -123,6 +123,11 @@ using namespace std;
 
 
 int main(){
-    
+    int n = 3;
+    vector<pair<int,int>> pos(n,make_pair(0,0));
+    pos[0] = make_pair(3,3);
+    pos[1] = make_pair(5,-1);
+    pos[2] = make_pair(-2,4);
+    int k = 1;
 
 }

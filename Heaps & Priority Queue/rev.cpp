@@ -121,12 +121,34 @@ using namespace std;
 // };
 
 // NearBy Cars
-int nearByCars(vector<pair<int,int>> pos,int k){
-    vector<pair<int,int>>dist;
-    for(int i = 0;i<pos.size();i++){
-        int car = pos[i].first * pos[i].first + (pos[i].second * pos[i].second);
-        dist.push_back(make_pair(i,car));
+
+class car {
+    public:
+    int idx;
+    int dist;
+    
+    car(int idx , int dist){
+        this->idx = idx;
+        this->dist = dist;
     }
+
+    bool operator < (const car &obj) const {
+        return this->dist > obj.dist;
+    }
+};
+
+void nearByCars(vector<pair<int,int>> pos,int k){
+    vector<car>cars;
+    for(int i = 0;i<pos.size();i++){
+        int dist = pos[i].first * pos[i].first + (pos[i].second * pos[i].second);
+        cars.push_back(car(i,dist));
+    }
+    priority_queue<car>pq(cars.begin(),cars.end());
+    for(int i = 0;i<k;i++){
+        cout << "Car" << pq.top().idx << endl;
+        pq.pop();
+    }
+    
 }
 
 int main(){
@@ -136,5 +158,6 @@ int main(){
     pos[1] = make_pair(5,-1);
     pos[2] = make_pair(-2,4);
     int k = 1;
+    nearByCars(pos,k);
 
 }

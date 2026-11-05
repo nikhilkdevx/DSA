@@ -28,10 +28,11 @@ void Intersection(vector<int>arr1,vector<int>arr2){
     }
 
     for(int i = 0;i<arr2.size();i++){
-        if(arr2[i] == it.find(arr2[i])){
-
+        if(it.find(arr2[i]) != it.end()){
+            cout << "Intersection : " << arr2[i] << " ";
         }
     }
+    cout << endl;
 
 }
 

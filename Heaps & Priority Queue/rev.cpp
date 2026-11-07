@@ -171,9 +171,44 @@ using namespace std;
 // }
 
 // Weakest Soldier
-
-
-int main(){
+class Row{
+    public:
+    int idx;
+    int count;
+    Row(int count,int idx){
+        this->idx = idx;
+        this->count = count;
+    }
     
+};
+struct compare {
+    bool operator()(const Row &a ,const Row &b)const {
+        if(a.count == b.count){
+            return a.idx > b.idx;
+        }
+        return a.count > b.count;
+    }
+};
+void weakestSoldier(vector<vector<int>> matrix,int k){
+    priority_queue<Row,vector<Row>,compare>pq;
+    for(int i = 0;i<matrix.size();i++){
+        int count = 0;
+        for(int j = 0;j<matrix[i].size() && matrix[i][j] == 1;j++){
+            count++;
+        }
+        pq.push(Row(count,i));
+    }
+
+    for(int i = 0;i<k;i++){
+        cout << pq.top().idx << endl;
+    }
+};
+int main(){
+    vector<vector<int>> matrix = {{1,0,0,0},
+                                 {1,1,1,1},
+                                 {1,0,0,0},
+                                 {1,0,0,0}};  
+                                 
+   weakestSoldier(matrix,3); 
     return 0;
 }

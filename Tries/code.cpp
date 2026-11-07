@@ -21,9 +21,26 @@ class Trie{
     Trie(){
         root = new Node();
     }
+
+    void insert(string key){
+        Node* temp = root;
+        for(int i = 0;i<key.size();i++){
+            if(temp->children.count(key[i]) == 0){
+                temp->children[key[i]] = new Node();
+            }
+            temp = temp->children[key[i]];
+        }
+        temp->endOfWord = true;
+    }
 };
 
 int main(){
     vector<string>words = {"the","a","there","any","their","thee"};
+    Trie trie;
+    for(int i = 0 ;i<words.size();i++){
+        trie.insert(words[i]);
+    }
+    
+    
     return 0;
 }

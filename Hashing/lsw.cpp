@@ -3,6 +3,8 @@
 //Concept of both questions 
 // sum[i,j] = sum[j]  - sum[i-1];
 
+// Take Enough Time but revise this completely boths
+
 #include<iostream>
 #include<vector>
 #include<unordered_map>
@@ -52,6 +54,7 @@ void func(vector<int>arr,int k){
 }
 
 int main(){
-    vector<int>arr = {10,2,-2,-20,10};
-    int k = -10;
+    vector<int>arr = {1,2,3};
+    int k = 3;
+    func(arr,k);
 }

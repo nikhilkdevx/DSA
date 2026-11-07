@@ -51,6 +51,7 @@ int main(){
     for(int i = 0 ;i<words.size();i++){
         trie.insert(words[i]);
     }
+    cout << trie.search("anyy") << endl;
     
     
     return 0;

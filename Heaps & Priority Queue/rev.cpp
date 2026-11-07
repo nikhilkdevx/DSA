@@ -201,6 +201,7 @@ void weakestSoldier(vector<vector<int>> matrix,int k){
 
     for(int i = 0;i<k;i++){
         cout << pq.top().idx << endl;
+        pq.pop();
     }
 };
 int main(){

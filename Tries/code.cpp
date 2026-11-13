@@ -70,11 +70,11 @@ bool wordBreak(vector<string>dictionary,string key){
         trie.insert(dictionary[i]);
     }
 
-    helper(trie,key);
+    return helper(trie,key);
 }
 
 int main(){
-    vector<string>dictionary = {"the","a","there","any","their","thee"};
+    vector<string>dictionary = {"i","like","sam","samsung","mobile","ice"};
     string key = "ilikesamsung";
     cout << wordBreak(dictionary,key);
     

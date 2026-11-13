@@ -46,14 +46,15 @@ class Trie{
 };
 
 // Word Break
+void wordBreak(vector<string>dictionary,string key){
+
+}
 
 int main(){
     vector<string>dictionary = {"the","a","there","any","their","thee"};
-    Trie trie;
-    for(int i = 0 ;i<dictionary.size();i++){
-        trie.insert(dictionary[i]);
-    }
-    cout << trie.search("anyy") << endl;
+    string key = "ilikesamsung";
+    cout << wordBreak(dictionary,key);
+    
     
     
     return 0;

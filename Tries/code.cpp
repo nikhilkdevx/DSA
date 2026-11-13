@@ -48,10 +48,10 @@ class Trie{
 // Word Break
 
 int main(){
-    vector<string>words = {"the","a","there","any","their","thee"};
+    vector<string>dictionary = {"the","a","there","any","their","thee"};
     Trie trie;
-    for(int i = 0 ;i<words.size();i++){
-        trie.insert(words[i]);
+    for(int i = 0 ;i<dictionary.size();i++){
+        trie.insert(dictionary[i]);
     }
     cout << trie.search("anyy") << endl;
     

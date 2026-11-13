@@ -208,7 +208,19 @@ using namespace std;
 // Max Sliding Window
 void slidingWind(vector<int>arr,int K){
     priority_queue<pair<int,int>>pq;
-    
+    for(int i = 0;i<K;i++){
+        pq.push(make_pair(arr[i],i));
+    }
+    cout << pq.top().first << " ";
+
+    for(int i = K;i<arr.size();i++){
+        while(!pq.empty() && pq.top().second <= i-K){
+            pq.pop();
+        }
+        pq.push(make_pair(arr[i],i));
+        cout << pq.top().first << " ";
+    }
+    cout << endl;
 }
 
 int main(){

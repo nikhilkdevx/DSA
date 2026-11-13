@@ -206,6 +206,10 @@ using namespace std;
 // };
 
 // Max Sliding Window
+void slidingWind(vector<int>arr,int K){
+    priority_queue<pair<int,int>>pq;
+    
+}
 
 int main(){
     vector<int>arr = {1,3,-1,-3,5,3,6,7};

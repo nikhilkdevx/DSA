@@ -46,8 +46,16 @@ class Trie{
 };
 
 // Word Break
-void wordBreak(vector<string>dictionary,string key){
 
+bool helper(Trie trie,string key){
+
+}
+
+void wordBreak(vector<string>dictionary,string key){
+    Trie trie;
+    for(int i = 0;i<dictionary.size();i++){
+        trie.insert(dictionary[i]);
+    }
 }
 
 int main(){

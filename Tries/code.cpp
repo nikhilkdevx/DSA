@@ -74,7 +74,6 @@ class Trie{
 // }
 
 // Prefix Problem
-
 int main(){
     vector<string>dictionary = {"i","like","sam","samsung","mobile","ice"};
     string key = "ilikesamsung";

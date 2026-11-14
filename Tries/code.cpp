@@ -73,10 +73,11 @@ class Trie{
 //     return helper(trie,key);
 // }
 
-// Prefix Problem
+// Starts With
+
 int main(){
-    vector<string>dictionary = {"i","like","sam","samsung","mobile","ice"};
-    string key = "ilikesamsung";
+    vector<string>dictionary = {"apple","app","mango","man","woman"};
+    string prefix = "app";
    
     
     return 0;

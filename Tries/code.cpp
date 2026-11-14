@@ -43,6 +43,20 @@ class Trie{
         }
         return temp->endOfWord;
     }
+
+    bool startsWith(string prefix){
+    Node* temp = root;
+
+    for(int i = 0;i<prefix.size();i++){
+        char curr = prefix[i];
+        if(temp->children[curr]){
+            temp = temp->children[curr];
+        }else {
+            return false;
+        }
+    }
+    return true;
+    }
 };
 
 // Word Break
@@ -74,19 +88,14 @@ class Trie{
 // }
 
 // Starts With
-bool startsWith(vector<string>dict , string prefix){
-    Trie trie;
 
-    for(int i = 0;i<dict.size();i++){
-        trie.insert(dict[i]);
-    }
-
-    return trie.search(prefix);
-}
 
 int main(){
     vector<string>dictionary = {"apple","app","mango","man","woman"};
-    string prefix = "app";
-   cout << startsWith(dictionary,prefix);
+    Trie trie;
+   for(int i = 0;i<dictionary.size();i++){
+    trie.insert(dictionary[i]);
+   }
+   cout << trie.startsWith("ap") << endl;
     return 0;
 }

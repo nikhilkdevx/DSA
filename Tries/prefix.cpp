@@ -13,6 +13,7 @@ public:
     int freq;
     Node(){
         endOfWord = false;
+        freq = 0;
     };
     
 };
@@ -30,7 +31,7 @@ class Trie{
 
         for(int i = 0;i<key.size();i++){
             if(temp->children.count(key[i]) == 0 ){
-                temp->children[key[i]] == new Node();
+                temp->children[key[i]] = new Node();
                 temp->children[key[i]]->freq = 1;
             } else {
                 temp->children[key[i]]->freq++;
@@ -47,7 +48,7 @@ class Trie{
         for(int i = 0;i<key.size();i++){
             prefix += key[i];
             if(temp->children[key[i]]->freq == 1){
-                break;;
+                break;
             }
             temp = temp->children[key[i]];
         }
@@ -70,6 +71,6 @@ void prefixProblem(vector<string> dict){
 
 int main(){
     vector<string> dict = {"zebra","dog","duck","dove"};
-
+    prefixProblem(dict);
     return 0;
 }

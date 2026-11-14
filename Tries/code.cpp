@@ -47,38 +47,38 @@ class Trie{
 
 // Word Break
 
-bool helper(Trie &trie,string key){
-    if(key.size() == 0){
-        return true;
-    }
+// bool helper(Trie &trie,string key){
+//     if(key.size() == 0){
+//         return true;
+//     }
 
-    for(int i = 0;i<key.size();i++){
-        string first = key.substr(0,i+1);
-        string sec = key.substr(i+1);
+//     for(int i = 0;i<key.size();i++){
+//         string first = key.substr(0,i+1);
+//         string sec = key.substr(i+1);
 
-        if(trie.search(first) && helper(trie,sec)){
-            return true;
-        }
-    }
+//         if(trie.search(first) && helper(trie,sec)){
+//             return true;
+//         }
+//     }
 
-    return false;
-}
+//     return false;
+// }
 
-bool wordBreak(vector<string>dictionary,string key){
-    Trie trie;
-    for(int i = 0;i<dictionary.size();i++){
-        trie.insert(dictionary[i]);
-    }
+// bool wordBreak(vector<string>dictionary,string key){
+//     Trie trie;
+//     for(int i = 0;i<dictionary.size();i++){
+//         trie.insert(dictionary[i]);
+//     }
 
-    return helper(trie,key);
-}
+//     return helper(trie,key);
+// }
+
+// Prefix Problem
 
 int main(){
     vector<string>dictionary = {"i","like","sam","samsung","mobile","ice"};
     string key = "ilikesamsung";
-    cout << wordBreak(dictionary,key);
-    
-    
+   
     
     return 0;
 }

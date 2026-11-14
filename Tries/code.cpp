@@ -74,11 +74,19 @@ class Trie{
 // }
 
 // Starts With
+bool startsWith(vector<string>dict , string prefix){
+    Trie trie;
+
+    for(int i = 0;i<dict.size();i++){
+        trie.insert(dict[i]);
+    }
+
+    return trie.search(prefix);
+}
 
 int main(){
     vector<string>dictionary = {"apple","app","mango","man","woman"};
     string prefix = "app";
-   
-    
+   cout << startsWith(dictionary,prefix);
     return 0;
 }

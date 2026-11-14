@@ -40,11 +40,33 @@ class Trie{
         temp->endOfWord = true;
     }
 
+    string getPrefix(string key){
+        Node* temp = root;
+        string prefix = "";
+
+        for(int i = 0;i<key.size();i++){
+            prefix += key[i];
+            if(temp->children[key[i]]->freq == 1){
+                break;;
+            }
+            temp = temp->children[key[i]];
+        }
+        return prefix;
+    }
 
 
 };
 
+void prefixProblem(vector<string> dict){
+    Trie trie;
+    for(int i = 0;i<dict.size();i++){
+        trie.insert(dict[i]);
+    }
 
+    for(int i = 0;i<dict.size();i++){
+        cout << trie.getPrefix(dict[i]) << endl;
+    }
+}
 
 int main(){
     vector<string> dict = {"zebra","dog","duck","dove"};

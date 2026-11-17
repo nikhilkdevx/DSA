@@ -69,6 +69,25 @@ class Trie{
     int countNodes(){
         return countHelper(root);
     }
+
+    string longestHelper(Node* root,string &ans,string temp){
+        for(pair<char,Node*>child : root->children){
+            temp += child.first;
+            if((temp.size() == ans.size() && temp < ans) || (temp.size() > ans.size())){
+                ans = temp;
+            }
+
+            longestHelper(child.second,ans,temp);
+            temp = temp.substr(0,temp.size()-1);
+        }
+    }
+
+    string longestStringwithEow(){
+        string ans = "";
+        string temp = "";
+        longestHelper(root,ans,temp);
+        return ans;
+    }
 };
 
 // Word Break
@@ -112,7 +131,13 @@ int countUniqueSubstr(string str){
 }
 
 // Longest Word With all Prfix 
-
+string longestsString(vector<string>dict){
+    Trie trie;
+    for(int i = 0;i<dict.size();i++){
+        trie.insert(dict[i]);
+    }
+    return trie.longestStringwithEow();
+}
 int main(){
     
     return 0;

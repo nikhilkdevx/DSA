@@ -57,6 +57,18 @@ class Trie{
     }
     return true;
     }
+
+    int countHelper(Node* root){
+        int ans = 0;
+        for(pair<char,Node*>child : root->children){
+            ans+= countHelper(child.second);
+        }
+        return ans + 1;
+    }
+
+    int countNodes(){
+        return countHelper(root);
+    }
 };
 
 // Word Break
@@ -89,14 +101,17 @@ class Trie{
 
 // Count Unique SubStrings
 
+int countUniqueSubstr(string str){
+    Trie trie;
+    for(int i = 0;i<str.size();i++){
+        string suffix = str.substr(i);
+        trie.insert(suffix);
+    }
 
+    return trie.countNodes();
+}
 
 int main(){
-    vector<string>dictionary = {"apple","app","mango","man","woman"};
-    Trie trie;
-   for(int i = 0;i<dictionary.size();i++){
-    trie.insert(dictionary[i]);
-   }
-   cout << trie.startsWith("ap") << endl;
+    string str = "ababa";
     return 0;
 }

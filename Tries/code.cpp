@@ -70,8 +70,9 @@ class Trie{
         return countHelper(root);
     }
 
-    string longestHelper(Node* root,string &ans,string temp){
+    void longestHelper(Node* root,string &ans,string temp){
         for(pair<char,Node*>child : root->children){
+            if(child.second->endOfWord){
             temp += child.first;
             if((temp.size() == ans.size() && temp < ans) || (temp.size() > ans.size())){
                 ans = temp;
@@ -79,6 +80,7 @@ class Trie{
 
             longestHelper(child.second,ans,temp);
             temp = temp.substr(0,temp.size()-1);
+            }
         }
     }
 
@@ -139,6 +141,7 @@ string longestsString(vector<string>dict){
     return trie.longestStringwithEow();
 }
 int main(){
-    
+    vector<string>dict = {"a","banana","app","appl","ap","apply"};
+    cout << longestsString(dict);
     return 0;
 }

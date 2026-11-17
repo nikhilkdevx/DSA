@@ -113,5 +113,6 @@ int countUniqueSubstr(string str){
 
 int main(){
     string str = "ababa";
+    cout << countUniqueSubstr(str);
     return 0;
 }

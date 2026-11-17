@@ -111,8 +111,9 @@ int countUniqueSubstr(string str){
     return trie.countNodes();
 }
 
+// Longest Word With all Prfix 
+
 int main(){
-    string str = "ababa";
-    cout << countUniqueSubstr(str);
+    
     return 0;
 }

@@ -5,6 +5,8 @@
 using namespace std;
 
 // By Adjacency List
+
+// Graph having unweighted, undirected graph
 class Graph{
     int V;
     list<int>* l;
@@ -22,6 +24,7 @@ class Graph{
     void print(){
         for(int u = 0;u<V;u++){
             list<int>neighbours = l[u];
+            cout << u << ": ";
             for(int v : neighbours){
                 cout << v << " ";
             }
@@ -39,3 +42,5 @@ int main(){
     graph.print();
     return 0;  
 }
+
+// Creating a Weighted , Undirected Graph

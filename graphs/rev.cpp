@@ -31,12 +31,12 @@ class Graph{
 
 int main(){
     Graph graph(6);
-    graph.addEdge(1,2);
-    graph.addEdge(0,1);
-    graph.addEdge(1,3);
-    graph.addEdge(1,4);
-    graph.addEdge(1,5);
-    graph.addEdge(0,3);
+    graph.addEdge(1,2,7);
+    graph.addEdge(0,1,5);
+    graph.addEdge(1,3,3);
+    graph.addEdge(1,4,6);
+    graph.addEdge(1,5,-1);
+    graph.addEdge(0,3,2);
     graph.print();
     return 0;
 }

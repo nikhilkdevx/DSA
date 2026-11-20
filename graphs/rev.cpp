@@ -19,10 +19,10 @@ class Graph{
 
     void print(){
         for(int u = 0;u<V;u++){
-            list<int>neighbours = l[u];
+            list<pair<int,int>>neighbours = l[u];
             cout << u << ": ";
-            for(int v : neighbours){
-                cout << v << " ";
+            for(pair<int,int> v : neighbours){
+                cout << "{" << v.first << "," << v.second << "}" << " ";
             }
             cout << endl;
         }

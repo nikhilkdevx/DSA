@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include<queue>
 using namespace std;
 
 // By Adjacency List
@@ -31,11 +32,36 @@ class Graph{
             cout << endl;
         }
     }
+
+    // Graph Traversals
+
+    // 1) Breadth First Search (BFS)
+
+    void BFS(){ // O(V + E)
+        queue<int> q;
+        vector<bool>vis(V,false);
+        q.push(0);
+        vis[0] = true;
+
+        while(q.size() > 0){
+            int u = q.front();
+            q.pop();
+            cout << u << " ";
+
+            list<int> neighbours = l[u];
+            for(int v : neighbours){
+                if(!vis[v]){
+                    vis[v] = true;
+                    q.push(v);
+                }
+            }
+        }
+    }
+
+    // 2) Depth First Search (DFS)
 };
 
-// Graph Traversals
 
-// 1) Breadth First Search (BFS)
 
 
 int main(){
@@ -45,7 +71,7 @@ int main(){
     graph.addEdge(1,3);
     graph.addEdge(2,3);
     graph.addEdge(2,4);
-    graph.print();
+    graph.BFS();
     return 0;  
 }
  

@@ -59,7 +59,6 @@ class Graph{
     }
 
     // 2) Depth First Search (DFS)
-
     void DFS(int u, vector<bool> &vis){
         vis[u] = true;
         cout << u << " ";
@@ -74,17 +73,20 @@ class Graph{
 
 };
 
-
-
+    // Has Path Problem
+    // solve bfs with own
+    
 
 int main(){
-   Graph graph(5);
+   Graph graph(7);
     graph.addEdge(0,1);
     graph.addEdge(1,2);
     graph.addEdge(1,3);
     graph.addEdge(2,3);
     graph.addEdge(2,4);
-    graph.BFS();
+    graph.addEdge(3,4);
+    graph.addEdge(4,5);
+    graph.addEdge(5,6);
     return 0;  
 }
  

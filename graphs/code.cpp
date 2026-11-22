@@ -71,12 +71,34 @@ class Graph{
         }
     }
 
-};
+
 
     // Has Path Problem
     // solve bfs with own
-    
+    bool pathHelper(int src,int dest,vector<bool> &vis){
+        if(src == dest){
+            return true;
+        }
 
+        vis[src]= true;
+        list<int> neighbours = l[src];
+
+        for(int v : neighbours ){
+            if(!vis[v]){
+                if(pathHelper(v,dest,vis)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    bool hasPath(int src, int dest){
+        vector<bool> vis(V,false);
+        return pathHelper(src,dest,vis);
+    }
+};
 int main(){
    Graph graph(7);
     graph.addEdge(0,1);

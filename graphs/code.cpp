@@ -108,7 +108,8 @@ int main(){
     graph.addEdge(2,4);
     graph.addEdge(3,4);
     graph.addEdge(4,5);
-    graph.addEdge(5,6);
+    // graph.addEdge(5,6);
+    cout << graph.hasPath(5,6) << endl;
     return 0;  
 }
  

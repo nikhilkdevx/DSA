@@ -32,6 +32,12 @@ class Graph{
         }
     }
 };
+
+// Graph Traversals
+
+// 1) Breadth First Search (BFS)
+
+
 int main(){
    Graph graph(5);
     graph.addEdge(0,1);
@@ -42,5 +48,4 @@ int main(){
     graph.print();
     return 0;  
 }
-
-// Creating a Weighted , Undirected Graph
+ 

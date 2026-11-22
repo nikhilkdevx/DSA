@@ -60,7 +60,18 @@ class Graph{
 
     // 2) Depth First Search (DFS)
 
-    
+    void DFS(int u, vector<bool> &vis){
+        vis[u] = true;
+        cout << u << " ";
+
+        list<int> neighbours = l[u];
+        for(int v : neighbours){
+            if(!vis[v]){
+                DFS(v,vis);
+            }
+        }
+    }
+
 };
 
 

@@ -1,42 +1,67 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include<queue>
 using namespace std;
 
 class Graph{
     int V;
-    list<pair<int,int>>* l;
+    list<int>* l;
     public:
     Graph(int V){
         this->V = V;
-        l = new list<pair<int,int>> [V];
+        l = new list<int> [V];
     }
 
-    void addEdge(int u,int v,int w){
-        l[u].push_back(make_pair(v,w));
-        l[v].push_back(make_pair(u,w));
+    void addEdge(int u,int v){
+        l[u].push_back(v);
+        l[v].push_back(u);
     }
 
     void print(){
         for(int u = 0;u<V;u++){
-            list<pair<int,int>>neighbours = l[u];
+            list<int>neighbours = l[u];
             cout << u << ": ";
-            for(pair<int,int> v : neighbours){
-                cout << "{" << v.first << "," << v.second << "}" << " ";
+            for(int v : neighbours){
+                cout << v << " ";
             }
             cout << endl;
+        }
+    }
+
+    // Travsersals
+
+    void bfs(){
+        queue<int>q;
+        vector<bool>vis(V,false);
+        q.push(0);
+        vis[0] = true;
+
+        while(q.size() > 0){
+            int u = q.front();
+            q.pop();
+            cout << u << " ";
+
+            list<int>neighbours = l[u];
+            for(int v : neighbours){
+                if(!vis[v]){
+                    vis[v] = true;
+                    q.push(v);
+                }
+            }
         }
     }
 };
 
 int main(){
     Graph graph(6);
-    graph.addEdge(1,2,7);
-    graph.addEdge(0,1,5);
-    graph.addEdge(1,3,3);
-    graph.addEdge(1,4,6);
-    graph.addEdge(1,5,-1);
-    graph.addEdge(0,3,2);
+    graph.addEdge(1,2);
+    graph.addEdge(0,1);
+    graph.addEdge(1,3);
+    graph.addEdge(1,4);
+    graph.addEdge(1,5);
+    graph.addEdge(0,3);
     graph.print();
+    graph.bfs();
     return 0;
 }

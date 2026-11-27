@@ -76,6 +76,12 @@ void levelOrder(Node* root){
 
 }
 
+int heightofTree(Node* root){
+    if(root == NULL){
+        return -1;
+    }
+}
+
 int main(){
     vector<int>nodes = {1,2,4,-1,-1,-1,3,-1,5,-1,-1};
     Node* root = BuildTree(nodes);

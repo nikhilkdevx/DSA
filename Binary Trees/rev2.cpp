@@ -78,13 +78,38 @@ void levelOrder(Node* root){
 
 int heightofTree(Node* root){
     if(root == NULL){
-        return -1;
+        return 0;
     }
+    int maxHeight = 0;
+    int leftHeight = heightofTree(root->left);
+    int rightHeight = heightofTree(root->right);
+    maxHeight = max(max(leftHeight,rightHeight),maxHeight) + 1;
+    return maxHeight;
+}
+
+int countOfNodes(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int leftCount = countOfNodes(root->left);
+    int rightCount = countOfNodes(root->right);
+    int currCount = leftCount + rightCount + 1;
+    return currCount;
+}
+
+int sumOfNodes(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int leftSum = sumOfNodes(root->left);
+    int rightSum = sumOfNodes(root->right);
+    int currSum = leftSum + rightSum + root->data;
+    return currSum;
 }
 
 int main(){
     vector<int>nodes = {1,2,4,-1,-1,-1,3,-1,5,-1,-1};
     Node* root = BuildTree(nodes);
-    levelOrder(root);
+    cout << sumOfNodes(root);
     return 0;
 }

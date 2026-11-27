@@ -43,7 +43,7 @@ int heightOfTree(Node* root){
 //     if(root == NULL){
 //         return 0;
 //     }
-//     int currDiam = heightOfTree(root->left) + heightOfTree(root->right) + 1 ;
+//     int currDiam = heightOfTree(root->left) + heightOfTree(root->right);
 //     int leftDiam = diam1(root->left);
 //     int rightDiam = diam1(root->right);
 

@@ -107,9 +107,49 @@ int sumOfNodes(Node* root){
     return currSum;
 }
 
+int diameterOfTree1(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int maxDia = 0;
+    int currDia = heightofTree(root->left) + heightofTree(root->right);
+    int leftDia = diameterOfTree1(root->left);
+    int rightDia = diameterOfTree1(root->right);
+    maxDia = max(max(leftDia,rightDia),currDia);
+    return maxDia;
+
+}
+
+bool isSubTree(Node* root1,Node* root2){
+    if(root1 == NULL && root2 == NULL){
+        return true;
+    }
+    if(root1 == NULL || root2 == NULL){
+        return false;
+    }
+
+    if(root1->data != root2->data){
+        return false;
+    }
+
+    bool left = isSubTree(root1->left,root2->left);
+    bool right = isSubTree(root1->right,root2->right);
+
+    if(!left){
+        return false;
+    }
+    if(!right){
+        return false;
+    }
+
+    return true;
+}
+
 int main(){
     vector<int>nodes = {1,2,4,-1,-1,-1,3,-1,5,-1,-1};
-    Node* root = BuildTree(nodes);
-    cout << sumOfNodes(root);
+    Node* root2 = new Node(1);
+    root2->left = new Node(2);
+    Node* root1 = BuildTree(nodes);
+    cout << isSubTree(root1,root2) << endl;
     return 0;
 }

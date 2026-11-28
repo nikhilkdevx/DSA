@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<numeric>
 using namespace std;
 
 // int splitStrings(string s){
@@ -80,13 +81,60 @@ using namespace std;
 // }
 
 // question 5
-void minSubArrSum(vector<int>arr,int k){
+class Solution {
+public:
 
-}
+    // Checks how many subarrays are required
+    // if the maximum allowed sum is 'mid'
+    bool isPossible(vector<int>& nums, int k, int mid) {
+
+        int subarrays = 1;
+        int sum = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+
+            if (sum + nums[i] <= mid) {
+                sum += nums[i];
+            }
+            else {
+                subarrays++;
+                sum = nums[i];
+            }
+        }
+
+        return subarrays <= k;
+    }
+
+    int splitArray(vector<int>& nums, int k) {
+
+        int low = *max_element(nums.begin(), nums.end());
+
+        int high = accumulate(nums.begin(), nums.end(), 0);
+
+        int ans = high;
+
+        while (low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            if (isPossible(nums, k, mid)) {
+
+                ans = mid;
+                high = mid - 1;
+
+            }
+            else {
+
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+};
 
 int main(){
     vector<int>arr = {7,2,5,10,8};
-    int n = arr.size();
     int k = 2;
-    minSubArrSum(arr,k);
+    ;
 }

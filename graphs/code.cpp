@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include<queue>
+#include<string>
 using namespace std;
 
 // By Adjacency List
@@ -37,12 +38,10 @@ class Graph{
 
     // 1) Breadth First Search (BFS)
 
-    void BFS(){ // O(V + E)
+    void BFSHelper(int node,vector<bool>&vis){ // O(V + E)
         queue<int> q;
-        vector<bool>vis(V,false);
-        q.push(0);
-        vis[0] = true;
-
+        q.push(node);
+        vis[node] = true;
         while(q.size() > 0){
             int u = q.front();
             q.pop();
@@ -58,20 +57,40 @@ class Graph{
         }
     }
 
+    void bfs(){
+        vector<bool>vis(V,false);
+        for(int i = 0;i<V;i++){
+            if(!vis[i]){
+                BFSHelper(i,vis);
+                cout << endl;
+            }
+        }
+    }
+
     // 2) Depth First Search (DFS)
-    void DFS(int u, vector<bool> &vis){
+    void DFSHelper(int u, vector<bool> &vis){
         vis[u] = true;
         cout << u << " ";
 
         list<int> neighbours = l[u];
         for(int v : neighbours){
             if(!vis[v]){
-                DFS(v,vis);
+                DFSHelper(v,vis);
             }
         }
     }
 
-
+    void dfs(){
+        vector<bool>vis(V,false);
+        for(int i = 0;i<V;i++){
+            if(!vis[i]){
+                DFSHelper(i,vis);
+                cout << endl;
+            }
+            
+        }
+        cout << endl;
+    }
 
     // Has Path Problem
     // solve bfs with own
@@ -100,16 +119,16 @@ class Graph{
     }
 };
 int main(){
-   Graph graph(7);
-    graph.addEdge(0,1);
-    graph.addEdge(1,2);
-    graph.addEdge(1,3);
-    graph.addEdge(2,3);
-    graph.addEdge(2,4);
-    graph.addEdge(3,4);
-    graph.addEdge(4,5);
-    // graph.addEdge(5,6);
-    cout << graph.hasPath(5,6) << endl;
+   Graph graph(10);
+    graph.addEdge(1,6);
+    graph.addEdge(4,6);
+    graph.addEdge(4,3);
+    graph.addEdge(4,9);
+    graph.addEdge(3,8);
+    graph.addEdge(3,7);
+    graph.addEdge(2,5);
+    graph.addEdge(2,0);
+    graph.bfs();
     return 0;  
 }
  
